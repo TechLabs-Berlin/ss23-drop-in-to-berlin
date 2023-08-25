@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+/* import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import RestContext from "../context/RestContext"
 
@@ -27,4 +27,4 @@ function RestaurantDetails() {
     );
 }
 
-export default RestaurantDetails;
+export default RestaurantDetails; */

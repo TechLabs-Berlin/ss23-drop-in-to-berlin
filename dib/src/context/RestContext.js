@@ -13,9 +13,9 @@ function RestProvider({ children }) {
   const fetchRestaurants = useCallback(async() => {
     try{
     const res = await axios.get ('http://localhost:3001/restaurants')
-    await setDataFetched(true)
     console.log(res)
     setRestaurants(res.data);
+    setDataFetched(true)
     } catch (error) {
       console.error('Error fetching restaurants:', error);
   }},[])

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+/* import { useContext, useState } from 'react';
 import SearchBar from '../components/SearchBar';
 import RestContext from "../context/RestContext"
 
@@ -32,4 +32,4 @@ function SearchBarPage() {
     );
 }
 
-export default SearchBarPage;
+export default SearchBarPage; */

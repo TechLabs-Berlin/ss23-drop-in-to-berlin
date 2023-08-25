@@ -1,8 +1,8 @@
-import SearchBarPage from "./SearchBarPage"
+// import SearchBarPage from "./SearchBarPage"
 import RestList from "../components/RestList"
 
 function MainPage () {
-  console.log('search bar before return')
+  console.log('main page before jsx')
   return (
     <div>
       hallo

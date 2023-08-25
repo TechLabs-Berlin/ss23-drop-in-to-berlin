@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+/* import { useState, useEffect } from 'react';
 
 function debounce(func, wait) {
     let timeout;
@@ -79,4 +79,4 @@ function SearchBar({onSearchChange, suggestions}) {
     );
 }
 
-export default SearchBar;
+export default SearchBar; */
