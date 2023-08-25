@@ -1,32 +1,37 @@
-import { createContext, useState, useCallback } from 'react';
+import { createContext, useState, useCallback, useEffect } from 'react';
 import axios from 'axios';
-import GetRandomIndexes from '../util/GetRandomIndexes';
+
 
 const RestContext = createContext();
 
-function Provider({ children }) {
+function RestProvider({ children }) {
 
   const [restaurants, setRestaurants] = useState([]);
+  const [dataFetched, setDataFetched] = useState(false);
 
-  const fetchRandomRestaurants = useCallback(async (amount) => {
+
+  const fetchRestaurants = useCallback(async() => {
     try{
     const res = await axios.get ('http://localhost:3001/restaurants')
+    await setDataFetched(true)
     console.log(res)
-    const restaurantCount = res.data.length;
-    const randomIndexes = GetRandomIndexes(restaurantCount, amount);
-    const randomRestaurants = randomIndexes.map(index => res.data[index]);
-    setRestaurants(randomRestaurants);
+    setRestaurants(res.data);
     } catch (error) {
       console.error('Error fetching restaurants:', error);
   }},[])
 
-  //usecallback stellt sicher, dass die funktion nicht mit jedem rerender neu zugeordnet wird.
+    
+    useEffect(() => {
+    fetchRestaurants();
+  }, [fetchRestaurants]);
 
+
+  //usecallback stellt sicher, dass die funktion nicht mit jedem rerender neu zugeordnet wird.
 
 
   const valuesToShare = {
     restaurants,
-    fetchRandomRestaurants,
+    dataFetched
   }
 
   return (
@@ -36,6 +41,6 @@ function Provider({ children }) {
   );
 }
 
-export { Provider };
+export { RestProvider };
 export default RestContext;
 

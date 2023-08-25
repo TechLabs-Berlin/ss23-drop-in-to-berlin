@@ -1,15 +1,8 @@
-import { IconContext } from "react-icons";
-
 import "./RestCard.css"
-import { IoStar, IoEyeOff, IoEyeOutline } from "react-icons/io5";
+import { IoStar, IoEyeOff } from "react-icons/io5";
 
 
 function RestCard ({rest}) {
-
-  // for extraction from DB but not working
-  // const urlPattern = /https:\/\/[^"]+/g;
-  // const Url = rest.photos.match(urlPattern)
-  
 
   let name = rest.name
   if (name.length > 25) {
@@ -22,10 +15,10 @@ function RestCard ({rest}) {
     const shortDescr = descr.substring(0,100)
     descr = `${shortDescr}...`
   }
-
+  console.log('rest card before return')
   return (
     <div className="card">
-        <img src={`https://picsum.photos/seed/${rest.reference}/200/300`} alt="placeholder image" className="card-img"/>
+        <img src={`https://picsum.photos/seed/${rest.reference}/200/300`} alt="not loaded image" className="card-img"/>
       {rest.hidden === 'Yes' ? <IoEyeOff size= "2rem" color = "white" className="card-hidden-ico"/> : null }
       <div className="card-content">
         <div className="card-header">
