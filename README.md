@@ -27,14 +27,26 @@ This is a joint project to build a deep recommender web application that is char
 - Source: Scraped via Google Maps API
 - Shape: ca. 4k x 40 columns
 - Extract of Features:
- - Name of location
- - Short description of the location
- - Location (Lattitude / Longitude)
- - Type of Location
- - Size of Location
- - Expensiveness
- - Nr. of reviews
- - Reviews
- - Instances: 1 Instance = 1 Location
+    - Name of location
+    - Short description of the location
+    - Location (Lattitude / Longitude)
+    - Type of Location
+    - Size of Location
+    - Expensiveness
+    - Nr. of reviews
+    - Reviews
+    - Instances: 1 Instance = 1 Location
 
+## Scope
+- build a recommendation engine that utilizes deep learning
+- build a web application that allows users to query the database for restaurant recommendations based on the DL engine
+- provie simple user flow with clean design elements that enable the user to have minimal interaction with the interface
 
+- optional:
+    - train a model for classification of all restaurants into a given set of categories (multi-label classifier)
+    - create functionality to allow users to add reviews directly on the web page
+    - create user profiles
+    - do testing with different designs to find optimal design
+ 
+## Time
+This project started in the beginning of August and will be finished by October 15th 2023. 
