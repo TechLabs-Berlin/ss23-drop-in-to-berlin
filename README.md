@@ -37,4 +37,10 @@ This is a joint project to build a deep recommender web application that is char
  - Reviews
  - Instances: 1 Instance = 1 Location
 
+## Scope
+- build a recommendation engine that utilizes deep learning
+- build a web application that allows users to query the database for restaurant recommendations based on the DL engine
+- provie simple user flow with clean design elements that enable the user to have minimal interaction with the interface
 
+- optional:
+    - test
