@@ -10,7 +10,7 @@ function RestDetails() {
         return <div>Loading...</div>;
     }
 
-    const restaurant = restaurants.find(rest => rest.id === parseInt(id));
+    const restaurant = restaurants.find(rest => rest.reference === id);
 
     if (!restaurant) {
         return <div>Restaurant not found.</div>;

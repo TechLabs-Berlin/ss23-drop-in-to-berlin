@@ -2,7 +2,8 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  /* border: 1px solid transparent; */
+  box-sizing: border-box;
+  border: 2px solid transparent;
   border-radius: 1rem;
   max-width: 350px;
   height:400px;
@@ -10,9 +11,16 @@
   margin: 0 1rem 1rem 0;
   box-shadow: 1px 1px 24px var(--grey-900-trans);
   overflow: hidden;
+  transition: 0.1s;
+  
+  
 
+}
 
-
+.card:hover {
+  transform: translateY(2px);
+  border: solid 2px var(--grey-500);
+  cursor: pointer;
 }
 
 .card-img {

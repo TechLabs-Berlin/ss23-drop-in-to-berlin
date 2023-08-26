@@ -11,7 +11,8 @@ function RestList () {
   const [displayedRestaurants, setDisplayedRestaurants] = useState([])
   
 
-
+//pick random restaurants from all the fetched restaurants and add them to displayedRestaurants. 
+//
   const chooseRandomRestaurants = amount => {
     try{
       const restaurantCount = restaurants.length;
