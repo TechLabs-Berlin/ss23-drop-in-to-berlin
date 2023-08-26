@@ -1,4 +1,4 @@
-/* import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function debounce(func, wait) {
     let timeout;
@@ -9,7 +9,6 @@ function debounce(func, wait) {
     };
 }
 
-//what is the above doing?
 
 function SearchBar({onSearchChange, suggestions}) {
 
@@ -52,7 +51,7 @@ function SearchBar({onSearchChange, suggestions}) {
         <div className="relative bg-gray-100 p-2 rounded-lg">
             <input
                 type="text"
-                placeholder="Search for restaurants..."
+                placeholder="Type what you love..."
                 value={searchTerm}
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}
@@ -79,4 +78,4 @@ function SearchBar({onSearchChange, suggestions}) {
     );
 }
 
-export default SearchBar; */
+export default SearchBar;

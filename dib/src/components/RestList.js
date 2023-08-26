@@ -7,30 +7,31 @@ function RestList () {
 
   console.log('rest list loaded')
   const {restaurants, dataFetched } = useContext(RestContext)
+  
   const [displayedRestaurants, setDisplayedRestaurants] = useState([])
   
 
 
   const chooseRandomRestaurants = amount => {
     try{
-    const restaurantCount = restaurants.length;
-    const randomIndexes = GetRandomIndexes(restaurantCount, amount);
-    const randomRestaurants = randomIndexes.map(index => restaurants[index]);
-    
-    setDisplayedRestaurants(randomRestaurants);
-    console.log('choose random restaurants created')
-    } catch (error) {
+      const restaurantCount = restaurants.length;
+      const randomIndexes = GetRandomIndexes(restaurantCount, amount);
+      const randomRestaurants = randomIndexes.map(index => restaurants[index]);
+      
+      setDisplayedRestaurants(randomRestaurants);
+      console.log('choose random restaurants created')
+    } 
+    catch (error) {
       console.error('Error fetching restaurants:', error);
       return
   }}
 
   useEffect(() => {
-    try{
-    chooseRandomRestaurants(4)
-    console.log("choose restaurants executed")
-  } catch (error) {
-    console.error('Error fetching restaurants:', error);
-        return
+    if(dataFetched === true) {
+        chooseRandomRestaurants(8)
+        console.log("choose restaurants executed")
+  }else{
+    console.error('Error fetching restaurants ')
   }},[dataFetched])
 
 
@@ -42,7 +43,7 @@ function RestList () {
   })
   console.log('restlist before jsx')
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap justify-center">
       {renderedList.length > 0 ? renderedList : "Loading..."}
     </div>
   )}
