@@ -1,5 +1,5 @@
 import './MainPage.css'
-import SearchBarPage from "./SearchBarPage"
+import SearchBar from '../components/SearchBar'
 import RestList from "../components/RestList"
 
 function MainPage () {
@@ -8,11 +8,11 @@ function MainPage () {
     <div>
       <h1 className="project-name">Drop into Berlin</h1>
 
-     <SearchBarPage/>
+     <SearchBar/>
      
      <RestList/>
     </div>
   )
 }
 
-export default MainPage
+export default MainPage;

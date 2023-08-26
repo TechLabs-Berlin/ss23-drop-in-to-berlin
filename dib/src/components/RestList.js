@@ -50,4 +50,4 @@ function RestList () {
   )}
 }
 
-export default RestList
+export default RestList;
