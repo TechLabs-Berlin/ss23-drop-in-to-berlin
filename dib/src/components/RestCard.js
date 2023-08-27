@@ -20,13 +20,7 @@ function RestCard ({rest}) {
     descr = `${shortDescr}...`
   }
 
-  const handleCardClick = () => {
-
-  }
-
   console.log('rest card before return')
-
-
 
   return (
     <Link to= {`/rest/${rest.reference}`}>

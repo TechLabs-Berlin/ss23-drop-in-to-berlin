@@ -23,7 +23,7 @@ function RestList () {
       console.log('choose random restaurants created')
     } 
     catch (error) {
-      console.error('Error fetching restaurants:', error);
+      console.error('Error choosing random restaurants:', error);
       return
   }}
 
@@ -36,13 +36,15 @@ function RestList () {
   }},[dataFetched])
 
 
-
+  // if the restaurants are fetched, create a RestCard for each displayedRestaurant 
   if (restaurants.length > 0) {
   const renderedList = displayedRestaurants.map ((rest) => {
     console.log(rest.photos[0].html_attributions)
     return <RestCard key = {rest.reference} rest = {rest}/>
   })
   console.log('restlist before jsx')
+
+
   return (
     <div className="flex flex-wrap justify-center">
       {renderedList.length > 0 ? renderedList : "Loading..."}
