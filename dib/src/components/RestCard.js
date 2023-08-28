@@ -46,4 +46,4 @@ function RestCard ({rest}) {
   )
 }
 
-export default RestCard
+export default RestCard;
