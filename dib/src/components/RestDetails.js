@@ -20,13 +20,13 @@ function RestDetails() {
 
   let detailsPrice = '?'
   if (rest.price_level === 1) { 
-    detailsPrice ='€'
+    detailsPrice ='affordable prices'
   } else if (rest.price_level === 2) {
-    detailsPrice ='€€'
+    detailsPrice ='medium prices'
   } else if (rest.price_level === 3) {
-    detailsPrice ='€€€'
+    detailsPrice ='higher prices'
   } else if (rest.price_level > 3) {
-    detailsPrice ='€€€€'
+    detailsPrice ='expensive'
   }
 
   console.log('restsurant details before return');
