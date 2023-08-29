@@ -1,30 +1,108 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
+import './RestDetails.css'
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import RestContext from "../context/RestContext"
+import RestContext from '../context/RestContext';
+import {IoStar,IoStarOutline,IoLocation, IoCall, IoLogoEuro} from 'react-icons/io5'
+import StarRating from './StarRating';
 
 function RestDetails() {
-    const { id } = useParams();
-    const { restaurants } = useContext(RestContext);
+  const { id } = useParams();
+  const { restaurants } = useContext(RestContext);
 
-    if (restaurants.length === 0) {
-        return <div>Loading...</div>;
-    }
+  if (restaurants.length === 0) {
+    return <div>Loading...</div>;
+  }
 
-    const restaurant = restaurants.find(rest => rest.reference === id);
+  const rest = restaurants.find((rest) => rest.reference === id);
 
-    if (!restaurant) {
-        return <div>Restaurant not found.</div>;
-    }
-    
-    console.log('rest details before return')
+  if (!rest) {
+    return <div>Restaurant not found.</div>;
+  }
 
-    return (
-        <div className="restaurant-details p-4">
-            <img src={restaurant.imageURL} alt={restaurant.name} className="w-full h-48 object-cover rounded" />
-            <h2 className="text-xl font-semibold mt-2">{restaurant.name}</h2>
-            <p className="text-gray-600">{restaurant.description}</p>
+  let detailsPrice = '?'
+  if (rest.price_level === 1) { 
+    detailsPrice ='affordable prices'
+  } else if (rest.price_level === 2) {
+    detailsPrice ='medium prices'
+  } else if (rest.price_level === 3) {
+    detailsPrice ='higher prices'
+  } else if (rest.price_level > 3) {
+    detailsPrice ='expensive'
+  }
+
+  console.log('restsurant details before return');
+
+  return (
+    <div className='rest-details'>
+      <section className='info-section'>
+        <h1 className='details-name'>{rest.name}</h1>
+        {/* <p className='details-descr'>{rest.editorial_summary}</p> */}
+          <section className='info'>
+            <div className='tags-and-rating'>
+              <ul className='tags'>
+                <li className='tag'>Vegetarian</li>
+                <li className='tag'>Pet friendly</li>
+              </ul>
+              <div className="rating-block">
+                <div className='existing-rating'>
+                  <IoStar size="1.3rem"/>
+                  {rest.rating}
+                </div>
+                <div className='rating-stars'>
+                  <StarRating/>
+                </div>
+
+              </div> 
+            </div> 
+            <div className='loc-contact-price'>
+              <div className='details-lcp'>
+                <IoLocation size="1.3rem"/>
+                {rest.formatted_address}
+              </div>
+              <div className='details-lcp'>
+                <IoCall size="1.3rem"/>
+                {rest.international_phone_number}
+              </div>
+              <div className='details-lcp'>
+                <IoLogoEuro size="1.3rem"/>
+                {detailsPrice}
+              </div>
+
+            </div>
+          </section>
+      </section>
+      <section className='img-section'>
+        <img
+          src={`https://picsum.photos/seed/${rest.reference}/800/400`} alt="not loaded image"
+          alt={rest.name}
+          className='details-main-img'
+        />
+        <div className='details-small-imgs'>
+          <img
+            src={`https://picsum.photos/seed/${rest.reference}baz/200/300`} alt="not loaded image"
+            alt={rest.name}
+            className='details-small-img'
+          />
+          <img
+            src={`https://picsum.photos/seed/${rest.reference}mal/200/300`} alt="not loaded image"
+            alt={rest.name}
+            className='details-small-img'
+          />
+          <img
+            src={`https://picsum.photos/seed/${rest.reference}pil/200/300`} alt="not loaded image"
+            alt={rest.name}
+            className='details-small-img'
+          />
+          <img
+            src={`https://picsum.photos/seed/${rest.reference}teb/200/300`} alt="not loaded image"
+            alt={rest.name}
+            className='details-small-img'
+          />
         </div>
-    );
+      </section>
+    </div>
+  );
 }
 
 export default RestDetails;

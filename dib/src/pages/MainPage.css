@@ -1,4 +1,10 @@
 .project-name {
   font-size: 3rem;
+  margin: 2rem 0;
   text-align: center;
+}
+
+.rest-list-header {
+font-weight: 300;
+margin: 1rem;
 }

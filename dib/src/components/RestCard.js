@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import "./RestCard.css"
 import { IoStar, IoEyeOff } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -20,13 +21,7 @@ function RestCard ({rest}) {
     descr = `${shortDescr}...`
   }
 
-  const handleCardClick = () => {
-
-  }
-
   console.log('rest card before return')
-
-
 
   return (
     <Link to= {`/rest/${rest.reference}`}>
@@ -52,4 +47,4 @@ function RestCard ({rest}) {
   )
 }
 
-export default RestCard
+export default RestCard;

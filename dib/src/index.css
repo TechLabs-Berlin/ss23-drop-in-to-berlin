@@ -6,9 +6,8 @@
 
 
 body {
---prim-500: #f2ff00;
+--prim-500: #3fa6ce;
 --sec-500: #2fe3ff;
---prim-500: #2fffd9;
 --grey-50:#fafafa;
 --grey-100:#dddddd;
 --grey-300:#ababab;
@@ -18,6 +17,7 @@ body {
 --grey-900-trans:#2c2b2b49;
 
 font-family: 'Space Grotesk', sans-serif;
+color: var(--grey-900);
 
 }
 
