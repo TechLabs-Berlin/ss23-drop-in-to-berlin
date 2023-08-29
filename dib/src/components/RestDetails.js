@@ -1,8 +1,10 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import './RestDetails.css'
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import RestContext from '../context/RestContext';
 import {IoStar,IoStarOutline,IoLocation, IoCall, IoLogoEuro} from 'react-icons/io5'
+import StarRating from './StarRating';
 
 function RestDetails() {
   const { id } = useParams();
@@ -48,11 +50,7 @@ function RestDetails() {
                   {rest.rating}
                 </div>
                 <div className='rating-stars'>
-                  <IoStarOutline className='rating-star'/>
-                  <IoStarOutline className='rating-star'/>
-                  <IoStarOutline className='rating-star'/>
-                  <IoStarOutline className='rating-star'/>
-                  <IoStarOutline className='rating-star'/>
+                  <StarRating/>
                 </div>
 
               </div> 

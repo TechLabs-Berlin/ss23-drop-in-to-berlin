@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import RestContext from "../context/RestContext"
+import { Link } from 'react-router-dom';
 
 function debounce(func, wait) {
     let timeout;
@@ -14,7 +15,6 @@ function SearchBar() {
     const [searchTerm, setSearchTerm] = useState('');
     const [activeIndex, setActiveIndex] = useState(-1);
     const [searchSuggestions, setSearchSuggestions] = useState([]);
-
     const { restaurants } = useContext(RestContext);
 
     const handleSearchChange = (searchTerm) => {
@@ -75,6 +75,7 @@ function SearchBar() {
                     <ul className="absolute w-full mt-1 border-t-0 rounded-lg overflow-y-auto max-h-40 bg-white shadow-lg z-10 border-black border-2">
                         {searchSuggestions.length > 0 ? (
                             searchSuggestions.map((suggestion, index) => (
+                                <Link to={`/rest/${suggestion.reference}`}>
                                 <li
                                     key={suggestion.id}
                                     onClick={() => handleSuggestionClick(suggestion)}
@@ -82,6 +83,7 @@ function SearchBar() {
                                 >
                                     <span className="font-semibold">{suggestion.name}</span>
                                 </li>
+                                </Link>
                             ))
                         ) : (
                             <li className="px-4 py-2 font-semibold text-gray-500">No matches found</li>

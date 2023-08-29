@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import "./RestCard.css"
 import { IoStar, IoEyeOff } from "react-icons/io5";
 import { Link } from "react-router-dom";

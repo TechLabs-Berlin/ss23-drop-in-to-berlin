@@ -1,3 +1,4 @@
+import './RestList.css'
 import { useState, useContext, useEffect } from "react"
 import RestContext from "../context/RestContext"
 import RestCard from "./RestCard"
@@ -46,7 +47,7 @@ function RestList () {
 
 
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className="rest-list">
       {renderedList.length > 0 ? renderedList : "Loading..."}
     </div>
   )}

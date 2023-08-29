@@ -2,7 +2,7 @@ import './App.css';
 import MainPage from './pages/MainPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SearchBar from './components/SearchBar';
-import RestDetails from './components/RestDetails';
+import DetailsPage from './pages/DetailsPage';
 import RestList from './components/RestList';
 
 function App() {
