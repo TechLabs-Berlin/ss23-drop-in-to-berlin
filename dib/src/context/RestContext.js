@@ -1,7 +1,6 @@
 import { createContext, useState, useCallback, useEffect } from 'react';
 import axios from 'axios';
 
-
 const RestContext = createContext();
 
 function RestProvider({ children }) {

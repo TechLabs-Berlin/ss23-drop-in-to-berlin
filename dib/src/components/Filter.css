@@ -1,0 +1,121 @@
+body,
+button,
+input {
+  font-family: 'Helvetica', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  padding: 20px;
+}
+
+.dropdown {
+  position: relative;
+  margin-left: 10px; 
+  margin-right: 10px;
+}
+
+.dropdown-button {
+  background-color: #dfddddf1;
+  color: #333;
+  padding: 10px 25px;
+  border-radius: 12px; 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.3s ease, border-color 0.3s ease;  
+  border: 2px solid rgb(175, 171, 171); 
+}
+
+
+.dropdown-button:hover {
+  background-color: #ccc; 
+  border-color: #999;  
+}
+
+.arrow {
+  margin-left: 10px;
+}
+
+.dropdown-content {
+    position: absolute;
+    background-color: #f5f4f4de; 
+    width: 150px;
+    border-radius: 8px;
+    margin-top: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000; 
+  }
+  
+.dropdown-content button {
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  color: #333;
+  padding: 8px 16px;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ddd3d3;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.dropdown-content button:hover {
+  background-color: #ddd;
+}
+
+.iconSpacing {
+    margin-left: 0.5em;
+  }
+
+.iconSpacing IoStar {
+    display: inline-block;
+ }
+
+.star-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+  
+.dropdown-content.star-wrapper button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.star-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+  
+.star-row button {
+    flex: 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+}

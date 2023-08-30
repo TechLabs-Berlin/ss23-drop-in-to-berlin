@@ -8,3 +8,9 @@
 font-weight: 300;
 margin: 1rem;
 }
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
