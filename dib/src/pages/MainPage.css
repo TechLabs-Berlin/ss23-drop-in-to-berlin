@@ -14,3 +14,37 @@ margin: 1rem;
   align-items: center;
   gap: 1rem;
 }
+
+.button-base {
+  padding: 10px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;  
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  border: 2px solid rgb(175, 171, 171);
+}
+
+.button-base:hover {
+  background-color: #ccc;
+  border-color: #999;  
+  color: #111;  
+}
+
+.button-secondary {
+  border-color: rgb(8, 110, 110);
+  background-color: rgb(35, 189, 189);
+  color: white;
+}
+
+.button-secondary:hover {
+  background-color: rgb(8, 110, 110);  
+  border-color: rgb(0, 80, 80);  
+  color: #fff;  
+}
+
+.filter-wrapper {
+  display: flex;
+  gap: 1rem;
+}
