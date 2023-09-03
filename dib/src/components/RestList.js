@@ -23,7 +23,7 @@ function RestList () {
       console.log('choose random restaurants created')
     } 
     catch (error) {
-      console.error('Error fetching restaurants:', error);
+      console.error('Error choosing random restaurants:', error);
       return
   }}
 
@@ -44,10 +44,10 @@ function RestList () {
   })
   console.log('restlist before jsx')
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className="restlist">
       {renderedList.length > 0 ? renderedList : "Loading..."}
     </div>
   )}
 }
 
-export default RestList
+export default RestList;
