@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react"
 import RestContext from "../context/RestContext"
 import RestCard from "./RestCard"
+import "./RestList.css"
 import GetRandomIndexes from "../util/GetRandomIndexes"
 
 function RestList () {
@@ -44,7 +45,7 @@ function RestList () {
   })
   console.log('restlist before jsx')
   return (
-    <div className="restlist">
+    <div className="rest-list">
       {renderedList.length > 0 ? renderedList : "Loading..."}
     </div>
   )}

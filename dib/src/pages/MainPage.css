@@ -22,26 +22,26 @@ margin: 1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;  
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-  border: 2px solid rgb(175, 171, 171);
+  transition: 0.2s ease;
+  border: 2px solid var(--grey-500);
 }
 
 .button-base:hover {
-  background-color: #ccc;
-  border-color: #999;  
-  color: #111;  
+  background-color: var(--grey-100);
+  border-color: var(--grey-500);  
+  color: var(--grey-900);  
 }
 
 .button-secondary {
-  border-color: rgb(8, 110, 110);
-  background-color: rgb(35, 189, 189);
-  color: white;
+  border-color: var(--prim-500);
+  background-color: var(--prim-100);
+  color: var(--bright);
 }
 
 .button-secondary:hover {
-  background-color: rgb(8, 110, 110);  
-  border-color: rgb(0, 80, 80);  
-  color: #fff;  
+  border-color: var(--prim-700);
+  background-color: var(--prim-900);
+  color: var(--bright); 
 }
 
 .filter-wrapper {

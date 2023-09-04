@@ -21,8 +21,10 @@ input {
 }
 
 .dropdown-button {
-  background-color: #dfddddf1;
-  color: #333;
+  background-color: var(--grey-100);
+  /* --------changed to other color------------------------ */
+  width: 8rem;
+  color: var(--grey-900);
   padding: 10px 25px;
   border-radius: 12px;
   cursor: pointer;
@@ -30,13 +32,13 @@ input {
   align-items: center;
   justify-content: space-between;
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  border: 2px solid rgb(175, 171, 171); 
+  border: 2px solid var(--grey-500); 
 }
 
 
 .dropdown-button:hover {
-  background-color: #ccc; 
-  border-color: #999;  
+  background-color: var(--grey-100); 
+  border-color: var(--grey-500);  
 }
 
 .arrow {
@@ -45,11 +47,11 @@ input {
 
 .dropdown-content {
     position: absolute;
-    background-color: #f5f4f4de; 
-    width: 150px;
+    background-color: var(--grey-50-trans); 
+    width: 8rem;
     border-radius: 8px;
     margin-top: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px var(--grey-900-trans);
     display: none;
     z-index: 1000; 
   }
@@ -58,7 +60,7 @@ input {
   display: block;
   width: 100%;
   background-color: transparent;
-  color: #333;
+  color: var(--grey-900);
   padding: 8px 16px;
   border: none;
   text-align: left;
@@ -71,8 +73,8 @@ input {
   top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #ddd3d3;
-  color: white;
+  background-color: var(--grey-50);
+  color: var(--bright);
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 12px;
@@ -84,7 +86,7 @@ h1 {
 }
 
 .dropdown-content button:hover {
-  background-color: #ddd;
+  background-color: var(--grey-50);
 }
 
 .iconSpacing {
@@ -97,6 +99,7 @@ h1 {
 
  .star-wrapper {
   display: flex;
+  width: 6rem;
   flex-direction: row;
   margin-bottom: 5px;
 }

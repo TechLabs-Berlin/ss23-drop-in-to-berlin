@@ -3,8 +3,7 @@ import SearchBar from '../components/SearchBar';
 import RestList from '../components/RestList';
 import Filter from '../components/Filter';
 import Button from '../components/Button';
-import { IoStar } from 'react-icons/io5';
-import { GoSearch } from 'react-icons/go';
+import { IoStar, IoSearch } from 'react-icons/io5';
 import './MainPage.css';
 
 function MainPage() {
@@ -34,7 +33,7 @@ function MainPage() {
       <div className="search-container">
         <SearchBar />
         <Button secondary outline rounded onClick={handleClick}>
-          <GoSearch />
+          <IoSearch />
           Find
         </Button>
       </div>
