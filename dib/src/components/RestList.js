@@ -1,4 +1,3 @@
-import './RestList.css'
 import { useState, useContext, useEffect } from "react"
 import RestContext from "../context/RestContext"
 import RestCard from "./RestCard"
@@ -37,17 +36,15 @@ function RestList () {
   }},[dataFetched])
 
 
-  // if the restaurants are fetched, create a RestCard for each displayedRestaurant 
+
   if (restaurants.length > 0) {
   const renderedList = displayedRestaurants.map ((rest) => {
     console.log(rest.photos[0].html_attributions)
     return <RestCard key = {rest.reference} rest = {rest}/>
   })
   console.log('restlist before jsx')
-
-
   return (
-    <div className="rest-list">
+    <div className="restlist">
       {renderedList.length > 0 ? renderedList : "Loading..."}
     </div>
   )}
