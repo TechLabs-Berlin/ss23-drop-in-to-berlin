@@ -60,41 +60,42 @@ function SearchBar() {
     ))
     */
 
-    return (
-        <div className="p-4">
-            <div className="relative bg-gray-100 p-2 rounded-lg">
-                <input
-                    type="text"
-                    placeholder="Type what you love..."
-                    value={searchTerm}
-                    onChange={handleInputChange}
-                    onKeyDown={handleKeyDown}
-                    className="px-4 py-2 w-full border-2 border-gray-300 bg-gray-100 rounded-lg focus:outline-none focus:border-black"
-                />
-                {searchTerm && (
-                    <ul className="absolute w-full mt-1 border-t-0 rounded-lg overflow-y-auto max-h-40 bg-white shadow-lg z-10 border-black border-2">
-                        {searchSuggestions.length > 0 ? (
-                            searchSuggestions.map((suggestion, index) => (
-                                <Link to={`/rest/${suggestion.reference}`}>
-                                <li
-                                    key={suggestion.id}
-                                    onClick={() => handleSuggestionClick(suggestion)}
-                                    className={`px-4 py-2 cursor-pointer hover:bg-gray-200 ${index === activeIndex ? 'bg-gray-300' : ''}`}
-                                >
-                                    <span className="font-semibold">{suggestion.name}</span>
-                                </li>
-                                </Link>
-                            ))
-                        ) : (
-                            <li className="px-4 py-2 font-semibold text-gray-500">No matches found</li>
-                        )}
-                    </ul>
-                )}
-            </div>
-            <div className="mt-4 space-y-4">
-                {/* displayedSearchSuggestions */}
-            </div>
-        </div>
+  return (
+    <div className="mb-0 p-4">
+        <div className="relative bg-gray-100 p-2 rounded-lg">
+        <input
+        type="text"
+        style={{ width: '600px' }}
+        placeholder="Type what you love..."
+        value={searchTerm}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
+            className="px-4 py-2 w-full h-12 border-2 border-gray-300 bg-gray-100 rounded-lg focus:outline-none focus:border-black"
+        />
+         {searchTerm && (
+             <ul className="absolute w-full mt-1 border-t-0 rounded-lg overflow-y-auto max-h-40 bg-white shadow-lg z-10 border-black border-2">
+                {searchSuggestions.length > 0 ? (
+                    searchSuggestions.map((suggestion, index) => (
+                    <Link to={`/rest/${suggestion.reference}`}>
+                        <li
+                        key={suggestion.id}
+                        onClick={() => handleSuggestionClick(suggestion)}
+                        className={`px-4 py-2 cursor-pointer hover:bg-gray-200 ${index === activeIndex ? 'bg-gray-300' : ''}`}
+                        >
+                        <span className="font-semibold">{suggestion.name}</span>
+                        </li>
+                        </Link>
+                    ))
+                ) : (
+                     <li className="px-4 py-2 font-semibold text-gray-500">No matches found</li>
+                    )}
+                 </ul>
+               )}
+          </div>
+          <div className="mt-4 space-y-4">
+           {/* displayedSearchSuggestions */}
+          </div>
+       </div>
     );
 }
 
