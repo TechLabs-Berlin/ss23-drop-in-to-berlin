@@ -36,8 +36,6 @@
   margin-right: 0.5rem;
   border-radius: 1rem;
   font-weight: 300;
-  
-  
 }
 
 .rating-block {
@@ -61,8 +59,9 @@
   width: 50vw;
   margin: 2rem 1rem 0 1rem;
 }
+
 .details-main-img {
-  width: 100%;
+  width: 50%;
   object-fit: cover;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
@@ -78,7 +77,43 @@
   width: 25%;
   border-radius: 0.5rem;
   object-fit: cover;
+}
   
 
+.reviews-section {
+  margin-top: 40px;
+  border-top: 2px solid #e0e0e0;
+  padding-top: 30px;
 }
 
+.review {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.review-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-author h3 {
+  margin: 0;  
+  font-size: 1rem;
+  color: #333;  
+}
+
+.review-content p {
+  margin-top: 10px;
+  color: #555;
+}
