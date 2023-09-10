@@ -5,6 +5,7 @@ import RestaurantContext from '../../context/RestaurantContext';
 import { IoStar, IoStarOutline, IoLocation, IoCall, IoLogoEuro } from 'react-icons/io5';
 import StarRating from '../StarRating/StarRating';
 import CityMap from '../CityMap/CityMap';
+import ReviewList from '../ReviewsList/ReviewsList';
 
 
 
@@ -16,6 +17,7 @@ function RestDetails() {
     return <div>Loading...</div>;
   }
 
+  //find the restaurant that matches the id from the reqest params
   const rest = restaurants.find((r) => r.reference === id);
 
   if (!rest) {
@@ -35,7 +37,7 @@ function RestDetails() {
     detailsPrice = 'expensive';
   }
 
-  const { reviews } = rest;
+  
 
   console.log('restaurant details before return');
 
@@ -93,7 +95,7 @@ function RestDetails() {
         </div>
         <section className='reviews-section'>
             <h2>Reviews</h2>
-            {rest.reviews.map((review, index) => (
+            {/* {rest.reviews.map((review, index) => (
                 <div key={index} className='review'>
                     <div className='review-author'>
                         <img src={review.profile_photo_url} alt={review.author_name} className='review-avatar' />
@@ -101,7 +103,8 @@ function RestDetails() {
                     </div>
                     <p>{review.text}</p>
                 </div>
-            ))}
+            ))} */}
+            <ReviewList key={`${rest.reference}-review`} reviews={rest.reviews} />
         </section>
     </div>
 );

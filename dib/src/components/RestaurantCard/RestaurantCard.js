@@ -3,21 +3,20 @@ import "./RestaurantCard.css"
 import { IoStar, IoEyeOff } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-function RestCard({ restaurant }) {
+function RestCard({ restaurant, key }) {
   const imageUrl = restaurant.photos && restaurant.photos.length > 0 && restaurant.photos[0].imageURL;
 
 
   // Shorten names longer than 25 characters
   let name = restaurant.name;
-  if (name.length > 25) {
-      const shortName = name.substring(0, 25);
+  if (name.length > 20) {
+      const shortName = name.substring(0, 20);
       name = `${shortName}...`;
   }
 
   
 
-  const regex = /'overview'\s*:\s*'([^']*(?:\\'[^']*)*)'/;
-  const editorialText = restaurant.editorial_summary.match(regex);
+
 
 
 
@@ -28,7 +27,7 @@ function RestCard({ restaurant }) {
 
   return (
     <Link to={`/rest/${restaurant.reference}`}>
-        <div className="card">
+        <div className="card" key={key}>
             {/* display image from the provided URL*/}
             {imageUrl && <img src={imageUrl} alt="Restaurant Image" className="card-img" />}
             {/* if restaurant is hidden, render the Eye Icon */}
