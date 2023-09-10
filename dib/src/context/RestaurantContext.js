@@ -1,7 +1,7 @@
 import { createContext, useState, useCallback, useEffect } from 'react';
 import axios from 'axios';
 
-const RestContext = createContext();
+const RestaurantContext = createContext();
 
 function RestProvider({ children }) {
 
@@ -34,12 +34,12 @@ function RestProvider({ children }) {
   }
 
   return (
-    <RestContext.Provider value={valuesToShare}>
+    <RestaurantContext.Provider value={valuesToShare}>
       {children}
-    </RestContext.Provider>
+    </RestaurantContext.Provider>
   );
 }
 
 export { RestProvider };
-export default RestContext;
+export default RestaurantContext;
 

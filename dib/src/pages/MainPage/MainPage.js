@@ -1,8 +1,8 @@
-import NavBar from '../components/NavBar';
-import SearchBar from '../components/SearchBar';
-import RestList from '../components/RestList';
-import Filter from '../components/Filter';
-import Button from '../components/Button';
+import NavBar from '../../components/NavBar/NavBar';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import RestList from '../../components/RestaurantList/RestaurantList';
+import Filter from '../../components/Filter/Filter';
+import Button from '../../components/Button/Button';
 import { IoStar, IoSearch } from 'react-icons/io5';
 import './MainPage.css';
 

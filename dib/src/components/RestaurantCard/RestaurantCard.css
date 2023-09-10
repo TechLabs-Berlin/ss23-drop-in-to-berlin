@@ -1,12 +1,15 @@
 .card {
-  flex: 1;
+  
   display: flex;
   position: relative;
+  flex: 1;
+  justify-content: space-between;
   flex-direction: column;
   box-sizing: border-box;
   border: 2px solid transparent;
   border-radius: 1rem;
-  max-width: 350px;
+  width: 300px;
+  max-width: 300px;
   height:400px;
   background-color: var(--grey-50);
   margin: 0 1rem 1rem 0;

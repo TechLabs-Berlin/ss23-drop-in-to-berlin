@@ -1,31 +1,16 @@
-import './RestDetails.css';
-import { useContext, useEffect, useRef } from 'react';
+import './RestaurantDetails.css';
+import { useContext} from 'react';
 import { useParams } from 'react-router-dom';
-import RestContext from '../context/RestContext';
+import RestaurantContext from '../../context/RestaurantContext';
 import { IoStar, IoStarOutline, IoLocation, IoCall, IoLogoEuro } from 'react-icons/io5';
-import StarRating from './StarRating';
-import L from 'leaflet';
+import StarRating from '../StarRating/StarRating';
+import CityMap from '../CityMap/CityMap';
 
-function RestaurantMap({ lat, lng }) {
-  const mapRef = useRef(null);
 
-  useEffect(() => {
-    const map = L.map(mapRef.current).setView([lat, lng], 15);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-    L.marker([lat, lng]).addTo(map);
-
-    return () => {
-      map.remove();
-    };
-  }, [lat, lng]);
-
-  return <div ref={mapRef} style={{ width: '100%', height: '400px' }}></div>;
-}
 
 function RestDetails() {
   const { id } = useParams();
-  const { restaurants } = useContext(RestContext);
+  const { restaurants } = useContext(RestaurantContext);
 
   if (restaurants.length === 0) {
     return <div>Loading...</div>;
@@ -104,7 +89,7 @@ function RestDetails() {
           }
         </div>
       </section>
-        <RestaurantMap lat={rest.geometry.location.lat} lng={rest.geometry.location.lng} />
+        <CityMap lat={rest.geometry.location.lat} lng={rest.geometry.location.lng} />
         </div>
         <section className='reviews-section'>
             <h2>Reviews</h2>

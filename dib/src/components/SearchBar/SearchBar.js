@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import RestContext from "../context/RestContext"
+import RestContext from "../../context/RestaurantContext"
 import { Link } from 'react-router-dom';
 
 function debounce(func, wait) {
@@ -49,16 +49,6 @@ function SearchBar() {
             handleSuggestionClick(searchSuggestions[activeIndex]);
         }
     };
-
-    /* 
-    const displayedSearchSuggestions = searchSuggestions.map(restaurant => (
-        <div key={restaurant.id} className="border p-4 rounded">
-            <img src={restaurant.imageURL} alt={restaurant.name} className="w-full h-48 object-cover rounded" />
-            <h2 className="text-xl font-semibold mt-2">{restaurant.name}</h2>
-            <p className="text-gray-600">{restaurant.description}</p>
-        </div>
-    ))
-    */
 
     return (
         <div className="p-4">
