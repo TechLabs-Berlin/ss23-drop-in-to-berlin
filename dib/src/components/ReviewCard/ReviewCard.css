@@ -5,6 +5,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
+  width: 550px;
 }
 
 .review-author {
@@ -18,6 +19,7 @@
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  margin-right: 1rem;
 }
 
 .review-author h3 {
@@ -26,7 +28,13 @@
   color: #333;  
 }
 
-.review-content p {
+.review-text {
   margin-top: 10px;
-  color: #555;
+  font-weight: 300;
+
+}
+
+.btn-full-review {
+  font-size: 0.8rem;
+  color: var(--prim-500);
 }

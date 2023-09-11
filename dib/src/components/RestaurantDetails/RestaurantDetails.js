@@ -94,16 +94,6 @@ function RestDetails() {
         <CityMap lat={rest.geometry.location.lat} lng={rest.geometry.location.lng} />
         </div>
         <section className='reviews-section'>
-            <h2>Reviews</h2>
-            {/* {rest.reviews.map((review, index) => (
-                <div key={index} className='review'>
-                    <div className='review-author'>
-                        <img src={review.profile_photo_url} alt={review.author_name} className='review-avatar' />
-                        <h3>{review.author_name}</h3>
-                    </div>
-                    <p>{review.text}</p>
-                </div>
-            ))} */}
             <ReviewList key={`${rest.reference}-review`} reviews={rest.reviews} />
         </section>
     </div>

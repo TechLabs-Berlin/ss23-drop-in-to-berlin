@@ -9,8 +9,8 @@ function RestCard({ restaurant, key }) {
 
   // Shorten names longer than 25 characters
   let name = restaurant.name;
-  if (name.length > 20) {
-      const shortName = name.substring(0, 20);
+  if (name.length > 18) {
+      const shortName = name.substring(0, 18);
       name = `${shortName}...`;
   }
 
