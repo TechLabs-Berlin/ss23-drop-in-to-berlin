@@ -8,6 +8,11 @@
   width: 550px;
 }
 
+.review-info{
+  display: flex;
+  justify-content: space-between;
+}
+
 .review-author {
   display: flex;
   align-items: center;

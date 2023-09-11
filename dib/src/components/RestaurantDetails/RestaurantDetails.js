@@ -3,7 +3,7 @@ import { useContext} from 'react';
 import { useParams } from 'react-router-dom';
 import RestaurantContext from '../../context/RestaurantContext';
 import { IoStar, IoStarOutline, IoLocation, IoCall, IoLogoEuro } from 'react-icons/io5';
-import StarRating from '../StarRating/StarRating';
+import StarRating from '../StarRating/UserStarRating';
 import CityMap from '../CityMap/CityMap';
 import ReviewList from '../ReviewsList/ReviewsList';
 
