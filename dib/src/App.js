@@ -1,9 +1,9 @@
 import './App.css';
-import MainPage from './pages/MainPage';
+import MainPage from './pages/MainPage/MainPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SearchBar from './components/SearchBar';
-import DetailsPage from './pages/DetailsPage';
-import RestList from './components/RestList';
+import SearchBar from './components/SearchBar/SearchBar';
+import DetailsPage from './pages/DetailsPage/DetailsPage';
+import RestList from './components/RestaurantList/RestaurantList';
 
 function App() {
   return (

@@ -1,0 +1,17 @@
+.user-rating-form {
+  border-radius: 1rem;
+  box-shadow: 1px 1px 8px var(--grey-900-trans);
+  padding: 1rem;
+  width: 550px;
+}
+
+.user-review-text-input{
+  width: 100%;
+  height: 100px;
+  font-weight: 300;
+}
+
+.user-review-submit-section{
+  display: flex;
+  justify-content: space-between;
+}
