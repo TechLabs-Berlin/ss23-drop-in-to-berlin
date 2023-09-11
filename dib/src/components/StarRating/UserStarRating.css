@@ -4,13 +4,13 @@
   gap: 5px;
 }
 
-.star {
+.ur-star {
   cursor: pointer;
   font-size: 2rem;
 
   transition:0.3s;
 }
 
-.star.filled {
+.ur-star.filled {
   color: gold;
 }

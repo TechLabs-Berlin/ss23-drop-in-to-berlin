@@ -22,7 +22,7 @@ const StarRating = () => {
   };
 
   useEffect(() => {
-    const stars = document.querySelectorAll('.star');
+    const stars = document.querySelectorAll('.ur-star');
     stars.forEach((star, index) => {
       star.addEventListener('mouseenter', () => handleMouseEnter(index + 1));
       star.addEventListener('mouseleave', handleMouseLeave);
@@ -36,11 +36,11 @@ const StarRating = () => {
       {[1, 2, 3, 4, 5].map((index) => (
         clickedRating >= index ? <IoStar 
         key={index} 
-        className={`star ${clickedRating >= index || hoveredRating >= index ? 'filled' : ''}`}
+        className={`ur-star ${clickedRating >= index || hoveredRating >= index ? 'filled' : ''}`}
           /> :
         <IoStarOutline
           key={index}
-          className={`star ${clickedRating >= index || hoveredRating >= index ? 'filled' : ''}`}
+          className={`ur-star ${clickedRating >= index || hoveredRating >= index ? 'filled' : ''}`}
         />
       ))}
     </div>

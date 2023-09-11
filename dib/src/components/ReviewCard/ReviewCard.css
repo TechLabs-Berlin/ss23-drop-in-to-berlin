@@ -11,12 +11,15 @@
 .review-info{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .review-author {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  justify-content: center;
+  
 }
 
 .review-avatar {
