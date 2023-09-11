@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IoStar } from 'react-icons/io5';
+import { IoStarOutline, IoStar } from 'react-icons/io5';
 import './StarRating.css';
 
 const StarRating = () => {
@@ -41,7 +41,8 @@ const StarRating = () => {
   return (
     <div className="star-rating">
       {[1, 2, 3, 4, 5].map((index) => (
-        <IoStar
+        clickedRating >= index ? <IoStar key={index} className={`star ${clickedRating >= index || selectedRating >= index ? 'filled' : ''}`}  /> :
+        <IoStarOutline
           key={index}
           className={`star ${clickedRating >= index || selectedRating >= index ? 'filled' : ''}`}
         />
