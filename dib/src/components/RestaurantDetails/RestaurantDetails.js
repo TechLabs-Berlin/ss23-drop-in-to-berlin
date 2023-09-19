@@ -102,10 +102,10 @@ function RestDetails() {
           </div>
         </section>
       </div>
-      {/* <CityMap
+      { <CityMap
         lat={rest.geometry.location.lat}
         lng={rest.geometry.location.lng}
-      /> */}
+      /> }
       <section className='reviews-section'>
         <ReviewList key={`${rest.reference}-review`} reviews={rest.reviews} />
       </section>

@@ -5,10 +5,20 @@ import Filter from '../../components/Filter/Filter';
 import Button from '../../components/Button/Button';
 import { IoStar, IoSearch } from 'react-icons/io5';
 import './MainPage.css';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function MainPage() {
 
-  const handleClick = () => {};
+  const navigate = useNavigate();
+
+  // state initialized for storing the user's search term, previously managed within SearchBar component
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleClick = () => {
+    // use the searchTerm directly to navigate to the SearchResultsPage
+    navigate(`/search/${searchTerm}`);
+  };
 
   const handlePriceSelect = (selectedPrice) => {
     console.log("Selected price:", selectedPrice);
@@ -31,7 +41,8 @@ function MainPage() {
       <NavBar />
       <h1 className="project-name">Drop into Berlin</h1>
       <div className="search-container">
-        <SearchBar />
+        {/* passing searchTerm and setSearchTerm as props to SearchBar */}
+        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <Button secondary outline rounded onClick={handleClick}>
           <IoSearch />
           Find
