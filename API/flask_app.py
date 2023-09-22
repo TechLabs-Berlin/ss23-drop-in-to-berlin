@@ -1,27 +1,26 @@
 from flask import Flask, render_template, request, jsonify
 import pickle
 import joblib
-import sentence_transformers
 import pandas as pd
+from sentence_transformers import SentenceTransformer
 
 app = Flask(__name__)
 
 # Load the model from .joblib file
-with open("NearestNeighbors_clf.joblib", "rb") as file:
+with open("API/NearestNeighbors_clf.joblib", "rb") as file:
     loaded_model = joblib.load(file)
 
 # load the database from .csv file
 df = pd.read_csv("database_Leo.csv")
 
 # define embedding model based on all-MiniLM-L6-v2
-model = SentenceTransformer(
-    'sentence-transformers/all-MiniLM-L6-v2'
-    )
-model.max_seq_length = 512 # Change the length to 512
+model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+model.max_seq_length = 512  # Change the length to 512
 
 @app.route("/")
 def index():
     return render_template("index.html")
+
 
 @app.route("/predict", methods=["POST"])
 def predict():
