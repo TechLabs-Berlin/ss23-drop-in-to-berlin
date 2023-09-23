@@ -21,11 +21,11 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/predict", methods=["POST"])
+@app.route("/predict", methods=["GET", "POST"])
 def predict():
     # extract input data from the request
-    star_rating = float(request.form["star_rating"])
-    price = float(request.form["price"])
+    # star_rating = float(request.form["star_rating"])
+    # price = float(request.form["price"])
     user_input_str = str(request.form["user_input_str"])
 
     # create embeddings for user input
