@@ -1,5 +1,14 @@
 # ss23-drop-in-to-berlin
 
+# How to run?
+to run the project open terminal, navigate to the folder /dib and run:
+npm i
+npm run server
+
+open a second terminal and run:
+npm start
+
+## Description
 This project aims at creating personalized restaurant recommendations based on text input from the user, describing their desired restaurant. So far this is limited to the city of Berlin, Germany. The project is part of the Techlabs curriculum and reflects a joint effort of a group of Techies.
 
 ## Collaborators
