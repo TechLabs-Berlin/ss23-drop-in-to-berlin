@@ -8,6 +8,9 @@ import './MainPage.css';
 
 function MainPage() {
 
+
+  
+
   const handleClick = () => {};
 
   const handlePriceSelect = (selectedPrice) => {
