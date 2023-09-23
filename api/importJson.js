@@ -1,6 +1,6 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
-const Restaurant = require('./restDbModel'); // Import your Mongoose model
+const Restaurant = require('./models/restDbModel'); // Import your Mongoose model
 
 fs.readFile('../dib/src/data/new_data.json', 'utf8', async (err, data) => {
   if (err) {
@@ -11,7 +11,6 @@ fs.readFile('../dib/src/data/new_data.json', 'utf8', async (err, data) => {
   const jsonData = JSON.parse(data);
 
   try {
-
     for (const restaurantData of jsonData.restaurants) {
       // Create a new Restaurant document for each restaurant
       const restaurant = new Restaurant(restaurantData);
