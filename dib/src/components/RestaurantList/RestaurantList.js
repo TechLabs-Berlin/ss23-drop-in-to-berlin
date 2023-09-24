@@ -42,7 +42,7 @@ function RestList () {
   const renderedList = displayedRestaurants.map ((rest) => {
     if (rest.photos && rest.photos.length > 0) {
       console.log(rest.photos[0].html_attributions);
-  }    return <RestCard key = {rest.reference} restaurant = {rest}/>
+  }    return <RestCard key = {rest.reference} rest = {rest}/>
   })
   console.log('restlist before jsx')
   return (
