@@ -3,23 +3,25 @@ import axios from "axios"
 import RestCard from "../RestaurantCard/RestaurantCard"
 import "./RestaurantList.css"
 
-function RestList(rating, limit) {
+function RestList(rating, price, limit) {
   
   const [displayedRestaurants, setDisplayedRestaurants] = useState([])
   
 
 //pick random restaurants from all the fetched restaurants and add them to displayedRestaurants. 
 //
-  const fetchRatedRestaurants = async () => {
+  const fetchRestaurants = async (rat, pr, lim ) => {
     try {
-      const response = await axios.get(`/start-restaurants?rating=${rating}&limit=${limit}`);
+      const response = await axios.get(`/restaurants?rating=${rat}&price=${pr}&limit=${lim}`);
       setDisplayedRestaurants(response.data);
     } catch (error) {
       console.error(error);
     }
   };
   
-
+  useEffect(()=>{
+    fetchRestaurants(rating, price, limit)
+  },[])
   
 
 

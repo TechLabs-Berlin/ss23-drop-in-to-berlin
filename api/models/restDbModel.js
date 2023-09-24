@@ -1,12 +1,16 @@
 const mongoose = require('mongoose');
 
-main().catch(err => console.log(err));
+/* main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/dib_data');
-  console.log('connection open')
+  try {
+    await mongoose.connect('mongodb://127.0.0.1:27017/dib_data');
+    console.log('Connection open from restDbModel');
+  } catch (error) {
+    console.error('Error connecting to the database from restDbModel:', error);
+  }
 }
-
+ */
 const restaurantSchema = new mongoose.Schema({
     name: String,
     formatted_address: String,
