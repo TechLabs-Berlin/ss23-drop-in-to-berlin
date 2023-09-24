@@ -1,18 +1,20 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import RestaurantContext from "../../context/RestaurantContext"
 import axios from "axios"
 import RestCard from "../RestaurantCard/RestaurantCard"
 import "./RestaurantList.css"
 
 function RestList(rating, price, limit) {
   
+  const { setSelectedRestaurant } = useContext(RestaurantContext)
   const [displayedRestaurants, setDisplayedRestaurants] = useState([])
   
 
-//pick random restaurants from all the fetched restaurants and add them to displayedRestaurants. 
-//
+
+// request random restaurants from db optional input: min rating, max price, max result amount
   const fetchRestaurants = async (rat, pr, lim ) => {
     try {
-      const response = await axios.get(`/restaurants?rating=${rat}&price=${pr}&limit=${lim}`);
+      const response = await axios.get(`http://localhost:3001/restaurants?rating=${rat}&price=${pr}&limit=${lim}`);
       setDisplayedRestaurants(response.data);
     } catch (error) {
       console.error(error);
@@ -27,10 +29,8 @@ function RestList(rating, price, limit) {
 
 
   if (displayedRestaurants.length > 0) {
-  const renderedList = displayedRestaurants.map ((rest) => {
-    if (rest.photos && rest.photos.length > 0) {
-      console.log(rest.photos[0].html_attributions);
-  }    return <RestCard key = {rest.reference} restaurant = {rest}/>
+    const renderedList = displayedRestaurants.map ((rest) => {
+      return <RestCard key = {rest.reference} rest = {rest} onClick= {()=>{setSelectedRestaurant(rest); console.log('setter clicked')}}/>
   })
   console.log('restlist before jsx')
   return (

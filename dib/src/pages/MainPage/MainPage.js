@@ -1,6 +1,6 @@
 import NavBar from '../../components/NavBar/NavBar';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import RestList from '../../components/RestaurantList/RestaurantList';
+import RestList from '../../components/RestaurantList/RestaurantListBE';
 import Filter from '../../components/Filter/Filter';
 import Button from '../../components/Button/Button';
 import { IoStar, IoSearch } from 'react-icons/io5';
@@ -14,19 +14,40 @@ function MainPage() {
 
   // state initialized for storing the user's search term, previously managed within SearchBar component
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedRating, setSelectedRating] = useState(1)
+  const [selectedPrice, setSelectedPrice] = useState(4)
+  const [selectedLimit, setSelectedLimit] = useState(8)
 
   const handleClick = () => {
     // use the searchTerm directly to navigate to the SearchResultsPage
     navigate(`/search/${searchTerm}`);
   };
 
+  const priceMappings = {
+    '€' : 1,
+    '€€' : 2,
+    '€€€' : 3,
+    '€€€€' : 4,
+  }
+
   const handlePriceSelect = (selectedPrice) => {
-    console.log("Selected price:", selectedPrice);
+    if(selectedPrice in priceMappings){
+      setSelectedPrice(priceMappings[selectedPrice])
+      console.log("Selected price:", selectedPrice);
+    } else {
+      setSelectedPrice(4)}
+      console.log("Selected price not found, used default vaulue of 4");
+    
   };
 
   const handleRatingSelect = (selectedRating) => {
+    setSelectedRating(selectedRating)
     console.log("Selected rating:", selectedRating);
   };
+
+  const showMoreRestaurants = () => {
+    setSelectedLimit(selectedLimit + 8)
+  }
 
   const renderStars = (num) => {
     let stars = [];
@@ -45,13 +66,12 @@ function MainPage() {
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <Button secondary outline rounded onClick={handleClick}>
           <IoSearch />
-          Find
         </Button>
       </div>
       <div className="filter-wrapper">
         <Filter
           initialLabel="Price"
-          options={['Affordable', 'Medium', 'High']}
+          options={['€', '€€', '€€€','€€€€']}
           onSelect={handlePriceSelect}
         />
         <Filter
@@ -62,7 +82,8 @@ function MainPage() {
         />
       </div>
       <h2 className="rest-list-header">Some great Restaurants from around the city</h2>
-      <RestList />
+      <RestList rating={selectedRating} price={selectedPrice} limit={selectedLimit}/>
+      <Button primary onClick={showMoreRestaurants}>Show more Restaurants</Button>
     </div>
   );
 }

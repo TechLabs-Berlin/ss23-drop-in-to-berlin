@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import "./RestaurantCard.css"
-import { IoStar, IoEyeOff } from "react-icons/io5";
+import { IoStar} from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 function RestCard({ rest }) {
@@ -20,8 +20,6 @@ function RestCard({ rest }) {
           <div className="card">
               {/* display image from the provided URL*/}
               {imageUrl && <img src={imageUrl} alt="Restaurant Image" className="card-img" />}
-              {/* if restaurant is hidden, render the Eye Icon */}
-              {rest.hidden === 'Yes' ? <IoEyeOff size="2rem" color="white" className="card-hidden-ico" /> : null}
               <div className="card-content">
                   <div className="card-header">
                       <h2 className="card-name">{name}</h2>

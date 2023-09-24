@@ -1,4 +1,4 @@
-GET http://localhost:3001/start-restaurants
+GET http://localhost:3001/restaurants
 
 ###
 
