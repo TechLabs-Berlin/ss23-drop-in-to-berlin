@@ -10,7 +10,7 @@ with open("NearestNeighbors_clf.joblib", "rb") as file:
     loaded_model = joblib.load(file)
 
 # load the database from .csv file
-df = pd.read_csv("../DL/database_Leo.csv")
+df = pd.read_csv("../database_Leo.csv")
 
 # define embedding model based on all-MiniLM-L6-v2
 model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
@@ -18,10 +18,10 @@ model.max_seq_length = 512  # Change the length to 512
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("templates/index.html")
 
 
-@app.route("/predict", methods=["GET", "POST"])
+@app.route("/predict", methods=["POST"])
 def predict():
     # extract input data from the request
     # star_rating = float(request.form["star_rating"])
@@ -37,7 +37,7 @@ def predict():
     indices = indices.flatten()
 
     # get ID's to return
-    recs = df.iloc[indices]["reference"]
+    recs = list(df.iloc[indices]["reference"])
 
     return jsonify({"recommendations" : recs})
 
