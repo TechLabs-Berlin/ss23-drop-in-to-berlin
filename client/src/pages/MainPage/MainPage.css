@@ -1,0 +1,50 @@
+.project-name {
+  font-size: 3rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.rest-list-header {
+font-weight: 300;
+margin: 1rem;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.button-base {
+  padding: 10px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;  
+  transition: 0.2s ease;
+  border: 2px solid var(--grey-500);
+}
+
+.button-base:hover {
+  background-color: var(--grey-100);
+  border-color: var(--grey-500);  
+  color: var(--grey-900);  
+}
+
+.button-secondary {
+  border-color: var(--prim-500);
+  background-color: var(--prim-100);
+  color: var(--bright);
+}
+
+.button-secondary:hover {
+  border-color: var(--prim-700);
+  background-color: var(--prim-900);
+  color: var(--bright); 
+}
+
+.filter-wrapper {
+  display: flex;
+  gap: 1rem;
+}
