@@ -24,6 +24,7 @@ function SearchBar({ searchTerm, setSearchTerm }) {
         key: index,
         name: item.name,
         reference: item.reference,
+        _id: item._id
       }));
       setSearchSuggestions(restaurantNames);
       console.log(searchSuggestions);
@@ -82,7 +83,7 @@ function SearchBar({ searchTerm, setSearchTerm }) {
             {searchSuggestions.length > 0 ? (
               searchSuggestions.map((suggestion, index) => (
                 <Link
-                  to={`/rest/${suggestion.reference}`}
+                  to={`/rest/${suggestion._id}`}
                   key={`${suggestion.reference}-search-suggestion`}>
                   <li
                     onClick={() => handleSuggestionClick(suggestion)}

@@ -5,11 +5,12 @@ import UserStarRating from '../StarRating/UserStarRating'
 import axios from 'axios'
 import { useState } from 'react'
 
-function UserReview (reference) {
+function UserReview ({_id, isReviewSubmitted, setIsReviewSubmitted}) {
 
-  const [userRating, setUserRating] = useState(0)
+  const [userRating, setUserRating] = useState(3)
   const [authorName, setAuthorName] = useState('')
   const [reviewText, setReviewText] = useState('')
+  
 
   const handleFormSubmit = async (e) => {
     e.preventDefault()
@@ -18,11 +19,12 @@ function UserReview (reference) {
       authorName,
       reviewText,
       userRating,
-      reference,
+      _id,
+      added_review : true,
     };
 
     try {
-      const response = await axios.post('http://localhost:3001/api/reviews', newReview);
+      const response = await axios.post(`http://localhost:3001/api/restaurants/${_id}/new-review`, newReview);
   
       if (response.status === 201) {
         // Review successfully posted, you can handle success here
@@ -31,9 +33,11 @@ function UserReview (reference) {
         setAuthorName('');
         setReviewText('');
         setUserRating(0);
+        setIsReviewSubmitted(true)
       } else {
         // Handle error cases here
         console.error('Error posting review');
+        console.log(newReview)
       }
     } catch (error) {
       console.error('Error posting review:', error);
@@ -44,14 +48,16 @@ function UserReview (reference) {
 
   return(
     <div>
+      { !isReviewSubmitted ? (
       <form onSubmit={handleFormSubmit} className='user-rating-form' >
-        <input value={authorName} placeholder='Your name' onChange={(e) => setAuthorName(e.target.value)}></input>
-        <textarea value={reviewText} onChange={(e) => setReviewText(e.target.value)} className="user-review-text-input" name="user-review-text" placeholder="How was your experience?" ></textarea>
+        <input value={authorName} placeholder='Your name' onChange={(e) => setAuthorName(e.target.value)} required></input>
+        <textarea value={reviewText} onChange={(e) => setReviewText(e.target.value)} className="user-review-text-input" name="user-review-text" placeholder="How was your experience?" required></textarea>
         <div className='user-review-submit-section'>
           <UserStarRating setUserRating={setUserRating}/>
-          <Button primary rounded>Submit</Button>
+          <Button primary rounded >Submit</Button>
         </div>
       </form>
+      ) : null }
     </div>
   )
 }

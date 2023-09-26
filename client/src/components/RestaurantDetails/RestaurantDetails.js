@@ -119,7 +119,7 @@ function RestDetails() {
           lng={rest.geometry.location.lng}
         /> } */}
         <section className='reviews-section'>
-          <ReviewList key={`${rest.reference}-review`} reviews={rest.reviews} reference={rest.reference}/>
+          <ReviewList key={`${rest.reference}-review`} reviews={rest.reviews} _id={rest._id}/>
         </section>
       </div>
     );

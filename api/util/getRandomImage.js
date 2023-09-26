@@ -1,12 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+function generateRandomUserImageURL() {
+  const gender = Math.random() < 0.5 ? "men" : "women";
+  const randomNum = Math.floor(Math.random() * 70) + 1;
 
-function getRandomImage() {
-  const profileImageDir = path.join(__dirname, '../assets/profile_imgs')
-  const profileImageFiles = fs.readdirSync(profileImageDir);
-  const randomIndex = Math.floor(Math.random() * profileImageFiles.length);
-  const randomFileName = profileImageFiles[randomIndex];
-  return path.join('/', profileImageDir, randomFileName);
+  const imageURL = `https://randomuser.me/api/portraits/${gender}/${randomNum}.jpg`;
+
+  return imageURL;
 }
 
-module.exports = getRandomImage;
+module.exports = generateRandomUserImageURL

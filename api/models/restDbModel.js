@@ -36,6 +36,7 @@ const restaurantSchema = new mongoose.Schema({
       text: String,
       time: Number,
       translated: Boolean,
+      added_review : Boolean,
     }],
     geometry: {
       location: {

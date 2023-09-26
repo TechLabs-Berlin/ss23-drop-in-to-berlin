@@ -16,7 +16,7 @@ function RestCard({ rest }) {
     console.log('rest card before return, the rest reference is:',rest.reference )
 
     return (
-      <Link to={`/rest/${rest.reference}`}>
+      <Link to={`/rest/${rest._id}`}>
           <div className="card">
               {/* display image from the provided URL*/}
               {imageUrl && <img src={imageUrl} alt="Restaurant Image" className="card-img" />}
