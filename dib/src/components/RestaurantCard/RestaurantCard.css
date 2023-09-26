@@ -1,5 +1,4 @@
 .card {
-  
   display: flex;
   position: relative;
   flex: 1;
@@ -15,8 +14,7 @@
   margin: 0 1rem 1rem 0;
   box-shadow: 1px 1px 24px var(--grey-900-trans);
   overflow: hidden;
-  transition: 0.1s;
-  
+  transition: 0.1s;  
 }
 
 .card:hover {
@@ -35,8 +33,7 @@
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  z-index: 1;
-  
+  z-index: 1; 
 }
 
 .card-content {
@@ -45,7 +42,6 @@
   flex-direction: column;
   justify-content: space-between;
   height: 50%;
-  
 }
 
 .card-header {
@@ -54,16 +50,49 @@
   align-items: flex-start;
 }
 
-
 .card-rating {
   display: flex;
   align-items: center;
   gap: 0.3rem;
   font-weight: 300;
   margin-left: 0.5rem;
+}
 
+.card-price {
+  font-weight: bold;
+  color: var(--prim-500);
+  margin-right: 0.5rem;  
+}
+
+.card-name {
+  font-weight: bold;
+  color: var(--prim-500); 
+}
+
+.btn-show-more {
+  font-size: 0.8rem;
+  color: var(--prim-500);
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.btn-show-more:hover {
+  color: var(--prim-700);
 }
 
 .card-descr {
   font-weight: 300;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem; 
+  font-style: italic;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.IoStar, .IoEyeOff {
+  color: var(--prim-500);
+  font-size: 1.2rem;
 }
