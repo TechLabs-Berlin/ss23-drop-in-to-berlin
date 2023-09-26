@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, jsonify
 import joblib
 import pandas as pd
-from sentence_transformers import SentenceTransformer
+
+# from sentence_transformers import SentenceTransformer
 
 app = Flask(__name__)
 
@@ -13,8 +14,12 @@ with open("NearestNeighbors_clf.joblib", "rb") as file:
 df = pd.read_csv("../database_Leo.csv")
 
 # define embedding model based on all-MiniLM-L6-v2
-model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
-model.max_seq_length = 512  # Change the length to 512
+# model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+# model.max_seq_length = 512  # Change the length to 512
+
+with open("SentenceTransformer_model.joblib", "rb") as file:
+    sentence_model = joblib.load(file)
+
 
 @app.route("/")
 def index():
@@ -29,7 +34,7 @@ def predict():
     user_input_str = str(request.form["user_input_str"])
 
     # create embeddings for user input
-    user_input_emb = model.encode(user_input_str).reshape(1,-1)
+    user_input_emb = sentence_model.encode(user_input_str).reshape(1, -1)
 
     # make prediction based on user input
     distances, indices = loaded_model.kneighbors(user_input_emb)
@@ -39,8 +44,8 @@ def predict():
     # get ID's to return
     recs = list(df.iloc[indices]["reference"])
 
-    return jsonify({"recommendations" : recs})
+    return jsonify({"recommendations": recs})
+
 
 if __name__ == "__main__":
     app.run(debug=True)
-
