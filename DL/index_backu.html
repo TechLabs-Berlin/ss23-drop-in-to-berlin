@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Filters</title>
+</head>
+<body>
+    <h1>Search Filters</h1>
+
+<!--    <form method="POST" action="/predict">-->
+<!--        &lt;!&ndash; Price Range &ndash;&gt;-->
+<!--        <label for="price-range">Price Range:</label>-->
+<!--        <select id="price-range" name="price">-->
+<!--            <option value="1">Low</option>-->
+<!--            <option value="2">Medium</option>-->
+<!--            <option value="3">High</option>-->
+<!--        </select>-->
+<!--        <br>-->
+
+<!--        &lt;!&ndash; Star Rating &ndash;&gt;-->
+<!--        <label for="star-rating">Star Rating:</label>-->
+<!--        <select id="star-rating" name="star_rating">-->
+<!--            <option value="1">1 Star</option>-->
+<!--            <option value="2">2 Stars</option>-->
+<!--            <option value="3">3 Stars</option>-->
+<!--            <option value="4">4 Stars</option>-->
+<!--            <option value="5">5 Stars</option>-->
+<!--        </select>-->
+<!--        <br>-->
+
+        <!-- Text Input -->
+        <label for="search-text">Search Text:</label>
+        <input type="text" id="search-text" name="user_input_str"
+               placeholder="Write a description of the restaurant you are looking for - think of writing a review...">
+        <br>
+
+        <!-- Submit Button -->
+    <form action="predict">
+        <button type="submit">Predict Restaurant</button>
+    </form>
+</body>
+</html>
+

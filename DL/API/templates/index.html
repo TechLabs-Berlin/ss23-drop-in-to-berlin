@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Filters</title>
+</head>
+<body>
+    <h1>Search Filters</h1>
+    <form method="POST" action="/predict">
+        <!-- Text Input -->
+        <label for="search-text">Search Text:</label>
+        <input type="text" id="search-text" name="user_input_str"
+               placeholder="Write a description of the restaurant you are looking for - think of writing a review...">
+        <br>
+        <!-- Submit Button -->
+        <button type="submit">Predict Restaurant</button>
+    </form>
+</body>
+</html>
