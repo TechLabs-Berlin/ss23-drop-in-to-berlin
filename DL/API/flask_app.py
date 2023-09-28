@@ -23,7 +23,7 @@ with open("SentenceTransformer_model.joblib", "rb") as file:
 
 @app.route("/")
 def index():
-    return render_template("templates/index.html")
+    return render_template("index.html")
 
 
 @app.route("/predict", methods=["POST"])
