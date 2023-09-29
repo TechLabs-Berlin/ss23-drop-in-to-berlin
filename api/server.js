@@ -8,8 +8,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+
+
+
+
 (async () => {
   try {
+
     await mongoose.connect('mongodb://127.0.0.1:27017/dib_data');
     console.log('Connection open from server.js');
 
