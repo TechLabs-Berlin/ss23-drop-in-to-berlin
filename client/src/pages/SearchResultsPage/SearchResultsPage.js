@@ -10,42 +10,42 @@ import RestContext from "../../context/RestaurantContext";
 import './SearchResultsPage.css';
 
 function SearchResultsPage() {
-  // extracting the search query from the URL
-  const { query } = useParams();
+    // extracting the search query from the URL
+    const { query } = useParams();
 
-  const navigate = useNavigate();
-  const { restaurants } = useContext(RestContext);
+    const navigate = useNavigate();
+    const { restaurants } = useContext(RestContext);
   
-  const [searchTerm, setSearchTerm] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
   
-  // state to manage the display limit for results and the increment amount
-  const [filteredResults, setFilteredResults] = useState([]);
-  const [displayLimit, setDisplayLimit] = useState(10);
-  const incrementBy = 5;
+    // state to manage the display limit for results and the increment amount
+    const [filteredResults, setFilteredResults] = useState([]);
+    const [displayLimit, setDisplayLimit] = useState(10);
+    const incrementBy = 5;
   
-  useEffect(() => {
-    // fetch and filter the data based on the search query
-    const results = restaurants.filter(restaurant =>
-    restaurant.name.toLowerCase().includes(query.toLowerCase())
-    );
-    setFilteredResults(results);
-  }, [query, restaurants]);
+    useEffect(() => {
+      // fetch and filter the data based on the search query
+      const results = restaurants.filter(restaurant =>
+        restaurant.name.toLowerCase().includes(query.toLowerCase())
+      );
+      setFilteredResults(results);
+    }, [query, restaurants]);
   
-  const handleFindClick = () => {
-    // navigate to the new search results page
-    navigate(`/search/${searchTerm}`);
-    // reset the searchTerm to clear the input and the dropdown
-    setSearchTerm('');
-  };
+    const handleFindClick = () => {
+        // navigate to the new search results page
+        navigate(`/search/${searchTerm}`);
+        // reset the searchTerm to clear the input and the dropdown
+        setSearchTerm('');
+    };
   
-  const handleLoadMore = () => {
-    setDisplayLimit(prevLimit => prevLimit + incrementBy);
-  };
+    const handleLoadMore = () => {
+      setDisplayLimit(prevLimit => prevLimit + incrementBy);
+    };
   
-  return (
-    <div>
-     <NavBar />
-      <h1 className="project-name">Searching in Berlin Bites</h1>
+    return (
+      <div>
+        <NavBar />
+        <h1 className="project-name">Searching in Berlin Bites</h1>
         <div className="search-container">
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           <Button secondary outline rounded onClick={handleFindClick}>
@@ -56,7 +56,7 @@ function SearchResultsPage() {
         <div className="filter-wrapper">
           <Filter
             initialLabel="Price"
-            options={['Affordable', 'Medium', 'High']}
+            options={['Affordable', 'Medium', 'High', 'Expensive']}
           />
           <Filter
             initialLabel="Rating"
@@ -84,9 +84,9 @@ function SearchResultsPage() {
             </Button>
         </div>
         </div>
-    )}
-    </div>
-  );
+        )}
+      </div>
+    );
 }
-  
+
 export default SearchResultsPage;

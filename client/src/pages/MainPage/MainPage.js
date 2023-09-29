@@ -62,7 +62,7 @@ function MainPage() {
       <NavBar />
       <h1 className="project-name">Drop into Berlin</h1>
       <div className="search-container">
-        {/* passing searchTerm and setSearchTerm as props to SearchBar */}
+        {/* 3. Passing searchTerm and setSearchTerm as props to SearchBar */}
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <Button secondary outline rounded onClick={handleClick}>
           <IoSearch />
