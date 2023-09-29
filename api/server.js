@@ -4,20 +4,26 @@ const cors = require('cors');
 const generateRandomUserImageURL = require('./util/getRandomImage');
 
 const app = express();
+const dotenv = require('dotenv')
+dotenv.config()
+
+
 
 app.use(express.json());
 app.use(cors());
 
 
-
-
+if (!process.env.DB_URL) {
+  console.error('DB_URL environment variable is not set.');
+}
 
 (async () => {
   try {
-
-    await mongoose.connect('mongodb://127.0.0.1:27017/dib_data');
+    // connects to mongo via environment variable
+    await mongoose.connect(process.env.DB_URL);
     console.log('Connection open from server.js');
-
+  
+  
     const Restaurant = require('./models/restDbModel');
 
     //fetch restaurants with optional queries of rating, price and limit
