@@ -37,8 +37,16 @@ def predict():
     # flatten indices array to use as index in dataframe
     indices = indices.flatten()
 
+    # filter the whole dataframe for star rating above the user given value and below given price
+    df_filtered = df[df.index.isin(indices) & (df.rating > star_rating) & (df.price_level < price)]
+
+    # get all data points without values for price level
+    df_price_nan = df[df.index.isin(indices) & df.price_level.isna()]
+
+    # combine both into the output
+
     # get ID's to return
-    recs = list(df.iloc[indices]["reference"])
+    recs = list(pd.concat([df_filtered, df_price_nan])["reference"])
 
     return jsonify({"recommendations": recs})
 
