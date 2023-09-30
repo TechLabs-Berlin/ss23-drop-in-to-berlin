@@ -1,0 +1,27 @@
+.search-container-wrapper{
+  display: flex;
+  justify-content: center;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+
+  width: 900px;
+  border: 2px solid var(--prim-500);
+  border-radius: 1rem;
+}
+
+.filter-wrapper {
+  display: flex;
+}
+
+.search-button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 0 0.7rem 0.7rem 0 ;
+}
+
+.search-button:hover {
+  background-color: var(--prim-500);
+  border-left: 0.5rem solid var(--prim-500);
+  border-color: var(--prim-500);
+}

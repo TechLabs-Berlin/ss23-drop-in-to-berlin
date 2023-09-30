@@ -7,28 +7,32 @@
 
 
 body {
+  --prim-50: #f2f7f9;
   --prim-100: #bcdfed;
   --prim-300: #81c5e0;
   --prim-500: #3fa6ce;
   --prim-700: #2083ab;
   --prim-900: #054c69;
 
-  --sec-100: #f2f8cf;
-  --sec-300: #eefd9b;
+  --sec-100: #fefde6;
+  --sec-300: #f7e1a8;
   --sec-500: #ffb728;
 
   --bright: #f1f1f1;
   --grey-50:#fafafa;
   --grey-50-trans: #fafafada;
-  --grey-100:#dddddd;
+  --grey-70:#f1f1f1;
+  --grey-100:#e5e5e5;
   --grey-300:#ababab;
   --grey-500:#717171;
   --grey-700:#454444;
   --grey-900:#2c2b2b;
-  --grey-900-trans:#2c2b2b49;
+  --grey-900-trans:#2c2b2b2c;
 
 font-family: 'Space Grotesk', sans-serif;
 color: var(--grey-900);
-
 }
 
+a {
+  text-decoration: none;
+}

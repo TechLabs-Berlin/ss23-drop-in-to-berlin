@@ -1,3 +1,8 @@
+.main-page-header-section {
+  background-image: url("../../../public/images/food-main.jpg") ;
+  background-size: cover;
+}
+
 .project-name {
   font-size: 3rem;
   margin: 2rem 0;
@@ -9,15 +14,37 @@ font-weight: 300;
 margin: 1rem;
 }
 
-.search-container {
+.searchbar-and-button-outer-wrapper{
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  justify-content: center;
+}
+
+.searchbar-and-button-wrapper{
+  position: relative;
+  width: 900px;
 }
 
 
+.btn-search-by-name{
+position: absolute;
+padding: 0.3rem;
+left: 16.8rem;
+font: 500 0.8rem "Space Grotesk";
+color: var(--prim-500);
+transition: 0.5s;
+}
 
-.filter-wrapper {
+.btn-search-by-name:hover{
+  color:var(--prim-700);
+  text-decoration: underline;
+}
+
+.main-page-rest-list-section{
+  margin: 4rem auto;
   display: flex;
-  gap: 1rem;
+  /* justify-content: center; */
+}
+
+.main-page-rest-list-wrapper{
+  margin: 0 auto;
 }

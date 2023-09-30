@@ -1,6 +1,6 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
-const Restaurant = require('./models/restDbModel'); // Import your Mongoose model
+const Restaurant = require('../models/restDbModel'); // Import your Mongoose model
 
 fs.readFile('../dib/src/data/new_data.json', 'utf8', async (err, data) => {
   if (err) {

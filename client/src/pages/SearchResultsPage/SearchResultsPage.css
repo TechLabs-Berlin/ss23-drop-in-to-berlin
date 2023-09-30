@@ -1,44 +1,4 @@
-.search-results-container {
-    padding: 20px;
-    background-color: #f5f5f5;
-    min-height: 100vh;
-}
-
 .search-title {
     font-size: 24px;
     margin-bottom: 20px;
-}
-
-.restaurant-cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-/* media query for mobile responsiveness */
-@media (max-width: 768px) {
-    .restaurant-cards-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-.empty-results {
-    text-align: center;
-    margin-top: 40px;
-    color: #777;
-}
-
-.empty-results p {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.load-more-container {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 40px; 
-    padding: 20px 0;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }

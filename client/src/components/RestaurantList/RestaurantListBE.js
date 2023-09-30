@@ -5,19 +5,18 @@ import RestCard from "../RestaurantCard/RestaurantCard"
 import "./RestaurantList.css"
 import Button from "../Button/Button"
 
-function RestList(rating, price) {
+function RestList({rating, price, limit}) {
   
   const { setSelectedRestaurant } = useContext(RestaurantContext)
   const [displayedRestaurants, setDisplayedRestaurants] = useState([])
 
   
 
-  const AMOUNT_OF_RESTAURANTS_PER_FETCH = 4
 
 // request random restaurants from db optional input: min rating, max price, max result amount
   const fetchRestaurants = async (rat, pr, lim ) => {
     try {
-      const response = await axios.get(`http://localhost:3001/restaurants?rating=${rat}&price=${pr}&limit=${AMOUNT_OF_RESTAURANTS_PER_FETCH}`);
+      const response = await axios.get(`http://localhost:3001/restaurants?rating=${rat}&price=${pr}&limit=${lim}`);
       setDisplayedRestaurants([...displayedRestaurants, ...response.data]);
     } catch (error) {
       console.error('RestList error:',error);
@@ -25,7 +24,7 @@ function RestList(rating, price) {
   };
   
   useEffect(()=>{
-    fetchRestaurants(rating, price, AMOUNT_OF_RESTAURANTS_PER_FETCH)
+    fetchRestaurants(rating, price, limit)
   },[])
   
 
@@ -42,7 +41,7 @@ function RestList(rating, price) {
       {renderedList.length > 0 ? renderedList : "Loading..."}
       
     </div>
-    <Button primary onClick={fetchRestaurants} className={"show-more-restaurants"}>Show more Restaurants</Button>
+    <Button secondary onClick={() => fetchRestaurants(rating, price, limit)} className={"show-more-restaurants"}>Show more Restaurants</Button>
     </div>
   )}
 
