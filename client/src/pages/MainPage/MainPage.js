@@ -16,11 +16,10 @@ function MainPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRating, setSelectedRating] = useState(1)
   const [selectedPrice, setSelectedPrice] = useState(4)
-  const [selectedLimit, setSelectedLimit] = useState(8)
 
   const handleClick = () => {
     // use the searchTerm directly to navigate to the SearchResultsPage
-    navigate(`/search/${searchTerm}`);
+    navigate(`/search/?term=${searchTerm}&rating=${selectedRating}&price=${selectedPrice}`);
   };
 
   const priceMappings = {
@@ -45,9 +44,7 @@ function MainPage() {
     console.log("Selected rating:", selectedRating);
   };
 
-  const showMoreRestaurants = () => {
-    setSelectedLimit(selectedLimit + 8)
-  }
+  
 
   const renderStars = (num) => {
     let stars = [];
@@ -67,23 +64,26 @@ function MainPage() {
         <Button secondary outline rounded onClick={handleClick}>
           <IoSearch />
         </Button>
-      </div>
-      <div className="filter-wrapper">
+        <div className="filter-wrapper">
         <Filter
+          className= "filter-price"
           initialLabel="Price"
           options={['€', '€€', '€€€','€€€€']}
           onSelect={handlePriceSelect}
         />
         <Filter
+          className= "filter-rating"
           initialLabel={<><span>Rating</span><span className="iconSpacing"></span></>}
           options={[1, 2, 3, 4, 5]}
           renderOption={renderStars}
           onSelect={handleRatingSelect}
         />
       </div>
+      </div>
+      
       <h2 className="rest-list-header">Some great Restaurants from around the city</h2>
-      <RestList rating={selectedRating} price={selectedPrice} limit={selectedLimit}/>
-      <Button primary onClick={showMoreRestaurants}>Show more Restaurants</Button>
+      <RestList rating={selectedRating} price={selectedPrice} />
+      
     </div>
   );
 }

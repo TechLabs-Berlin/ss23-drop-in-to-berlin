@@ -12,7 +12,7 @@ function Button({
   rounded,
   ...rest
 }) {
-  const classes = classNames('button-base', {
+  const classes = classNames(rest.className,'button-base', {
     'button-primary': primary,
     'button-secondary': secondary,
     'button-success': success,

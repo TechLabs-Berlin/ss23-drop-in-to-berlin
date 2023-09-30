@@ -26,7 +26,7 @@ function Filter({
           className="dropdown-button"
         >
           {selectedOption ? renderOption(selectedOption) : initialLabel}
-          {selectedOption ? null : <span className="arrow">▼</span>}
+          <span className="arrow">▼</span>
         </button>
         <div className="dropdown-content" style={{ display: showDropdown ? 'block' : 'none' }}>
           {options.map((option, index) => (

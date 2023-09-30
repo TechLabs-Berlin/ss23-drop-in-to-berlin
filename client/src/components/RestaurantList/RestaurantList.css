@@ -3,3 +3,14 @@
   flex-wrap: wrap;
   margin: 3rem 1rem;
 }
+
+.rest-list-wrapper {
+  display: flex;
+flex-direction: column;
+}
+
+.show-more-restaurants {
+  max-width: 20rem;
+  text-align: center;
+  background-color: aquamarine;
+}

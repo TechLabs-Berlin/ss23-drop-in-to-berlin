@@ -3,6 +3,7 @@
   border-radius: 12px;
   cursor: pointer;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 0.5rem;  
   transition: 0.2s ease;
@@ -15,10 +16,24 @@
   color: var(--grey-900);  
 }
 
-.button-secondary {
+
+.button-primary {
   border-color: var(--prim-500);
   background-color: var(--prim-100);
-  color: var(--bright);
+  color: var(--grey-900);
+}
+
+.button-primary:hover {
+  border-color: var(--prim-700);
+  background-color: var(--prim-900);
+  color: var(--bright); 
+}
+
+
+.button-secondary {
+  border-color: var(--sec-500);
+  background-color: var(--prim-100);
+  color: var(--grey-900);
 }
 
 .button-secondary:hover {

@@ -16,7 +16,7 @@ function RestCard({ rest }) {
   const imageUrl = rest.photos && rest.photos.length > 0 && rest.photos[0].imageURL;
 
   // helper function to shorten the restaurant name
-  const name = shortenText(rest.name, 15);
+  const name = shortenText(rest.name, 11);
 
   let reviewText = rest.reviews && rest.reviews.length > 0 ? rest.reviews[0].text : "";
   const [showFullReview, setShowFullReview] = useState(false);
