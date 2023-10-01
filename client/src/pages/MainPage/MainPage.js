@@ -2,21 +2,27 @@ import NavBar from '../../components/NavBar/NavBar';
 import RestList from '../../components/RestaurantList/RestaurantListBE';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import './MainPage.css';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 function MainPage() {
+  const backgroundImageRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRating, setSelectedRating] = useState(1);
   const [selectedPrice, setSelectedPrice] = useState(4);
+  const [backgroundPositionY, setBackgroundPositionY] = useState('calc(50% - 2rem)');
 
-  const backgroundImage = document.getElementById('background-image-header');
-  backgroundImage.style.backgroundPositionY = `calc(50% - 4rem)`;
+  useEffect(() => {
+    // Check if the ref is available (component has rendered)
+    if (backgroundImageRef.current) {
+      backgroundImageRef.current.style.backgroundPositionY = backgroundPositionY;
+    }
+  }, [backgroundPositionY]);
 
   return (
     <div>
       <section
         className='main-page-header-section'
-        id='background-image-header'>
+        id='background-image-header' ref={backgroundImageRef}>
         <NavBar />
           <div className='searchbar-and-button-outer-wrapper'>
             <div className='searchbar-and-button-wrapper'>

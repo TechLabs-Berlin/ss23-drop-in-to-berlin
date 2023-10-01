@@ -1,11 +1,12 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+client/node_modules
+api/node_modules
 /.pnp
 .pnp.js
 
-/src/data/new_data.json
+/client/src/data/new_data.json
 
 # testing
 /coverage
@@ -16,6 +17,9 @@
 # misc
 .DS_Store
 ../.DS_Store
+client/DS_Store
+api/DS_Store
+api/.env
 .env
 .env.local
 .env.development.local
