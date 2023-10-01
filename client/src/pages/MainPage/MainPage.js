@@ -9,28 +9,32 @@ function MainPage() {
   const [selectedRating, setSelectedRating] = useState(1);
   const [selectedPrice, setSelectedPrice] = useState(4);
 
+  const backgroundImage = document.getElementById('background-image-header');
+  backgroundImage.style.backgroundPositionY = `calc(50% - 4rem)`;
+
   return (
     <div>
-      <section className='main-page-header-section'>
-      <NavBar />
-      <h1 className='project-name'>Drop into Berlin</h1>
-      <div className='searchbar-and-button-outer-wrapper'>
-        <div className='searchbar-and-button-wrapper'>
-          <SearchBar
-            className='main-page-search-bar'
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-            selectedRating={selectedRating}
-            setSelectedRating={setSelectedRating}
-            selectedPrice={selectedPrice}
-            setSelectedPrice={setSelectedPrice}>
-            {' '}
-          </SearchBar>
-          <button className='btn-search-by-name'>
-            Or search by restaurant name
-          </button>
-        </div>
-      </div>
+      <section
+        className='main-page-header-section'
+        id='background-image-header'>
+        <NavBar />
+          <div className='searchbar-and-button-outer-wrapper'>
+            <div className='searchbar-and-button-wrapper'>
+              <SearchBar
+                className='main-page-search-bar'
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+                selectedRating={selectedRating}
+                setSelectedRating={setSelectedRating}
+                selectedPrice={selectedPrice}
+                setSelectedPrice={setSelectedPrice}>
+                {' '}
+              </SearchBar>
+              <button className='btn-search-by-name'>
+                Or search by restaurant name
+              </button>
+            </div>
+          </div>
       </section>
       <section className='main-page-rest-list-section'>
         <div className='main-page-rest-list-wrapper'>

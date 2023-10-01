@@ -1,22 +1,20 @@
 .main-page-header-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-image: url("../../../public/images/food-main.jpg") ;
   background-size: cover;
+  background-position-x: center;
+  padding-bottom: 4rem;
 }
 
-.project-name {
-  font-size: 3rem;
-  margin: 2rem 0;
-  text-align: center;
-}
 
-.rest-list-header {
-font-weight: 300;
-margin: 1rem;
-}
 
 .searchbar-and-button-outer-wrapper{
   display: flex;
   justify-content: center;
+  margin-top: 10rem;
 }
 
 .searchbar-and-button-wrapper{

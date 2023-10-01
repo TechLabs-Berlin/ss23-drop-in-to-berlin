@@ -5,10 +5,10 @@
 .search-container {
   display: flex;
   align-items: center;
-
   width: 900px;
   border: 2px solid var(--prim-500);
   border-radius: 1rem;
+  background-color: white;
 }
 
 .filter-wrapper {
