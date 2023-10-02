@@ -1,54 +1,74 @@
 import NavBar from '../../components/NavBar/NavBar';
-import SearchBar from '../../components/SearchInput/SearchInput';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './SearchResultsPage.css';
 import RestList from '../../components/RestaurantList/RestaurantListBE';
 
 function SearchResultsPage() {
-    // extracting the search query from the URL
-    const { term, rating, price } = useParams();
+  // extracting the search query from the URL
+  const { term, rating, price } = useParams();
 
-    const [searchResults, setSearchResults] = useState([])
-    const [searchTerm, setSearchTerm] = useState(term);
-    const [selectedRating, setSelectedRating] = useState(rating);
-    const [selectedPrice, setSelectedPrice] = useState(price);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedRating, setSelectedRating] = useState(0);
+  const [selectedPrice, setSelectedPrice] = useState(0);
 
-    const navigate = useNavigate();
-  
-  
-    console.log('This ist the search term:', term)
+  const backgroundImageSearchRef = useRef(null);
+  const [backgroundPositionY, setBackgroundPositionY] = useState(
+    'calc(50% - 3rem)'
+  );
 
-  
-    return (
-      <div>
+  useEffect(() => {
+    // Check if the ref is available (component has rendered)
+    if (backgroundImageSearchRef.current) {
+      backgroundImageSearchRef.current.style.backgroundPositionY =
+        backgroundPositionY;
+    }
+  }, [backgroundPositionY]);
+
+  return (
+    <div>
+      <section
+        className='search-page-header-section'
+        id='background-image-header'
+        ref={backgroundImageSearchRef}>
         <NavBar />
-        
-        
-        {/* {searchResults.length === 0 ? (
-          <div className="empty-results">
-            <p>Oops! {term} leads to no results</p>
-            <p>Maybe switch up the mood, explore broader terms or check for any typos.</p>
+        <div className='search-page-searchbar-and-button-outer-wrapper'>
+          <div className='search-page-searchbar-and-button-wrapper'>
+            <SearchBar
+              className='search-page-search-bar'
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              selectedRating={selectedRating}
+              setSelectedRating={setSelectedRating}
+              selectedPrice={selectedPrice}
+              setSelectedPrice={setSelectedPrice}>
+              {' '}
+            </SearchBar>
+            <button className='search-page-btn-search-by-name'>
+              Or search by restaurant name
+            </button>
           </div>
-        ) : ( */}
-
-          <div>
-          <h1 className="project-name">These Restaurants seem to fit you</h1>
-          <h2 className="search-title">Search Results for "{term}"</h2>
-          <SearchBar
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        selectedRating={selectedRating}
-        setSelectedRating={setSelectedRating}
-        selectedPrice={selectedPrice}
-        setSelectedPrice={setSelectedPrice}
-      />
-          <RestList rating ={selectedRating} price ={selectedPrice} term={searchTerm} limit={6}/>
-          </div>
-          {/* )} */}
           
-      </div>
-    );
+        </div>
+        <div className='search-page-results-header-text-wrapper'>
+            <h1 className='search-page-results-header-text'>Looking for <span id='search-results-highlight'>{term}</span> ? Here some nice restaurants:</h1>
+          </div>
+      </section>
+      
+      <section className='search-page-rest-list-section'>
+        <div className='search-page-rest-list-wrapper'>
+          
+          <RestList
+            rating={selectedRating != 0 ? selectedRating : rating}
+            price={selectedPrice != 0 ? selectedPrice : price}
+            term={searchTerm ? searchTerm : term}
+            limit={4}
+          />
+        </div>
+      </section>
+    </div>
+  );
 }
 
 export default SearchResultsPage;

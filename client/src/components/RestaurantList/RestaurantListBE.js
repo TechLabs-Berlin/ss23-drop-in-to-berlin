@@ -10,7 +10,6 @@ function RestList({rating, price, limit, term}) {
   const { setSelectedRestaurant } = useContext(RestaurantContext)
   const [displayedRestaurants, setDisplayedRestaurants] = useState([])
 
-  
 
 
 // request random restaurants from db optional input: min rating, max price, max result amount

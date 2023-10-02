@@ -22,10 +22,10 @@ function MainPage() {
     <div>
       <section
         className='main-page-header-section'
-        id='background-image-header' ref={backgroundImageRef}>
+        id='main-page-background-image-header' ref={backgroundImageRef}>
         <NavBar />
-          <div className='searchbar-and-button-outer-wrapper'>
-            <div className='searchbar-and-button-wrapper'>
+          <div className='main-page-searchbar-and-button-outer-wrapper'>
+            <div className='main-page-searchbar-and-button-wrapper'>
               <SearchBar
                 className='main-page-search-bar'
                 searchTerm={searchTerm}
