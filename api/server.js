@@ -25,28 +25,109 @@ if (!process.env.DB_URL) {
   
   
     const Restaurant = require('./models/restDbModel');
-
+/* 
     //fetch restaurants with optional queries of rating, price and limit
     app.get('/restaurants', async (req, res) => {
       try {
         const rating = parseFloat(req.query.rating, 10) || 1; //default min rating: 1
         const priceLevel = parseInt(req.query.price, 10) || 4; // default price: 4
         const limit = parseInt(req.query.limit, 10) || 8; //default limit: 8
+        let searchTerm = req.query.term || '' // default empty
 
         // Check if rating is valid
         if (!isNaN(rating, limit, priceLevel)) {
+          let restaurants = []
+
+          for (let i = 0; i < searchTerm.length; i++) {
+            const substring = searchTerm.slice(0, i + 1);
           // use query in query string to find restaurant
-          const restaurants = await Restaurant.aggregate([
+          restaurants = await Restaurant.aggregate([
             {
               $match: {
                 rating: { $gte: rating },
                 price_level: { $lte: priceLevel },
+                name: { $regex: new RegExp(searchTerm, 'i') },
               },
             },
             {
               $sample: { size: limit },
             },
           ]);
+            if (restaurants.length >= limit) {
+              break
+            }
+            searchTerm = searchTerm.slice(0,-1)
+        }
+          res.json(restaurants);
+        } else {
+          res.status(400).json({ message: 'Invalid query parameters' });
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal Server Error' });
+      }
+    }); */
+
+
+    app.get('/restaurants', async (req, res) => {
+      try {
+        const rating = parseFloat(req.query.rating, 10) || 1; //default min rating: 1
+        const priceLevel = parseInt(req.query.price, 10) || 4; // default price: 4
+        const limit = parseInt(req.query.limit, 10) || 8;
+        const searchTerm = req.query.term || ''; // Get the search term from the query parameters
+    
+        // Check if rating is valid
+        if (!isNaN(rating, limit, priceLevel)) {
+          let restaurants = [];
+          let match = false;
+    
+
+          while (searchTerm.length >= 1) {
+            const regexSubstring = searchTerm.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&'); // Escape special characters for regex
+            const regexPattern = `^${regexSubstring}|${regexSubstring}`; // Regex pattern for starting with or containing the substring
+    
+
+          /* // Start with the full search term and progressively shorten it
+          for (let i = searchTerm.length; i >= 1; i--) {
+            const substring = searchTerm.slice(0, i); // Get the substring of the search term */
+    
+            restaurants = await Restaurant.aggregate([
+              {
+                $match: {
+                  rating: { $gte: rating },
+                  price_level: { $lte: priceLevel },
+                  name: { $regex: new RegExp(regexPattern, 'i') },
+                  // name: { $regex: new RegExp(`^${substring}$`, 'i') }, // Exact match for the substring
+                },
+              },
+              {
+                $sample: { size: limit },
+              },
+            ]);
+    
+            // If there are exact match results, break out of the loop
+            if (restaurants.length >= limit) {
+              match = true;
+              break;
+            }
+          }
+    
+          // If no exact matches, do partial search
+          if (!match) {
+            restaurants = await Restaurant.aggregate([
+              {
+                $match: {
+                  rating: { $gte: rating },
+                  price_level: { $lte: priceLevel },
+                  name: { $regex: new RegExp(`^${searchTerm}`, 'i') }, // Case-insensitive regex search
+                },
+              },
+              {
+                $sample: { size: limit },
+              },
+            ]);
+          }
+    
           res.json(restaurants);
         } else {
           res.status(400).json({ message: 'Invalid query parameters' });
@@ -56,6 +137,8 @@ if (!process.env.DB_URL) {
         res.status(500).json({ message: 'Internal Server Error' });
       }
     });
+    
+
 
     // fetch restaurant with specific id
     app.get('/restaurants/:id', async (req, res) => {
