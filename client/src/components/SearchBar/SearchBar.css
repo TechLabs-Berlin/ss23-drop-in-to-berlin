@@ -1,3 +1,5 @@
+
+
 .search-container-wrapper{
   display: flex;
   justify-content: center;
@@ -10,6 +12,7 @@
   border-radius: 1rem;
   background-color: white;
 }
+
 
 .filter-wrapper {
   display: flex;

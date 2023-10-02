@@ -1,25 +1,31 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IoStar, IoSearch } from 'react-icons/io5';
 import Filter from '../../components/Filter/Filter';
 import Button from '../../components/Button/Button';
 import SearchInput from '../../components/SearchInput/SearchInput';
-import './SearchBar.css'
+import './SearchBar.css';
 
-
-
-function SearchBar ({searchTerm, setSearchTerm, selectedPrice, setSelectedPrice, selectedRating,setSelectedRating}) {
-
-// state initialized for storing the user's search term, previously managed within SearchBar component
-  
+function SearchBar({
+  searchTerm,
+  setSearchTerm,
+  selectedPrice,
+  setSelectedPrice,
+  selectedRating,
+  setSelectedRating,
+}) {
+  // state initialized for storing the user's search term, previously managed within SearchBar component
 
   const navigate = useNavigate();
 
+  const [placeholder, setPlaceholder] = useState('Type what you love...')
+
   const handleSearchClick = () => {
     // use the searchTerm directly to navigate to the SearchResultsPage
-    navigate(
-      `/search/${searchTerm}/${selectedRating}/${selectedPrice}`
-    );
+    if (searchTerm) {
+      navigate(`/search/${searchTerm}/${selectedRating}/${selectedPrice}`);
+    } else { setPlaceholder('Please enter a search term...')
+    }
   };
 
   const priceMappings = {
@@ -52,9 +58,6 @@ function SearchBar ({searchTerm, setSearchTerm, selectedPrice, setSelectedPrice,
     return <div className='star-wrapper'>{stars}</div>;
   };
 
-
-
-
   return (
     <div>
       <section className='search-container-wrapper'>
@@ -79,15 +82,24 @@ function SearchBar ({searchTerm, setSearchTerm, selectedPrice, setSelectedPrice,
               onSelect={handleRatingSelect}
             />
           </div>
-          {/* 3. Passing searchTerm and setSearchTerm as props to SearchBar */}
-          <SearchInput searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-          <Button primary rounded onClick={handleSearchClick} className={'search-button'}>
-            <IoSearch size={25}/>
+          {/* 3. Passing searchTerm and setSearchTerm as props to SearchInput */}
+            <SearchInput
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              placeholder={placeholder}
+            />
+          
+          <Button
+            primary
+            rounded
+            onClick={handleSearchClick}
+            className={'search-button'}>
+            <IoSearch size={25} />
           </Button>
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default SearchBar
+export default SearchBar;

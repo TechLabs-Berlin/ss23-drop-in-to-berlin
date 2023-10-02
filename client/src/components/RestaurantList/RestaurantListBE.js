@@ -5,7 +5,7 @@ import RestCard from "../RestaurantCard/RestaurantCard"
 import "./RestaurantList.css"
 import Button from "../Button/Button"
 
-function RestList({rating, price, limit}) {
+function RestList({rating, price, limit, term}) {
   
   const { setSelectedRestaurant } = useContext(RestaurantContext)
   const [displayedRestaurants, setDisplayedRestaurants] = useState([])
@@ -14,9 +14,9 @@ function RestList({rating, price, limit}) {
 
 
 // request random restaurants from db optional input: min rating, max price, max result amount
-  const fetchRestaurants = async (rat, pr, lim ) => {
+  const fetchRestaurants = async (rat, pr, lim, ter ) => {
     try {
-      const response = await axios.get(`http://localhost:3001/restaurants?rating=${rat}&price=${pr}&limit=${lim}`);
+      const response = await axios.get(`http://localhost:3001/restaurants?&rating=${rat}&price=${pr}&limit=${lim}term=${ter}`);
       setDisplayedRestaurants([...displayedRestaurants, ...response.data]);
     } catch (error) {
       console.error('RestList error:',error);
@@ -24,7 +24,7 @@ function RestList({rating, price, limit}) {
   };
   
   useEffect(()=>{
-    fetchRestaurants(rating, price, limit)
+    fetchRestaurants(rating, price, limit, term)
   },[])
   
 

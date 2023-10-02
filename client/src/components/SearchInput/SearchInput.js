@@ -12,7 +12,7 @@ function debounce(func, wait) {
   };
 }
 
-function SearchInput({ searchTerm, setSearchTerm }) {
+function SearchInput({ searchTerm, setSearchTerm, placeholder }) {
   const [activeIndex, setActiveIndex] = useState(-1);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
 
@@ -62,6 +62,8 @@ function SearchInput({ searchTerm, setSearchTerm }) {
     }
   };
 
+  const placeholderClassName = placeholder !== 'Type what you love...' ? 'red-placeholder' : ''
+
   console.log(
     'searchBar before return, with this suggestions:',
     searchSuggestions
@@ -71,11 +73,11 @@ function SearchInput({ searchTerm, setSearchTerm }) {
       <div className='search-bar-and-suggestions-wrapper'>
         <input
           type='text'
-          placeholder='Type what you love...'
+          placeholder={placeholder}
           value={searchTerm}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
-          className="search-bar-input"
+          className={`search-bar-input ${placeholderClassName}`} 
         />
         {searchTerm && (
           <ul

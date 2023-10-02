@@ -43,7 +43,7 @@ function SearchResultsPage() {
         selectedPrice={selectedPrice}
         setSelectedPrice={setSelectedPrice}
       />
-          <RestList rating ={selectedRating} price ={selectedPrice} limit={6}/>
+          <RestList rating ={selectedRating} price ={selectedPrice} term={searchTerm} limit={6}/>
           </div>
           {/* )} */}
           

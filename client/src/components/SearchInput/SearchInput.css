@@ -7,6 +7,10 @@
   align-items: center;
 }
 
+.red-placeholder::placeholder{
+  color: var(--warning-500)
+}
+
 .search-bar-input{
   font-size: 1rem;
   padding: 0.4rem 0.8rem;
