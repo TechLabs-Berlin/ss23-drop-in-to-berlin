@@ -43,9 +43,7 @@ def predict():
     # get all data points without values for price level
     df_price_nan = df[df.index.isin(indices) & df.price_level.isna()]
 
-    # combine both into the output
-
-    # get ID's to return
+    # combine both into the output & get ID's to return
     recs = list(pd.concat([df_filtered, df_price_nan])["reference"])
 
     return jsonify({"recommendations": recs})
