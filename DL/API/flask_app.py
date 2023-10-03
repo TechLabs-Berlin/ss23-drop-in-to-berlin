@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, jsonify
 import joblib
 import pandas as pd
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, resources={r"/predict": {"origins": "http://localhost:3000"}})
 
 # Load the model from .joblib file
 with open("NearestNeighbors_clf.joblib", "rb") as file:
