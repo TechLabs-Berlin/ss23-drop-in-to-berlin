@@ -96,11 +96,11 @@ function SearchBar({
               onSelect={handleRatingSelect}
             />
           </div>
-          {/* 3. Passing searchTerm and setSearchTerm as props to SearchInput */}
           <SearchInput
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
             placeholder={placeholder}
+            isSearchModeRecommend={isSearchModeRecommend}
           />
 
           <Button

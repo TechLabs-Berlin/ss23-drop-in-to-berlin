@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './SearchInput.css'
+import './SearchInput.css';
 
 function debounce(func, wait) {
   let timeout;
@@ -12,7 +12,12 @@ function debounce(func, wait) {
   };
 }
 
-function SearchInput({ searchTerm, setSearchTerm, placeholder }) {
+function SearchInput({
+  searchTerm,
+  setSearchTerm,
+  placeholder,
+  isSearchModeRecommend,
+}) {
   const [activeIndex, setActiveIndex] = useState(-1);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
 
@@ -25,7 +30,7 @@ function SearchInput({ searchTerm, setSearchTerm, placeholder }) {
         key: index,
         name: item.name,
         reference: item.reference,
-        _id: item._id
+        _id: item._id,
       }));
       setSearchSuggestions(restaurantNames);
       console.log(searchSuggestions);
@@ -36,7 +41,8 @@ function SearchInput({ searchTerm, setSearchTerm, placeholder }) {
 
   useEffect(() => {
     const debouncedSearch = debounce(handleSearchChange, 300);
-    if (searchTerm) {
+    // only show suggestions if search mode is by restaurant name
+    if (searchTerm && !isSearchModeRecommend) {
       debouncedSearch(searchTerm);
     }
   }, [searchTerm]);
@@ -62,24 +68,44 @@ function SearchInput({ searchTerm, setSearchTerm, placeholder }) {
     }
   };
 
-  const placeholderClassName = placeholder == 'Please enter something to search for...' ? 'red-placeholder' : ''
+  const placeholderClassName =
+    placeholder == 'Please enter something to search for...'
+      ? 'red-placeholder'
+      : '';
 
   return (
-      <div className='search-bar-and-suggestions-wrapper'>
-        <input
-          type='text'
-          placeholder={placeholder}
-          value={searchTerm}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
-          className={`search-bar-input ${placeholderClassName}`} 
-        />
-        {searchTerm && (
-          <ul
-          className = "search-bar-suggestion-list"
-          >
-            {searchSuggestions.length > 0 ? (
-              searchSuggestions.map((suggestion, index) => (
+    <div className='search-bar-and-suggestions-wrapper'>
+      <input
+        type='text'
+        placeholder={placeholder}
+        value={searchTerm}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
+        className={`search-bar-input ${placeholderClassName}`}
+      />
+
+      {searchSuggestions.length > 0 && !isSearchModeRecommend && searchTerm && (
+        <ul className='search-bar-suggestion-list'>
+          {searchSuggestions.map((suggestion, index) => (
+            <Link
+              to={`/rest/${suggestion._id}`}
+              key={`${suggestion._id}-search-suggestion`}>
+              <li
+                onClick={() => handleSuggestionClick(suggestion)}
+                className={`suggestion-item ${
+                  index === activeIndex ? 'background-grey' : ''
+                }`}>
+                <span className='font-semibold'>{suggestion.name}</span>
+              </li>
+            </Link>
+          ))}
+        </ul>
+      )}
+
+      {/* {searchTerm && (
+        <ul className='search-bar-suggestion-list'>
+          {searchSuggestions.length > 0 && !isSearchModeRecommend
+            ? searchSuggestions.map((suggestion, index) => (
                 <Link
                   to={`/rest/${suggestion._id}`}
                   key={`${suggestion._id}-search-suggestion`}>
@@ -92,14 +118,10 @@ function SearchInput({ searchTerm, setSearchTerm, placeholder }) {
                   </li>
                 </Link>
               ))
-            ) : (
-              <li className='suggestion-item'>
-                No matches found
-              </li>
-            )}
-          </ul>
-        )}
-      </div>
+            : null}
+        </ul>
+      )} */}
+    </div>
   );
 }
 

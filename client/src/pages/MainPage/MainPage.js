@@ -25,6 +25,7 @@ function MainPage() {
 
   const changeSearchMode = () => {
     setIsSearchModeRecommend(!isSearchModeRecommend);
+    console.log('now is search mode recommend is', isSearchModeRecommend)
   };
 
   return (
