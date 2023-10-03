@@ -19,6 +19,7 @@ function RestDetails() {
 
   const getSelectedRestaurant = async (selectedId ) => {
     try {
+      console.log("Fetching new restaurant data with id:", selectedId)
       const response = await axios.get(`http://localhost:3001/restaurants/${selectedId}`);
       setSelectedRestaurant(response.data);
     } catch (error) {
@@ -30,6 +31,11 @@ function RestDetails() {
   useEffect(()=>{
     getSelectedRestaurant(id)
   },[id])
+
+  const onReviewsUpdatedHandler = () => {
+    console.log('reviews updated handler executed')
+    getSelectedRestaurant(id);
+  }
 
 
   if (!selectedRestaurant) {
@@ -119,7 +125,7 @@ function RestDetails() {
           lng={rest.geometry.location.lng}
         /> } */}
         <section className='reviews-section'>
-          <ReviewList key={`${rest.reference}-review`} reviews={rest.reviews} _id={rest._id}/>
+          <ReviewList key={`${rest.reference}-review`} reviews={rest.reviews} onReviewAdded={onReviewsUpdatedHandler} _id={rest._id}/>
         </section>
       </div>
     );

@@ -5,7 +5,7 @@ import UserStarRating from '../StarRating/UserStarRating'
 import axios from 'axios'
 import { useState } from 'react'
 
-function UserReview ({_id, isReviewSubmitted, setIsReviewSubmitted}) {
+function UserReview ({_id, isReviewSubmitted, setIsReviewSubmitted, onReviewAdded}) {
 
   const [userRating, setUserRating] = useState(3)
   const [authorName, setAuthorName] = useState('')
@@ -34,6 +34,7 @@ function UserReview ({_id, isReviewSubmitted, setIsReviewSubmitted}) {
         setReviewText('');
         setUserRating(0);
         setIsReviewSubmitted(true)
+        onReviewAdded()
       } else {
         // Handle error cases here
         console.error('Error posting review');

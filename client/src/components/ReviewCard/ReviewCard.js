@@ -4,7 +4,7 @@ import ReviewStarRating from '../StarRating/ReviewStarRating';
 import axios from 'axios';
 import { useState } from 'react';
 
-function ReviewCard({review, _id, renderedReviewCards, setRenderedReviewCards}) {
+function ReviewCard({review, _id, renderedReviewCards, setRenderedReviewCards, onReviewAdded}) {
   const [fullReviewView, setFullReviewView] = useState(false);
 
   let text = review.text;
@@ -27,10 +27,8 @@ function ReviewCard({review, _id, renderedReviewCards, setRenderedReviewCards}) 
       console.log(`The restaurant ID is: ${_id}, the review ID is: ${review._id}`);
       const response = await axios.delete(`http://localhost:3001/api/restaurants/${_id}/review/${review._id}`, review);
   
-      // Update the state to remove the deleted review
-      setRenderedReviewCards((prevReviewCards) =>
-        prevReviewCards.filter((card) => card.props.review._id !== review._id)
-      );
+      onReviewAdded()
+
     } catch (error) {
       console.error('Error deleting review:', error);
     }}
