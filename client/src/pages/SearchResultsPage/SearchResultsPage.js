@@ -12,11 +12,14 @@ function SearchResultsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRating, setSelectedRating] = useState(0);
   const [selectedPrice, setSelectedPrice] = useState(0);
+  const [isSearchModeRecommend, setIsSearchModeRecommend] = useState(true)
 
   const backgroundImageSearchRef = useRef(null);
   const [backgroundPositionY, setBackgroundPositionY] = useState(
     'calc(50% - 3rem)'
   );
+
+
 
   useEffect(() => {
     // Check if the ref is available (component has rendered)
@@ -25,6 +28,10 @@ function SearchResultsPage() {
         backgroundPositionY;
     }
   }, [backgroundPositionY]);
+
+  const changeSearchMode = () => {
+    setIsSearchModeRecommend(!isSearchModeRecommend)
+  }
 
   return (
     <div>
@@ -45,9 +52,9 @@ function SearchResultsPage() {
               setSelectedPrice={setSelectedPrice}>
               {' '}
             </SearchBar>
-            <button className='search-page-btn-search-by-name'>
-              Or search by restaurant name
-            </button>
+            <button onClick={changeSearchMode} className='btn-search-by-name'>
+              {isSearchModeRecommend ? 'Or search by restaurant name' : 'Or get recommendations' }
+              </button>
           </div>
           
         </div>
@@ -64,6 +71,7 @@ function SearchResultsPage() {
             price={selectedPrice != 0 ? selectedPrice : price}
             term={searchTerm ? searchTerm : term}
             limit={4}
+            isSearchModeRecommend={isSearchModeRecommend}
           />
         </div>
       </section>

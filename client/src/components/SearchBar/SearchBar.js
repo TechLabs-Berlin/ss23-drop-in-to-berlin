@@ -13,18 +13,29 @@ function SearchBar({
   setSelectedPrice,
   selectedRating,
   setSelectedRating,
+  isSearchModeRecommend,
 }) {
   // state initialized for storing the user's search term, previously managed within SearchBar component
 
   const navigate = useNavigate();
 
-  const [placeholder, setPlaceholder] = useState('Type what you love...')
+  const [placeholder, setPlaceholder] = useState('Describe what you love...');
+
+  if (!isSearchModeRecommend && !searchTerm && placeholder === 'Describe what you love...') {
+    setPlaceholder('Enter a restaurant name...');
+  } else if (
+    isSearchModeRecommend && !searchTerm &&
+    placeholder === 'Enter a restaurant name...'
+  ) {
+    setPlaceholder('Describe what you love...');
+  }
 
   const handleSearchClick = () => {
     // use the searchTerm directly to navigate to the SearchResultsPage
     if (searchTerm) {
       navigate(`/search/${searchTerm}/${selectedRating}/${selectedPrice}`);
-    } else { setPlaceholder('Please enter a search term...')
+    } else {
+      setPlaceholder('Please enter something to search for...');
     }
   };
 
@@ -58,6 +69,9 @@ function SearchBar({
     return <div className='star-wrapper'>{stars}</div>;
   };
 
+
+  console.log('the search bar state of search term is:', searchTerm)
+
   return (
     <div>
       <section className='search-container-wrapper'>
@@ -83,12 +97,12 @@ function SearchBar({
             />
           </div>
           {/* 3. Passing searchTerm and setSearchTerm as props to SearchInput */}
-            <SearchInput
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-              placeholder={placeholder}
-            />
-          
+          <SearchInput
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            placeholder={placeholder}
+          />
+
           <Button
             primary
             rounded

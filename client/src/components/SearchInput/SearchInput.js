@@ -62,12 +62,7 @@ function SearchInput({ searchTerm, setSearchTerm, placeholder }) {
     }
   };
 
-  const placeholderClassName = placeholder !== 'Type what you love...' ? 'red-placeholder' : ''
-
-  console.log(
-    'searchBar before return, with this suggestions:',
-    searchSuggestions
-  );
+  const placeholderClassName = placeholder == 'Please enter something to search for...' ? 'red-placeholder' : ''
 
   return (
       <div className='search-bar-and-suggestions-wrapper'>

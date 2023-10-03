@@ -8,7 +8,16 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 app.use(express.json());
-app.use(cors());
+
+
+// Allow requests from the domains
+const corsOptions = {
+  origin: ['https://phylanx.pythonanywhere.com', 'http://localhost:3000'], 
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 if (!process.env.DB_URL) {
   console.error('DB_URL environment variable is not set.');
@@ -29,8 +38,8 @@ if (!process.env.DB_URL) {
         const priceLevel = parseInt(req.query.price, 10) || 4; // default price: 4
         const limit = parseInt(req.query.limit, 10) || 8; //default limit: 8
         let searchTerm = req.query.term || ''; // default empty
-        
-        console.log('the server is searhcing for the term:', searchTerm)
+
+        console.log('the server is searching for the term:', searchTerm)
 
         // Check if rating is valid
         if (!isNaN(rating, limit, priceLevel)) {
@@ -151,7 +160,7 @@ if (!process.env.DB_URL) {
     //         }
     //       }
 
-    //       /* // If no exact matches, do partial search
+    //       // If no exact matches, do partial search
     //       if (restaurants.length <= limit) {
     //         const addedRestaurants = await Restaurant.aggregate([
     //           {
@@ -166,7 +175,7 @@ if (!process.env.DB_URL) {
     //           },
     //         ]);
     //         restaurants.push(...addedRestaurants)
-    //       } */
+    //       }
 
     //       res.json(restaurants);
     //     } else {
@@ -177,6 +186,27 @@ if (!process.env.DB_URL) {
     //     res.status(500).json({ message: 'Internal Server Error' });
     //   }
     // });
+
+
+    // fetch recommended restaurants by their reference
+    app.get('/restaurants/recommendations', async (req, res) => {
+      try {
+
+        const restaurantReferences = req.body.restaurantReferences
+        const restaurants = await Restaurant.find({ reference: { $in: restaurantReferences } });
+
+        if (!restaurants) {
+          return res.status(404).json({ message: 'Restaurants not found' });
+        }
+        console.log('found the recommended restaurants, the references are:', restaurantReferences)
+        res.json(restaurants);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal Server Error' });
+      }
+    });
+
+
 
     // fetch restaurant with specific id
     app.get('/restaurants/:id', async (req, res) => {
