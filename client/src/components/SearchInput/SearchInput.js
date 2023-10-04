@@ -17,6 +17,7 @@ function SearchInput({
   setSearchTerm,
   placeholder,
   isSearchModeRecommend,
+  handleEnterPress
 }) {
   const [activeIndex, setActiveIndex] = useState(-1);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
@@ -101,26 +102,6 @@ function SearchInput({
           ))}
         </ul>
       )}
-
-      {/* {searchTerm && (
-        <ul className='search-bar-suggestion-list'>
-          {searchSuggestions.length > 0 && !isSearchModeRecommend
-            ? searchSuggestions.map((suggestion, index) => (
-                <Link
-                  to={`/rest/${suggestion._id}`}
-                  key={`${suggestion._id}-search-suggestion`}>
-                  <li
-                    onClick={() => handleSuggestionClick(suggestion)}
-                    className={`suggestion-item ${
-                      index === activeIndex ? 'background-grey' : ''
-                    }`}>
-                    <span className='font-semibold'>{suggestion.name}</span>
-                  </li>
-                </Link>
-              ))
-            : null}
-        </ul>
-      )} */}
     </div>
   );
 }

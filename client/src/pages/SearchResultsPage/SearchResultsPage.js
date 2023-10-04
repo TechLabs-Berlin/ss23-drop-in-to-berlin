@@ -1,9 +1,10 @@
 import NavBar from '../../components/NavBar/NavBar';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 import './SearchResultsPage.css';
 import RestList from '../../components/RestaurantList/RestaurantListBE';
+import RestaurantContext from '../../context/RestaurantContext';
 
 function SearchResultsPage() {
   // extracting the search query from the URL
@@ -12,7 +13,7 @@ function SearchResultsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRating, setSelectedRating] = useState(0);
   const [selectedPrice, setSelectedPrice] = useState(0);
-  const [isSearchModeRecommend, setIsSearchModeRecommend] = useState(true)
+  const {isSearchModeRecommend, setIsSearchModeRecommend} = useContext(RestaurantContext)
 
   const backgroundImageSearchRef = useRef(null);
   const [backgroundPositionY, setBackgroundPositionY] = useState(
@@ -30,8 +31,9 @@ function SearchResultsPage() {
   }, [backgroundPositionY]);
 
   const changeSearchMode = () => {
-    setIsSearchModeRecommend(!isSearchModeRecommend)
-  }
+    setIsSearchModeRecommend(!isSearchModeRecommend);
+    console.log('after changing search mode in search result page, search mode recommend is', isSearchModeRecommend)
+  };
 
   return (
     <div>

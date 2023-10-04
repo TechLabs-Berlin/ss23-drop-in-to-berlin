@@ -14,3 +14,8 @@ flex-direction: column;
   text-align: center;
   background-color: aquamarine;
 }
+
+.rest-list-headline {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}

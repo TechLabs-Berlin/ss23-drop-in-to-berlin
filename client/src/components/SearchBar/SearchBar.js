@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IoStar, IoSearch } from 'react-icons/io5';
 import Filter from '../../components/Filter/Filter';
@@ -14,6 +14,8 @@ function SearchBar({
   selectedRating,
   setSelectedRating,
   isSearchModeRecommend,
+  isSearchExecuted,
+  setIsSearchExecuted
 }) {
   // state initialized for storing the user's search term, previously managed within SearchBar component
 
@@ -21,21 +23,29 @@ function SearchBar({
 
   const [placeholder, setPlaceholder] = useState('Describe what you love...');
 
-  if (!isSearchModeRecommend && !searchTerm && placeholder === 'Describe what you love...') {
-    setPlaceholder('Enter a restaurant name...');
-  } else if (
-    isSearchModeRecommend && !searchTerm &&
-    placeholder === 'Enter a restaurant name...'
-  ) {
-    setPlaceholder('Describe what you love...');
-  }
+  useEffect(() => {
+    if (isSearchModeRecommend) {
+      setPlaceholder('Write a sentence about what you love...');
+    } else {
+      setPlaceholder('Enter a restaurant name...');
+    }
+  }, [isSearchModeRecommend])
+
 
   const handleSearchClick = () => {
     // use the searchTerm directly to navigate to the SearchResultsPage
     if (searchTerm) {
-      navigate(`/search/${searchTerm}/${selectedRating}/${selectedPrice}`);
+      setIsSearchExecuted(!isSearchExecuted)
+      console.log('after search click, IsSearchExecuted is: ', isSearchExecuted)
+      // navigate(`/search/${searchTerm}/${selectedRating}/${selectedPrice}`);
     } else {
       setPlaceholder('Please enter something to search for...');
+    }
+  };
+
+  const handleEnterPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearchClick();
     }
   };
 
@@ -52,8 +62,9 @@ function SearchBar({
       console.log('Selected price:', selectedPrice);
     } else {
       setSelectedPrice(4);
+      console.log('Selected price not found, used default vaulue of 4');
     }
-    console.log('Selected price not found, used default vaulue of 4');
+    
   };
 
   const handleRatingSelect = (selectedRating) => {
@@ -101,13 +112,15 @@ function SearchBar({
             setSearchTerm={setSearchTerm}
             placeholder={placeholder}
             isSearchModeRecommend={isSearchModeRecommend}
+            handleEnterPress={handleEnterPress}
           />
 
           <Button
             primary
             rounded
             onClick={handleSearchClick}
-            className={'search-button'}>
+            className={'search-button'}
+             >
             <IoSearch size={25} />
           </Button>
         </div>

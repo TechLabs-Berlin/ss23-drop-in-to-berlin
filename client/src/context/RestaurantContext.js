@@ -4,14 +4,14 @@ const RestaurantContext = createContext();
 
 function RestProvider({ children }) {
 
-  const [selectedRestaurant, setSelectedRestaurant] = useState([]);
-  console.log(selectedRestaurant)
-
+  const [isSearchModeRecommend, setIsSearchModeRecommend] = useState(true);
+  const [alreadyFetchedRestaurants, setAlreadyFetchedRestaurants] = useState([])
 
 
   const valuesToShare = {
-    selectedRestaurant,
-    setSelectedRestaurant
+    isSearchModeRecommend,
+    setIsSearchModeRecommend,
+
     
   }
 

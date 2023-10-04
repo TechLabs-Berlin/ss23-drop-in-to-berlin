@@ -2,12 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const generateRandomUserImageURL = require('./util/getRandomImage');
+const bodyParser = require('body-parser');
 
 const app = express();
+
 const dotenv = require('dotenv');
 dotenv.config();
 
 app.use(express.json());
+app.use(bodyParser.json());
 
 
 // Allow requests from the domains
@@ -31,6 +34,7 @@ if (!process.env.DB_URL) {
 
     const Restaurant = require('./models/restDbModel');
 
+
     //fetch restaurants with optional queries of rating, price and limit
     app.get('/restaurants', async (req, res) => {
       try {
@@ -38,7 +42,7 @@ if (!process.env.DB_URL) {
         const priceLevel = parseInt(req.query.price, 10) || 4; // default price: 4
         const limit = parseInt(req.query.limit, 10) || 8; //default limit: 8
         let searchTerm = req.query.term || ''; // default empty
-
+        const excludeIds = req.body.excludeIds || []
         console.log('the server is searching for the term:', searchTerm)
 
         // Check if rating is valid
@@ -50,6 +54,7 @@ if (!process.env.DB_URL) {
                 rating: { $gte: rating },
                 price_level: { $lte: priceLevel },
                 name: { $regex: new RegExp(searchTerm, 'i') },
+                _id: { $nin: excludeIds },
               },
             },
             {
@@ -66,126 +71,9 @@ if (!process.env.DB_URL) {
       }
     });
 
-    /* app.get('/restaurants', async (req, res) => {
-      try {
-        const rating = parseFloat(req.query.rating, 10) || 1; // Default min rating: 1
-        const priceLevel = parseInt(req.query.price, 10) || 4; // Default price: 4
-        const limit = parseInt(req.query.limit, 10) || 8; // Default limit: 8
-        let searchTerm = req.query.term || ''; // Default empty
-          console.log('the server is searhcing for the term:', searchTerm)
-        // Check if rating is valid
-        if (!isNaN(rating, limit, priceLevel)) {
-          // Initialize a list to store the search results
-          let restaurants = [];
-    
-          // Start searching with the full search term
-          while (restaurants.length < limit && searchTerm.length > 0) {
-            const regex = new RegExp(`^${searchTerm}`, 'i');
-    
-            // Use query in query string to find restaurants
-            const results = await Restaurant.aggregate([
-              {
-                $match: {
-                  rating: { $gte: rating },
-                  price_level: { $lte: priceLevel },
-                  name: { $regex: regex },
-                },
-              },
-              {
-                $sample: { size: limit - restaurants.length }, // Adjust the sample size based on remaining results needed
-              },
-            ]);
-    
-            // Add the results to the list
-            restaurants = restaurants.concat(results);
-    
-            // If there are still not enough results, shorten the search term by one character
-            searchTerm = searchTerm.slice(0, -1);
-          }
-    
-          res.json(restaurants);
-        } else {
-          res.status(400).json({ message: 'Invalid query parameters' });
-        }
-      } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Internal Server Error' });
-      }
-    }); */
-    
 
 
 
-
-
-
-
-    // app.get('/restaurants', async (req, res) => {
-    //   try {
-    //     const rating = parseFloat(req.query.rating, 10) || 1; //default min rating: 1
-    //     const priceLevel = parseInt(req.query.price, 10) || 4; // default price: 4
-    //     const limit = parseInt(req.query.limit, 10) || 8;
-    //     const searchTerm = req.query.term || ''; // Get the search term from the query parameters
-
-    //     // Check if rating is valid
-    //     if (!isNaN(rating, limit, priceLevel)) {
-    //       let restaurants = [];
-
-    //       console.log('fetching restaurants in progress')
-
-    //       // Start with the full search term and progressively shorten it
-    //       for (let i = searchTerm.length; i >= 1; i--) {
-    //         console.log('loop')
-
-    //         const substring = searchTerm.slice(0, i); // Get the substring of the search term
-    //         console.log('the substring we search for is:', substring)
-
-    //         restaurants = await Restaurant.aggregate([
-    //           {
-    //             $match: {
-    //               rating: { $gte: rating },
-    //               price_level: { $lte: priceLevel },
-    //               name: { $regex: new RegExp(${substring}, 'i') },
-    //               // name: { $regex: new RegExp(`${searchTerm.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}\\w*\\b`, 'g') },
-    //             },
-    //           },
-    //           {
-    //             $sample: { size: limit },
-    //           },
-    //         ]);
-
-    //         // If there are exact match results, break out of the loop
-    //         if (restaurants.length >= limit) {
-    //           break;
-    //         }
-    //       }
-
-    //       // If no exact matches, do partial search
-    //       if (restaurants.length <= limit) {
-    //         const addedRestaurants = await Restaurant.aggregate([
-    //           {
-    //             $match: {
-    //               rating: { $gte: rating },
-    //               price_level: { $lte: priceLevel },
-    //               name: { $regex: new RegExp(`${searchTerm}`, 'i') }, // Case-insensitive regex search
-    //             },
-    //           },
-    //           {
-    //             $sample: { size: limit - restaurants.length },
-    //           },
-    //         ]);
-    //         restaurants.push(...addedRestaurants)
-    //       }
-
-    //       res.json(restaurants);
-    //     } else {
-    //       res.status(400).json({ message: 'Invalid query parameters' });
-    //     }
-    //   } catch (error) {
-    //     console.error(error);
-    //     res.status(500).json({ message: 'Internal Server Error' });
-    //   }
-    // });
 
 
     // fetch recommended restaurants by their reference
@@ -224,6 +112,7 @@ if (!process.env.DB_URL) {
       }
     });
 
+
     // fetch suggestions from the query search term
     app.get('/suggestions', async (req, res) => {
       const searchTerm = req.query.term;
@@ -237,6 +126,7 @@ if (!process.env.DB_URL) {
         res.status(500).json({ message: 'Internal Server Error' });
       }
     });
+
 
     // Fetch reviews of specific restaurant
     app.get('/api/restaurants/:id/reviews', async (req, res) => {
@@ -254,6 +144,7 @@ if (!process.env.DB_URL) {
         res.status(500).json({ message: 'Internal Server Error' });
       }
     });
+
 
     // Add new review to a restaurant
     app.post('/api/restaurants/:id/new-review', async (req, res) => {
@@ -287,8 +178,8 @@ if (!process.env.DB_URL) {
       }
     });
 
-    // delete review
 
+    // delete review
     app.delete('/api/restaurants/:id/review/:reviewid', async (req, res) => {
       try {
         const deletedReview = await Restaurant.updateOne(
@@ -308,6 +199,11 @@ if (!process.env.DB_URL) {
         res.status(500).json({ message: 'Internal server error' });
       }
     });
+
+
+
+
+
 
     app.listen(3001, () => {
       console.log('Server is running on port 3001');
