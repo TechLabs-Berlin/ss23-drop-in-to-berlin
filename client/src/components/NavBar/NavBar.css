@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 1300px;
   padding: 0.5rem 1rem;
 }
 
@@ -22,9 +23,11 @@
 .logo {
   transition: 0.3s;
   color: var(--prim-900);
+  height: 2rem;
 }
 
 .logo:hover {
   color: var(--prim-700);
-  transform: skewX(5deg);
+  transform: scaleX(105%);
+  cursor: pointer;
 }
