@@ -44,7 +44,7 @@
 
 .accordion-content.open {
   max-height: 500px;
-  padding: 16px;
+  padding: 1.5rem 1rem;
 }
 
 .accordion-content p {
