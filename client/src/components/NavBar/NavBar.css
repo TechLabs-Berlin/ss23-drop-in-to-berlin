@@ -24,6 +24,7 @@
   transition: 0.3s;
   color: var(--prim-900);
   height: 2rem;
+  filter: drop-shadow(1px 1px 16px var(--prim-900-trans));
 }
 
 .logo:hover {
