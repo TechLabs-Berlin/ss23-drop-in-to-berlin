@@ -30,6 +30,8 @@ function RestList({rating, price, limit, term, setTerm, isSearchExecuted, setIsS
       console.error('RestList error:',error);
     }
   };
+
+  
   
   // added to exisitng list
   const fetchMoreRestaurants = async (rat, pr, lim, ter ) => {

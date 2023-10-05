@@ -24,7 +24,7 @@ function RestDetails() {
       setSelectedRestaurant(response.data);
     } catch (error) {
 
-      console.error("das ist der error:", error);
+      console.error("Das ist der error:", error);
     }
   };
   
