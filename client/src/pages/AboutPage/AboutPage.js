@@ -116,16 +116,15 @@ const AboutPage = () => {
           <div className='team-section'>{renderedProfiles}</div>
         </section>
 
-        <section>
+        
+      </div>
+      <section className='about-footer'>
           <h2>Acknowledgements</h2>
           <p>
             Thanks to <a href=''> Techlabs Berlin</a>
           </p>
-          And Our Mentors Rashmi Carol Dsouza & Andrés Castañeda
+          and our mentors Rashmi Carol Dsouza & Andrés Castañeda
         </section>
-
-        <section></section>
-      </div>
     </div>
   );
 };

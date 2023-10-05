@@ -12,7 +12,7 @@
 .dropdown-button {
   position: relative;
   width: 8rem;
-  color: var(--grey-900);
+  color: var(--grey-700);
   padding: 10px 25px;
   cursor: pointer;
   display: flex;
@@ -55,7 +55,7 @@
   display: block;
   width: 100%;
   background-color: transparent;
-  color: var(--grey-900);
+  color: var(--grey-700);
   padding: 8px 16px;
   border: none;
   text-align: left;
@@ -117,3 +117,4 @@ h1 {
     border: none;
     cursor: pointer;
 }
+

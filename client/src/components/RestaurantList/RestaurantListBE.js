@@ -22,7 +22,7 @@ function RestList({rating, price, limit, term, setTerm, isSearchExecuted, setIsS
       setDisplayedRestaurants(response.data);
       setIsSearchExecuted(false)
       setLastSearchTerm(term)
-      lastSearchTerm ? setRestListHeadline(`Some restaurants featuring "${lastSearchTerm}"`) : setRestListHeadline(`Here are some great restaurants`) ;
+      lastSearchTerm ? setRestListHeadline(`Some restaurants featuring "${lastSearchTerm}":`) : setRestListHeadline(`Some great restaurants from around the city:`) ;
       console.log(`the parameters to send are: rating:${rat}, price:${pr}, limit:${lim}, term${ter}` )
       setTerm('')
       console.log('after request, IsSearchExecuted is: ', isSearchExecuted)
@@ -119,7 +119,7 @@ useEffect(() => {
       {renderedList.length > 0 ? renderedList : "Loading..."}
       
     </div>
-    <Button secondary onClick={() => fetchMoreRestaurants(rating, price, limit, lastSearchTerm)} className={"show-more-restaurants"}>Show more Restaurants</Button>
+    <button onClick={() => fetchMoreRestaurants(rating, price, limit, lastSearchTerm)} className={"show-more-restaurants"}>Show more Restaurants</button>
     
     </div>
     </div>

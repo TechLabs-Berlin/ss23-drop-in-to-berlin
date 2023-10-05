@@ -10,12 +10,21 @@ flex-direction: column;
 }
 
 .show-more-restaurants {
-  max-width: 20rem;
+  max-width: 16.6rem;
   text-align: center;
-  background-color: aquamarine;
+  /* background-color: var(--prim-100); */
+  border: 1px solid var(--prim-700);
+  border-radius: 0.5rem;
+  color: var(--prim-500);
+  background-color: var(--prim-50);
+  margin: 1rem 0.5rem;
+  padding: 0.5rem;
 }
 
 .rest-list-headline {
   font-size: 1.3rem;
-  margin-bottom: 0.8rem;
+  font-weight: 300;
+  margin-bottom: 0.3rem;
+  margin-left: 0.5rem;
+  color: var(--grey-700);
 }

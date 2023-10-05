@@ -30,7 +30,7 @@ function Filter({
         </button>
         <div className="dropdown-content" style={{ display: showDropdown ? 'block' : 'none' }}>
           {options.map((option, index) => (
-            <button key={index} onClick={() => handleSelection(option)}>
+            <button key={index} className ="filter-option-button" onClick={() => handleSelection(option)}>
               {renderOption(option)}
             </button>
           ))}
