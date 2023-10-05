@@ -10,7 +10,7 @@ const AboutPage = () => {
   const accordionSections = [
     {
       label: 'How it Works?',
-      content: "Simply describe the type of restaurant you're looking for in the provided search field. Share your preferences by specifying its characteristics such as cuisine type,  ambiance or any other specific details you have in mind. Once you've described your desired restaurant, our recommendation system will work its magic, delivering personalized suggestions finely tuned to your description. Find your ideal dining spot with ease and enjoy a dining experience that matches your tastes"
+      content: "Simply describe the type of restaurant you're looking for in the provided search field. Share your preferences by specifying its characteristics such as cuisine type,  ambiance or any other specific details you have in mind. The longer and detailed, the better. Once you've described your desired restaurant, our recommendation system will work its magic, delivering personalized suggestions finely tuned to your description. Find your ideal dining spot with ease and enjoy a dining experience that matches your tastes"
     },
     {
       label: 'How We Started?',
@@ -19,6 +19,10 @@ const AboutPage = () => {
     {
       label: 'Why Choose Us?',
       content: 'Our unique approach uses natural language processing for a highly personalized experience.'
+    },
+    {
+      label: 'Future Potentials',
+        content: `This app could expand to other cities and include more features like table booking, location search, or mutiple recommendtion types.`
     }
   ];
 
@@ -52,8 +56,7 @@ const AboutPage = () => {
       </section>
       
       <section>
-        <h2>Future Plans</h2>
-        <p>We're planning to expand our service to other cities and include more features.</p>
+        
       </section>
     </div>
   );
