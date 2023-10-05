@@ -17,7 +17,7 @@
   padding: 16px;
   width: 100%;
   text-align: center;
-  font-size: 16px;
+  font-size: 1.2rem;
   transition: background 0.3s ease;
   display: flex;
   justify-content: space-between;
@@ -35,7 +35,7 @@
 }
 
 .accordion-content {
-  background: #f9f9f9;
+  background: var(--prim-50);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
@@ -50,8 +50,15 @@
 .accordion-content p {
   margin: 0;
   padding: 8px 0;
+  font-weight: 300;
+  font-size: 1.1rem;
 }
 
 .accordion-button.open:after {
   transform: rotate(45deg);
+}
+
+.accordion-chevron {
+  font-size: 2rem;
+  color: var(--prim-500)
 }

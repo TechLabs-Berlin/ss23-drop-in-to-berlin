@@ -1,8 +1,12 @@
 import './NavBar.css'
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from '../../logo/logo-simple-text-small.svg'
 
 function NavBar () {
+  const location = useLocation();
+
+
+
   return (
     <div className="nav-bar">
       <Link to={'/'}>
@@ -10,7 +14,6 @@ function NavBar () {
       </Link>
       <div>
         <Link to={'/about'} className="nav-item">About</Link>
-        <Link to={'/contact'} className="nav-item">Contact</Link>
       </div>
     </div>
   )
