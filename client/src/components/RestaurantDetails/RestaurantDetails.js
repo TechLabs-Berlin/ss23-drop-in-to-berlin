@@ -20,7 +20,7 @@ function RestDetails() {
   const getSelectedRestaurant = async (selectedId ) => {
     try {
       console.log("Fetching new restaurant data with id:", selectedId)
-      const response = await axios.get(`http://localhost:3001/restaurants/${selectedId}`);
+      const response = await axios.get(`https://berlin-bites-backend.onrender.com/restaurants/${selectedId}`);
       setSelectedRestaurant(response.data);
     } catch (error) {
 

@@ -18,7 +18,7 @@ function RestList({rating, price, limit, term, setTerm, isSearchExecuted, setIsS
   const fetchRestaurants = async (rat, pr, lim, ter ) => {
     try {
       console.log(`the parameters to send are: rating:${rat}, price:${pr}, limit:${lim}, term${ter}` )
-      const response = await axios.get(`http://localhost:3001/restaurants?&rating=${rat}&price=${pr}&limit=${lim}&term=${ter}`);
+      const response = await axios.get(`https://berlin-bites-backend.onrender.com/restaurants?&rating=${rat}&price=${pr}&limit=${lim}&term=${ter}`);
       setDisplayedRestaurants(response.data);
       setIsSearchExecuted(false)
       setLastSearchTerm(term)
@@ -35,7 +35,7 @@ function RestList({rating, price, limit, term, setTerm, isSearchExecuted, setIsS
   const fetchMoreRestaurants = async (rat, pr, lim, ter ) => {
     try {
       console.log('before fetching more restaurants, last search term is:', ter)
-      const response = await axios.get(`http://localhost:3001/restaurants?&rating=${rat}&price=${pr}&limit=${lim}&term=${ter}`);
+      const response = await axios.get(`https://berlin-bites-backend.onrender.com/restaurants?&rating=${rat}&price=${pr}&limit=${lim}&term=${ter}`);
       setDisplayedRestaurants([...displayedRestaurants, ...response.data]);
       console.log('fetching more restaurants with last search term:', ter)
       setIsSearchExecuted(false)
@@ -68,7 +68,7 @@ function RestList({rating, price, limit, term, setTerm, isSearchExecuted, setIsS
 
       const restaurantReferences = recommenderResponse.data.recommendations;
 
-      const databaseResponse = await axios.get(`http://localhost:3001/restaurants/recommendations`, {restaurantReferences});
+      const databaseResponse = await axios.get(`https://berlin-bites-backend.onrender.com/restaurants/recommendations`, {restaurantReferences});
 
       setDisplayedRestaurants([...displayedRestaurants, ...databaseResponse.data]);
       setIsSearchExecuted(false)

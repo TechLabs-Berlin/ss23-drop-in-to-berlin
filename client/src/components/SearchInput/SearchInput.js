@@ -25,7 +25,7 @@ function SearchInput({
   const handleSearchChange = async (searchTerm) => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/suggestions?term=${searchTerm}`
+        `https://berlin-bites-backend.onrender.com/suggestions?term=${searchTerm}`
       );
       const restaurantNames = response.data.map((item, index) => ({
         key: index,

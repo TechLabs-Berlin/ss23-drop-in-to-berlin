@@ -24,7 +24,7 @@ function UserReview ({_id, isReviewSubmitted, setIsReviewSubmitted, onReviewAdde
     };
 
     try {
-      const response = await axios.post(`http://localhost:3001/api/restaurants/${_id}/new-review`, newReview);
+      const response = await axios.post(`https://berlin-bites-backend.onrender.com/api/restaurants/${_id}/new-review`, newReview);
   
       if (response.status === 201) {
         // Review successfully posted, you can handle success here

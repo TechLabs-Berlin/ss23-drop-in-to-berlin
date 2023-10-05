@@ -25,7 +25,7 @@ function ReviewCard({review, _id, renderedReviewCards, setRenderedReviewCards, o
   const handleReviewDelete = async () => {
     try {
       console.log(`The restaurant ID is: ${_id}, the review ID is: ${review._id}`);
-      const response = await axios.delete(`http://localhost:3001/api/restaurants/${_id}/review/${review._id}`, review);
+      const response = await axios.delete(`https://berlin-bites-backend.onrender.com/api/restaurants/${_id}/review/${review._id}`, review);
   
       onReviewAdded()
 
