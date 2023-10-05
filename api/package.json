@@ -2,7 +2,6 @@
   "name": "api",
   "version": "1.0.0",
   "main": "server.js",
-  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -17,7 +16,6 @@
   },
   "scripts": {
     "start": "node server.js",
-    "build": "npm build"
+    "build": "npm run build"
   }
-  
 }
