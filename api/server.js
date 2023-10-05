@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 // Allow requests from the domains
 const corsOptions = {
-  origin: ['https://phylanx.pythonanywhere.com', 'http://localhost:3000'], 
+  origin: ['https://phylanx.pythonanywhere.com', 'http://localhost:3000', 'https://berlin-bites-frontend.onrender.com'], 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 };
