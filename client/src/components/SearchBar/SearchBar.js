@@ -36,7 +36,7 @@ function SearchBar({
     // use the searchTerm directly to navigate to the SearchResultsPage
     if (searchTerm) {
       setIsSearchExecuted(!isSearchExecuted)
-      console.log('after search click, IsSearchExecuted is: ', isSearchExecuted)
+      console.log('After search click, IsSearchExecuted: ', isSearchExecuted)
       // navigate(`/search/${searchTerm}/${selectedRating}/${selectedPrice}`);
     } else {
       setPlaceholder('Please enter something to search for...');
@@ -81,7 +81,7 @@ function SearchBar({
   };
 
 
-  console.log('the search bar state of search term is:', searchTerm)
+  console.log('Search Bar, search term:', searchTerm)
 
   return (
     <div>

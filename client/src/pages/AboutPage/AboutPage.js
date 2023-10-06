@@ -4,8 +4,9 @@ import './AboutPage.css';
 import { useState, useRef, useEffect } from 'react';
 import leoImage from './images/leo.jpg';
 import olimpiyaImage from './images/olimpiya.jpg';
-import felixImage from './images/felix.png';
-import pratimaImage from './images/pratima.png';
+import kristinaImage from './images/kristina.jpg';
+import felixImage from './images/felix.jpg';
+import pratimaImage from './images/pratima.jpg';
 import NavBar from '../../components/NavBar/NavBar.js';
 
 const AboutPage = () => {
@@ -73,8 +74,8 @@ const AboutPage = () => {
     {
       name: 'Kristina',
       role: 'UX Design',
-      image: '',
-      github: '',
+      image: kristinaImage,
+      linkedin:'www.linkedin.com/in/kristina-ferencak',
     },
   ];
 

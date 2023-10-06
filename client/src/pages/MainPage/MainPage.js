@@ -15,7 +15,7 @@ function MainPage() {
     useState('calc(50% - 2rem)');
   const {isSearchModeRecommend, setIsSearchModeRecommend} = useContext(RestaurantContext)
 
-  console.log('the main page state of search term is:', searchTerm)
+  console.log('Main page, Search Term:', searchTerm)
   console.log('Main page, Selected rating:', selectedRating);
   console.log('Main page, Selected price:', selectedPrice);
 
@@ -40,7 +40,7 @@ function MainPage() {
     console.log('UseEffect says isSearchModeRecommend is', isSearchModeRecommend)
   },[isSearchModeRecommend])
 
-  console.log('on main page, isSearchModeRecommend is', isSearchModeRecommend)
+  console.log('Main page, isSearchModeRecommend is:', isSearchModeRecommend)
   return (
     <div>
       <section
@@ -80,7 +80,7 @@ function MainPage() {
             isSearchExecuted={isSearchExecuted}
             setIsSearchExecuted={setIsSearchExecuted}
     
-            limit={4}
+            limit={8}
           />
         </div>
       </section>
