@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 // Allow requests from the domains
 const corsOptions = {
-  origin: ['https://phylanx.pythonanywhere.com', 'http://localhost:3000', 'https://berlin-bites-frontend.onrender.com'], 
+  origin: ['https://phylanx.pythonanywhere.com', 'http://localhost:3000','http://localhost:3001', 'https://berlin-bites-frontend.onrender.com'], 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 };
@@ -77,10 +77,15 @@ if (!process.env.DB_URL) {
 
 
     // fetch recommended restaurants by their reference
-    app.get('/restaurants/recommendations', async (req, res) => {
+    app.post('/restaurants/recommendations', async (req, res) => {
       try {
 
-        const restaurantReferences = req.body.restaurantReferences
+        console.log('starting to process references, given by recommender')
+        const restaurantReferences = req.body.data.restaurantReferences
+        console.log('the restaurant references are', restaurantReferences)
+        if (!restaurantReferences) {
+          return res.status(400).json({ message: 'Missing restaurantReferences parameter' });
+        }
         const restaurants = await Restaurant.find({ reference: { $in: restaurantReferences } });
 
         if (!restaurants) {
