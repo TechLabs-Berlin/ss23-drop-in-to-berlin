@@ -19,7 +19,7 @@ function RestDetails() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    // Reset the selectedImage when the restaurant ID changes
+    // reset the selectedImage when the restaurant ID changes
     setSelectedImage(null);
   }, [id]);
 
@@ -27,7 +27,7 @@ function RestDetails() {
     return <div>Loading...</div>;
   }
 
-  //find the restaurant that matches the id from the reqest params
+  //find the restaurant that matches the id from the request params
   const rest = restaurants.find((r) => r.reference === id);
 
   if (!rest) {
@@ -52,7 +52,6 @@ function RestDetails() {
   return (
     <div className='rest-details'>
       <div className='left-section'>        
-        {/* Main Image */}
         {mainImageUrl ? (
           <img
             src={mainImageUrl}
@@ -60,8 +59,7 @@ function RestDetails() {
             className='details-main-img'
           />
         ) : null}
-        
-        {/* Gallery of Images */}
+
         <div className='details-small-imgs'>
           {rest.photos && rest.photos.length > 1
             ? rest.photos
@@ -77,7 +75,6 @@ function RestDetails() {
                 ))
             : null}
         </div>
-        
        <div className="map-wrapper">
         <CityMap
           lat={rest.geometry.location.lat}
@@ -85,17 +82,14 @@ function RestDetails() {
         />
       </div>
       </div>
-      
       <div className='right-section'>
-      <h1 className='details-name'>{rest.name}</h1>  {/* Moved here */}
-        {/* Restaurant Details */}
+      <h1 className='details-name'>{rest.name}</h1>
         <section className='info-section'>
           <div className='tags-and-rating'>
             <ul className='tags'>
               <li className='tag'>Vegetarian</li>
               <li className='tag'>Pet friendly</li>
             </ul>
-            {/* Rating */}
             <div className='rating-block'>
               <div className='existing-rating'>
                 <IoStar size='1.3rem' />
@@ -103,7 +97,6 @@ function RestDetails() {
               </div>
             </div>
           </div>
-          {/* Location, Contact, Price */}
           <div className='loc-contact-price'>
             <div className='details-lcp'>
               <IoLocation size='1.3rem' />
@@ -119,8 +112,6 @@ function RestDetails() {
             </div>
           </div>
         </section>
-        
-        {/* Reviews */}
         <div className='reviews'>
           <ReviewList key={`${rest.reference}-review`} reviews={rest.reviews} />
         </div>
