@@ -7,10 +7,14 @@ function DetailsPage() {
 return(
   <div>
     <NavBar/>
-    <RestDetails className="rendererd-details-on-details-page"/>
-    <RestList className="rest-list-details-page" />
-  </div>
-)
+    <div className="rendered-details-on-details-page">
+        <RestDetails />
+      </div>
+      <div className="rest-list-details-page">
+        <RestList />
+      </div>
+    </div>
+  )
 }
 
-export default DetailsPage
+export default DetailsPage;
