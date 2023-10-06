@@ -59,7 +59,6 @@ function RestDetails() {
             className='details-main-img'
           />
         ) : null}
-
         <div className='details-small-imgs'>
           {rest.photos && rest.photos.length > 1
             ? rest.photos
