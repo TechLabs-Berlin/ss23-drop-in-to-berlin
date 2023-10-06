@@ -1,5 +1,5 @@
 import './RestaurantDetails.css';
-import { useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import RestaurantContext from '../../context/RestaurantContext';
 import {
@@ -16,6 +16,12 @@ import ReviewList from '../ReviewsList/ReviewsList';
 function RestDetails() {
   const { id } = useParams();
   const { restaurants } = useContext(RestaurantContext);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  useEffect(() => {
+    // Reset the selectedImage when the restaurant ID changes
+    setSelectedImage(null);
+  }, [id]);
 
   if (restaurants.length === 0) {
     return <div>Loading...</div>;
@@ -28,8 +34,7 @@ function RestDetails() {
     return <div>Restaurant not found.</div>;
   }
 
-  const mainImageUrl =
-    rest.photos && rest.photos.length > 0 ? rest.photos[0].imageURL : null;
+  const mainImageUrl = selectedImage || (rest.photos && rest.photos.length > 0 ? rest.photos[0].imageURL : null);
 
   let detailsPrice = '?';
   if (rest.price_level === 1) {
@@ -46,22 +51,59 @@ function RestDetails() {
 
   return (
     <div className='rest-details'>
-      <div className='details-line-container'>
-        <h1 className='details-name'>{rest.name}</h1>
+      <div className='left-section'>        
+        {/* Main Image */}
+        {mainImageUrl ? (
+          <img
+            src={mainImageUrl}
+            alt={rest.name}
+            className='details-main-img'
+          />
+        ) : null}
+        
+        {/* Gallery of Images */}
+        <div className='details-small-imgs'>
+          {rest.photos && rest.photos.length > 1
+            ? rest.photos
+                .slice(1, 5)
+                .map((photo, index) => (
+                  <img
+                    key={index}
+                    src={photo.imageURL}
+                    alt={rest.name}
+                    className='details-small-img'
+                    onClick={() => setSelectedImage(photo.imageURL)}
+                    />
+                ))
+            : null}
+        </div>
+        
+       <div className="map-wrapper">
+        <CityMap
+          lat={rest.geometry.location.lat}
+          lng={rest.geometry.location.lng}
+        />
+      </div>
+      </div>
+      
+      <div className='right-section'>
+      <h1 className='details-name'>{rest.name}</h1>  {/* Moved here */}
+        {/* Restaurant Details */}
         <section className='info-section'>
           <div className='tags-and-rating'>
             <ul className='tags'>
               <li className='tag'>Vegetarian</li>
               <li className='tag'>Pet friendly</li>
             </ul>
+            {/* Rating */}
             <div className='rating-block'>
               <div className='existing-rating'>
                 <IoStar size='1.3rem' />
                 {rest.rating}
               </div>
-              <div className='rating-stars'>{/* <StarRating /> */}</div>
             </div>
           </div>
+          {/* Location, Contact, Price */}
           <div className='loc-contact-price'>
             <div className='details-lcp'>
               <IoLocation size='1.3rem' />
@@ -77,38 +119,12 @@ function RestDetails() {
             </div>
           </div>
         </section>
-        <section className='img-section'>
-          {mainImageUrl ? (
-            <img
-              src={mainImageUrl}
-              alt={rest.name}
-              className='details-main-img'
-            />
-          ) : null}
-          <div className='details-small-imgs'>
-            {/*  mapping over the photos array, if it exists */}
-            {rest.photos && rest.photos.length > 1
-              ? rest.photos
-                  .slice(1, 5)
-                  .map((photo, index) => (
-                    <img
-                      key={index}
-                      src={photo.imageURL}
-                      alt={rest.name}
-                      className='details-small-img'
-                    />
-                  ))
-              : null}
-          </div>
-        </section>
+        
+        {/* Reviews */}
+        <div className='reviews'>
+          <ReviewList key={`${rest.reference}-review`} reviews={rest.reviews} />
+        </div>
       </div>
-      { <CityMap
-        lat={rest.geometry.location.lat}
-        lng={rest.geometry.location.lng}
-      /> }
-      <section className='reviews-section'>
-        <ReviewList key={`${rest.reference}-review`} reviews={rest.reviews} />
-      </section>
     </div>
   );
 }
