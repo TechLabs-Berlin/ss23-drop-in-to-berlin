@@ -5,10 +5,6 @@ import L from 'leaflet';
 function CityMap({ lat, lng }) {
   const mapRef = useRef(null);
 
-
-  //please add comments to every step of the map thing 
-  // its not possible to understand whats happening
-
   useEffect(() => {
     const map = L.map(mapRef.current).setView([lat, lng], 15);
 
@@ -24,4 +20,4 @@ function CityMap({ lat, lng }) {
   <div ref={mapRef} className='city-map'></div>);
 }
 
-export default CityMap
+export default CityMap;

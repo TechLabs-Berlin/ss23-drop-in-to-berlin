@@ -10,7 +10,6 @@ function NavBar () {
       </Link>
       <div>
         <Link to={'/about'} className="nav-item">About</Link>
-        <Link to={'/contact'} className="nav-item">Contact</Link>
       </div>
     </div>
   )
