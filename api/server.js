@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const generateRandomUserImageURL = require('./util/getRandomImage');
-const bodyParser = require('body-parser');
+const getCurrentTime = require('./util/getCurrentTime')
 
 const app = express();
 
@@ -10,7 +10,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 app.use(express.json());
-app.use(bodyParser.json());
+
 
 
 // Allow requests from the domains
@@ -43,7 +43,7 @@ if (!process.env.DB_URL) {
         const limit = parseInt(req.query.limit, 10) || 8; //default limit: 8
         let searchTerm = req.query.term || ''; // default empty
         const excludeIds = req.body.excludeIds || []
-        console.log('the server is searching for the term:', searchTerm)
+        console.log(getCurrentTime(), 'The server is searching for the term:', searchTerm)
 
         // Check if rating is valid
         if (!isNaN(rating, limit, priceLevel)) {
@@ -80,9 +80,8 @@ if (!process.env.DB_URL) {
     app.post('/restaurants/recommendations', async (req, res) => {
       try {
 
-        console.log('starting to process references, given by recommender')
+        console.log(getCurrentTime(), ' starting to process references, given by recommender')
         const restaurantReferences = req.body.data.restaurantReferences
-        console.log('the restaurant references are', restaurantReferences)
         if (!restaurantReferences) {
           return res.status(400).json({ message: 'Missing restaurantReferences parameter' });
         }
@@ -91,7 +90,7 @@ if (!process.env.DB_URL) {
         if (!restaurants) {
           return res.status(404).json({ message: 'Restaurants not found' });
         }
-        console.log('found the recommended restaurants, the references are:', restaurantReferences)
+        console.log(getCurrentTime(),' found the recommended restaurants, the references are:', restaurantReferences)
         res.json(restaurants);
       } catch (error) {
         console.error(error);
@@ -211,7 +210,7 @@ if (!process.env.DB_URL) {
 
 
     app.listen(3001, () => {
-      console.log('Server is running on port 3001');
+      console.log(getCurrentTime(), ' Server is running on port 3001');
     });
   } catch (error) {
     console.error('Error connecting to the database from server.js:', error);

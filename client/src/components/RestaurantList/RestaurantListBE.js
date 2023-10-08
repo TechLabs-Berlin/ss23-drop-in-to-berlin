@@ -30,16 +30,19 @@ function RestList({
       const response = await axios.get(
         `https://berlin-bites-backend.onrender.com/restaurants?&rating=${rat}&price=${pr}&limit=${lim}&term=${ter}`
       );
-      setDisplayedRestaurants(response.data);
-      setIsSearchExecuted(false);
-      setLastSearchTerm(term);
+      await setDisplayedRestaurants(response.data);
+      console.log(
+        'new displayed restaurants are:',
+        displayedRestaurants, 'search term was:', term)
+      await setIsSearchExecuted(false);
+      await setLastSearchTerm(term);
       lastSearchTerm
         ? setRestListHeadline(`Some restaurants featuring "${lastSearchTerm}":`)
         : setRestListHeadline(`Some great restaurants from around the city:`);
       console.log(
         `the parameters to send are: rating:${rat}, price:${pr}, limit:${lim}, term${ter}`
       );
-      setTerm('');
+      await setTerm('');
       console.log('after request, IsSearchExecuted is: ', isSearchExecuted);
     } catch (error) {
       console.error('RestList error:', error);
@@ -88,9 +91,10 @@ function RestList({
             },
           }
         );
-        console.log('Recommender response is', recommenderResponse);
         const restaurantReferences = recommenderResponse.data.recommendations;
         console.log('Recommender response data is', restaurantReferences);
+
+          //only start fetching from databae, when first request is done
 
         if (restaurantReferences && restaurantReferences.length > 0) {
           const databaseResponse = await axios.post(
@@ -98,10 +102,16 @@ function RestList({
             { data: { restaurantReferences } }
           );
           console.log(
-            'database response, to recommender request is:',
-            databaseResponse
+            'database response.data, to recommender request is:',
+            databaseResponse.data
           );
-          await setDisplayedRestaurants(databaseResponse.data);
+          console.log(
+            'old displayed restaurants are:',
+            displayedRestaurants)
+            await setDisplayedRestaurants(databaseResponse.data, () => {
+              console.log('new displayed restaurants are:', displayedRestaurants, 'search term was:', term);
+            });
+          
           await setIsSearchExecuted(false);
           await setLastSearchTerm(term);
           await setRestListHeadline(`You like ${term} ? Then we recommend you:`);
@@ -137,7 +147,7 @@ function RestList({
 
   useEffect(() => {
     console.log(
-      'Rest List, isSearchModeRecommend: ',
+      'Rest List, use effect is triggered, to fetch restaurants / recommendations. isSearchModeRecommend: ',
       isSearchModeRecommend, 'isSearchExecuted: ', isSearchExecuted
     );
 
@@ -145,14 +155,14 @@ function RestList({
       fetchRecommendations(
         rating,
         price,
-        lastSearchTerm ? lastSearchTerm : term
+        term ? term : lastSearchTerm
       );
     } else if (!isSearchModeRecommend && isSearchExecuted) {
       fetchRestaurants(
         rating,
         price,
         limit,
-        lastSearchTerm ? lastSearchTerm : term
+        term ? term : lastSearchTerm
       );
     }
     console.log(
@@ -161,10 +171,14 @@ function RestList({
     );
   }, [isSearchExecuted]);
 
+
   if (displayedRestaurants.length > 0) {
     const renderedList = displayedRestaurants.map((rest) => {
       return <RestCard key={`${rest.reference}-rest-card`} rest={rest} />;
     });
+
+
+    
     return (
       <div>
         <h2 className='rest-list-headline'>{restListHeadline}</h2>
@@ -174,7 +188,7 @@ function RestList({
           </div>
           <button
             onClick={() =>
-              fetchMoreRestaurants(rating, price, limit, lastSearchTerm)
+              fetchMoreRestaurants(rating, price, limit, term? term :lastSearchTerm)
             }
             className={'show-more-restaurants'}>
             Show more Restaurants
