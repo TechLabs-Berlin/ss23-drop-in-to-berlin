@@ -98,7 +98,7 @@ function RestList({
 
         if (restaurantReferences && restaurantReferences.length > 0) {
           const databaseResponse = await axios.post(
-            `http://localhost:3001/restaurants/recommendations`,
+            `https://berlin-bites-backend.onrender.com/restaurants/recommendations`,
             { data: { restaurantReferences } }
           );
           console.log(

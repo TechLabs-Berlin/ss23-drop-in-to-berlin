@@ -28,7 +28,7 @@
 position: absolute;
 padding: 0.3rem;
 left: 16.8rem;
-font: 500 0.8rem "Space Grotesk";
+font: 500 1rem "Space Grotesk";
 color: var(--prim-500);
 transition: 0.5s;
 }
