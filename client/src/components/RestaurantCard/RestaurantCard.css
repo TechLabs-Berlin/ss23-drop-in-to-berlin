@@ -23,6 +23,24 @@
   cursor: pointer;
 }
 
+.card:hover .rest-card-tooltip {
+  /* display: block; */
+  opacity: 1;
+  transition: opacity 2s;
+}
+
+.rest-card-tooltip {
+  position: absolute;
+  width: 100%;
+  background-color: #274152b1;
+  color: #fff;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+
 .card-img {
   object-fit: cover;
   width: 100%;
