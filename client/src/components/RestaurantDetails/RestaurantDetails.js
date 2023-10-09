@@ -24,6 +24,7 @@ function RestDetails() {
       console.log("Fetching new restaurant data with id:", selectedId)
       const response = await axios.get(`https://berlin-bites-backend.onrender.com/restaurants/${selectedId}`);
       setSelectedRestaurant(response.data);
+      console.log('the data of the selected restaurant is:', selectedRestaurant)
     } catch (error) {
 
       console.error("Das ist der error:", error);
