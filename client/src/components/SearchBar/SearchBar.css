@@ -28,3 +28,8 @@
   border-left: 0.5rem solid var(--prim-500);
   border-color: var(--prim-500);
 }
+
+.rating-filter-stars{
+  font-size: 1.3rem;
+
+}

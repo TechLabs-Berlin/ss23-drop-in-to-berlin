@@ -50,8 +50,7 @@ function RestDetails() {
     console.log("das ist das restaurant", rest)
 
 
-    const mainImageUrl =
-      rest.photos && rest.photos.length > 0 ? rest.photos[0].imageURL : null;
+    const mainImageUrl = selectedImage || (rest.photos && rest.photos.length > 0 ? rest.photos[0].imageURL : null);
 
   let detailsPrice = '?';
   if (rest.price_level === 1) {

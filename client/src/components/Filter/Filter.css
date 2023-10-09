@@ -41,6 +41,7 @@
 }
 
 .dropdown-content {
+  font-size: 1.1rem;
     position: absolute;
     background-color: var(--grey-50-trans); 
     width: 8rem;

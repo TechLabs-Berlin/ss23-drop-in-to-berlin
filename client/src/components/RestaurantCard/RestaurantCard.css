@@ -34,6 +34,8 @@
   width: 100%;
   background-color: #04445ba9;
   color: #fff;
+  font-size: 1.2rem;
+  font-weight: 300;
   padding: 0.4rem 0.6rem;
   border-radius: 4px;
   opacity: 0;
@@ -73,12 +75,13 @@
   display: flex;
   align-items: center;
   gap: 0.3rem;
+  font-size: 1.1rem;
   font-weight: 300;
   margin-left: 0.5rem;
 }
 
 .card-price {
-  font: 300 0.8rem "Space Grotesk";
+  font: 300 0.95rem "Space Grotesk";
   letter-spacing: 0.2rem;
   background-color: var(--grey-100);
   padding: 0.2rem 0.7rem;
@@ -87,7 +90,7 @@
 }
 
 .card-name {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 500;
   color: var(--prim-500); 
 }
@@ -108,7 +111,7 @@
 }
 
 .card-descr {
-  font: italic 300 1rem "Space Grotesk" ;
+  font: normal 300 1.15rem "Space Grotesk" ;
   color: var(--grey-700);
   padding: 0.7rem 0; 
   font-style: italic;

@@ -10,7 +10,8 @@ flex-direction: column;
 }
 
 .show-more-restaurants {
-  max-width: 16.6rem;
+  max-width: 300px;
+  font-size: 1.1rem;
   text-align: center;
   /* background-color: var(--prim-100); */
   border: 1px solid var(--prim-700);
@@ -22,7 +23,8 @@ flex-direction: column;
 }
 
 .rest-list-headline {
-  font-size: 1.2rem;
+  max-width: 1270px;
+  font-size: 1.4rem;
   font-weight: 300;
   margin-bottom: 0.3rem;
   margin-left: 0.5rem;

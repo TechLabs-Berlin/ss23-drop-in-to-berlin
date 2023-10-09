@@ -75,7 +75,7 @@ function SearchBar({
   const renderStars = (num) => {
     let stars = [];
     for (let i = 0; i < num; i++) {
-      stars.push(<IoStar key={i} />);
+      stars.push(<IoStar key={i} className='rating-filter-stars' />);
     }
     return <div className='star-wrapper'>{stars}</div>;
   };
