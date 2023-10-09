@@ -111,10 +111,9 @@
 }
 
 .card-descr {
-  font: normal 300 1.15rem "Space Grotesk" ;
+  font: 300 1.1rem "Space Grotesk" ;
   color: var(--grey-700);
   padding: 0.7rem 0; 
-  font-style: italic;
   overflow: hidden;
   text-overflow: ellipsis;
 }

@@ -11,7 +11,7 @@
 
 .nav-item {
   margin: 0 1rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   transition: 0.3s;
   text-decoration: none;
   color: var(--prim-900);
@@ -24,7 +24,7 @@
 .logo {
   transition: 0.3s;
   color: var(--prim-900);
-  height: 2rem;
+  height: 2.3rem;
   margin-left: 1rem;
 }
 

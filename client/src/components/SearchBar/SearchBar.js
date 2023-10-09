@@ -45,6 +45,7 @@ function SearchBar({
 
   const handleEnterPress = (e) => {
     if (e.key === 'Enter') {
+      console.log('handle enterPress triggered')
       handleSearchClick();
     }
   };

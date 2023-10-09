@@ -32,13 +32,14 @@ function RestList({
       );
       await setDisplayedRestaurants(response.data);
       console.log(
+        'the response to fetching restaurants is: ', response,
         'new displayed restaurants are:',
         displayedRestaurants, 'search term was:', term)
       await setIsSearchExecuted(false);
       await setLastSearchTerm(term);
-      lastSearchTerm
-        ? setRestListHeadline(`Some restaurants featuring "${lastSearchTerm}":`)
-        : setRestListHeadline(`Some great restaurants from around the city:`);
+      term
+        ? await setRestListHeadline(`Some restaurants featuring "${term}":`)
+        : await setRestListHeadline(`Some great restaurants from around the city:`);
       console.log(
         `the parameters to send are: rating:${rat}, price:${pr}, limit:${lim}, term${ter}`
       );

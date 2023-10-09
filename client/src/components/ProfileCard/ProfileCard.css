@@ -1,7 +1,7 @@
 .profile-card {
-  flex: 0 0 calc(33.3333% - 20px);
+  flex: 0 0 calc(33.3333% - 50px);
   margin: 0.5rem;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem;
   
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 1.5rem;
@@ -39,12 +39,12 @@
 .team-profile-name{
   margin-top: 0.5rem ;
   color: var(--prim-700);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
 .team-profile-role{
   color: var(--grey-700);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   
 }
 
@@ -62,5 +62,5 @@
 
 .company-icons{
   margin-top: 0.5rem;
-  font-size: 1.7rem;
+  font-size: 2rem;
 }

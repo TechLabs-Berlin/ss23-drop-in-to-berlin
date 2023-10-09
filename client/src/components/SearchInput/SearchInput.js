@@ -17,7 +17,7 @@ function SearchInput({
   setSearchTerm,
   placeholder,
   isSearchModeRecommend,
-  handleEnterPress
+  handleEnterPress,
 }) {
   const [activeIndex, setActiveIndex] = useState(-1);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
@@ -58,6 +58,7 @@ function SearchInput({
   };
 
   const handleKeyDown = (e) => {
+    console.log('the active index of suggestions was: ', activeIndex)
     if (e.key === 'ArrowDown') {
       setActiveIndex((prev) =>
         Math.min(prev + 1, searchSuggestions.length - 1)
@@ -81,7 +82,10 @@ function SearchInput({
         placeholder={placeholder}
         value={searchTerm}
         onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
+        onKeyDown={(e) => {
+          handleKeyDown(e);
+          handleEnterPress(e);
+        }}
         className={`search-bar-input ${placeholderClassName}`}
       />
 
