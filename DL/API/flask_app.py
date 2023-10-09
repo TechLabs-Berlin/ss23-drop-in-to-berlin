@@ -1,19 +1,19 @@
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
 import joblib
 import pandas as pd
-from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/predict": {"origins": "http://localhost:3000"}})
+CORS(app, resources=r"/predict/*")
 
 # Load the model from .joblib file
-with open("NearestNeighbors_clf.joblib", "rb") as file:
+with open("NearestNeighbors_clf_py3.8.joblib", "rb") as file:
     loaded_model = joblib.load(file)
 
 # load the database from .csv file
 df = pd.read_csv("../database_Leo.csv")
 
-with open("SentenceTransformer_model.joblib", "rb") as file:
+with open("SentenceTransformer_model_py3.8.joblib", "rb") as file:
     sentence_model = joblib.load(file)
 
 @app.route("/")
@@ -24,8 +24,15 @@ def index():
 @app.route("/predict", methods=["POST"])
 def predict():
     # extract input data from the request
-    star_rating = float(request.form["star_rating"])
-    price = float(request.form["price"])
+    # define default values for star rating and price range
+    if request.form["star_rating"] == "None":
+        star_rating = 1.0
+    else:
+        star_rating = float(request.form["star_rating"])
+    if request.form["price"] == "None":
+        price = 4.0
+    else:
+        price = float(request.form["price"])
     user_input_str = str(request.form["user_input_str"])
 
     # print variables to see if they are picked up correctly from user input
