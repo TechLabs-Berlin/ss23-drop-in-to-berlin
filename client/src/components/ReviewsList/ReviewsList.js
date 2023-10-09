@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReviewCard from '../ReviewCard/ReviewCard';
 import UserReview from '../UserReview/UserReview';
+import './ReviewsList.css'
 
 function ReviewList({ reviews, _id, onReviewAdded }) {
   const [amountRenderedReviews, setAmountRenderedReviews] = useState(2);
@@ -33,7 +34,7 @@ function ReviewList({ reviews, _id, onReviewAdded }) {
   return (
     <div className='reviews-section'>
       <div className='rendered-reviews'>{renderReviews()}</div>
-      <button onClick={handleShowMoreReviews}>
+      <button onClick={handleShowMoreReviews} className='list-show-more-reviews-btn'>
         {amountRenderedReviews === 2
           ? 'Show more Reviews'
           : 'Show less reviews'}

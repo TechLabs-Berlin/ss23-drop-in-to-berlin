@@ -11,7 +11,8 @@
 
 .dropdown-button {
   position: relative;
-  width: 8rem;
+  font-size: 1.1rem;
+  width: 9rem;
   color: var(--grey-700);
   padding: 10px 25px;
   cursor: pointer;

@@ -1,7 +1,6 @@
 .rest-details {
   display: flex;
-  padding: 0 5%;
-  align-items: flex-start;
+  max-width: 1280px;
 }
 
 .left-section {
@@ -10,14 +9,18 @@
 }
 
 .right-section {
-  display: flex;
+  flex: 1;
   flex-direction: column;
+}
+
+.info-section{
+  max-width: 600px;
 }
 
 .details-name {
   align-self: flex-start;
   font-size: 2rem;
-  margin: 1.5rem 0 0.5rem 0; 
+  margin: 0 0 0.5rem 0; 
   padding: 0;
 }
 
@@ -73,20 +76,22 @@
 }
 
 .details-main-img {
-  width: 80%;
+  width: 95%;
   object-fit: cover;
+  height: 430px;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
 }
 
 .details-small-imgs {
   display: flex;
-  gap: 0.5rem;
+  gap: 1%;
+  
 }
 
 .details-small-img {
   height: 150px;
-  width: 19.5%;
+  width: 23%;
   border-radius: 0.5rem;
   object-fit: cover;
 }

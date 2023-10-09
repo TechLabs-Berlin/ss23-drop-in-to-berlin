@@ -1,7 +1,15 @@
 .reviews-section {
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
+  align-content: space-between;
+}
+
+.list-show-more-reviews-btn{
+  position: relative;
+  font-size: 1rem;
+  bottom: 1rem;
+  color: var(--prim-500);
+  
+  
+
 }

@@ -14,7 +14,7 @@
 .main-page-searchbar-and-button-outer-wrapper{
   display: flex;
   justify-content: center;
-  margin-top: 10rem;
+  margin-top: 13rem;
   
 }
 
@@ -27,7 +27,7 @@
 .btn-search-by-name{
 position: absolute;
 padding: 0.3rem;
-left: 16.8rem;
+left: 18.5rem;
 font: 500 1.1rem "Space Grotesk";
 color: var(--prim-500);
 transition: 0.5s;

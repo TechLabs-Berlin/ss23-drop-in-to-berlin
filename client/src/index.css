@@ -8,10 +8,13 @@
 
 body {
   --prim-50: #f2f7f9;
+  --prim-50-trans: #f2f7f9b1;
   --prim-100: #bcdfed;
+  --prim-100-trans: #bcdfedbe;
   --prim-300: #81c5e0;
   --prim-500: #3fa6ce;
   --prim-700: #2083ab;
+  --prim-700-trans: #2084ab33;
   --prim-900: #054c69;
   --prim-900-trans: #054d6957;
 

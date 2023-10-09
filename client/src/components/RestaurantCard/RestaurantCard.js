@@ -17,7 +17,7 @@ function RestCard({ rest }) {
     rest.photos && rest.photos.length > 0 && rest.photos[0].imageURL;
 
   // helper function to shorten the restaurant name
-  const name = shortenText(rest.name, 10);
+  const name = shortenText(rest.name, 12);
 
   let reviewText =
     rest.reviews && rest.reviews.length > 0 ? rest.reviews[0].text : '';
@@ -50,11 +50,6 @@ function RestCard({ rest }) {
             </div>
           </div>
           <p className='card-descr'>{reviewText}</p>
-          {/* {isReviewTooLong && (
-            <div className='btn-show-more' onClick={() => setShowFullReview(!showFullReview)}>
-              {showFullReview ? 'Show Less' : 'Show More'}
-            </div>
-          )} */}
         </div>
       </div>
     </Link>

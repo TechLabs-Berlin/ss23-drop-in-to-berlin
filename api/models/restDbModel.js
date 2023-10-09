@@ -56,6 +56,7 @@ const restaurantSchema = new mongoose.Schema({
     },
     types: [String],
     website: String,
+    international_phone_number: String,
     vicinity: String,
     url: String,
     business_status: String,

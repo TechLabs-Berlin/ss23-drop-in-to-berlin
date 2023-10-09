@@ -1,13 +1,14 @@
 .user-rating-form {
+  margin-top: 1rem;
   border-radius: 1rem;
   box-shadow: 1px 1px 8px var(--grey-900-trans);
   padding: 1rem;
-  width: 650px;
+  width: 600px;
 }
 
 .user-review-text-input{
   width: 100%;
-  height: 100px;
+  height: 80px;
   font-weight: 300;
 }
 

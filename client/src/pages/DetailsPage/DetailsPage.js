@@ -10,9 +10,9 @@ return(
     <div className="rendered-details-on-details-page">
         <RestDetails />
       </div>
-      <div className="rest-list-details-page">
+      {/* <div className="rest-list-details-page">
         <RestList />
-      </div>
+      </div> */}
     </div>
   )
 }

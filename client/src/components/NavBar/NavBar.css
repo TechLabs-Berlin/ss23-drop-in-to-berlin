@@ -1,3 +1,10 @@
+.navbar-wrapper{
+  display: flex;
+  justify-content: center;
+  background-color: var(--prim-500-trans);
+  width: 100%;
+}
+
 .nav-bar {
   display: flex;
   flex-direction: row;
