@@ -45,3 +45,15 @@
   color: var(--prim-500);
   
 }
+
+.btn-delete-review{
+  display: flex;
+  color: var(--prim-500);
+  margin-top: 0.5rem;
+  border: none;
+}
+
+.review-trash-icon{
+  font-size: 1.2rem;
+  margin-right: 0.4rem;
+}

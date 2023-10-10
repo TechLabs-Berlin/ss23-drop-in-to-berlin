@@ -3,6 +3,7 @@ import Button from '../Button/Button';
 import ReviewStarRating from '../StarRating/ReviewStarRating';
 import axios from 'axios';
 import { useState } from 'react';
+import { IoTrash } from 'react-icons/io5';
 
 function ReviewCard({review, _id, renderedReviewCards, setRenderedReviewCards, onReviewAdded}) {
   const [fullReviewView, setFullReviewView] = useState(false);
@@ -57,7 +58,7 @@ function ReviewCard({review, _id, renderedReviewCards, setRenderedReviewCards, o
       </div>
       {/* the following button only appears, if the review was created by the user */}
       <div className = 'btn-delete-review'>
-        {review.added_review ? <Button onClick={handleReviewDelete}>Delete Review</Button> : null}
+        {review.added_review ? <button onClick={handleReviewDelete} className="btn-delete-review"><IoTrash className='review-trash-icon'onClick={handleReviewDelete}></IoTrash>Delete Review</button> : null}
       </div>
     </div>
   );
