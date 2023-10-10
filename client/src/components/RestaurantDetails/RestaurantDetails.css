@@ -16,11 +16,16 @@
 .info-section{
   max-width: 600px;
 }
-
+.name-and-rating-block{
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+}
 .details-name {
   align-self: flex-start;
+  color: var(--grey-700);
   font-size: 2rem;
-  margin: 0 0 0.5rem 0; 
+  margin: 0; 
   padding: 0;
 }
 
@@ -53,16 +58,35 @@
 .existing-rating {
   display: flex;
   align-items: center;
+  font-size: 1.3rem;
+}
+
+.details-exsiting-rating-icon{
+  color: var(--sec-500);
+  font-size: 1.8rem;
+  margin-right: 0.3rem;
+}
+
+.total-user-ratings{
+  font-weight: 300;
+  margin-left: 0.5rem;
 }
 
 .loc-contact-price {
-  margin-top: 20px;
+  margin: 1rem 0 2rem 0;
+}
+
+.phone-price-icons{
+  color: var(--grey-700);
+  font-size: 1.5rem;
+
 }
 
 .details-lcp {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  font-weight: 300;
 }
 
 .details-lcp > svg {
@@ -94,6 +118,12 @@
   width: 23%;
   border-radius: 0.5rem;
   object-fit: cover;
+}
+
+.reviews{
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
 }
 
 .left-section > *:not(:last-child),

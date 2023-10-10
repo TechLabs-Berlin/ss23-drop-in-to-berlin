@@ -101,23 +101,27 @@ function RestDetails() {
         </div>
       </div>
       <div className='right-section'>
-        <h1 className='details-name'>{rest.name}</h1>
+        <div className='name-and-rating-block'>
+          <h1 className='details-name'>{rest.name}</h1>
+          <div className='existing-rating'>
+                <IoStar className='details-exsiting-rating-icon' />
+                {rest.rating} <span className='total-user-ratings'> ({rest.user_ratings_total})</span>
+              </div>
+        </div>
+        
         <section className='info-section'>
-          <div className='tags-and-rating'>
+          {/* <div className='tags-and-rating'>
             <ul className='tags'>
-              {/* <li className='tag'>Vegetarian</li>
-              <li className='tag'>Pet friendly</li> */}
+              <li className='tag'>Vegetarian</li>
+              <li className='tag'>Pet friendly</li>
             </ul>
             <div className='rating-block'>
-              <div className='existing-rating'>
-                <IoStar size='1.3rem' />
-                {rest.rating}
-              </div>
+              
             </div>
-          </div>
+          </div> */}
           <div className='loc-contact-price'>
             <div className='details-lcp'>
-              <IoLocation size='1.3rem' />
+              <IoLocation className='phone-price-icons' />
               {rest.formatted_address}
             </div>
             {/* <div className='details-lcp'>
@@ -125,7 +129,7 @@ function RestDetails() {
               {rest.international_phone_number}
             </div> */}
             <div className='details-lcp'>
-              <IoLogoEuro size='1.3rem' />
+              <IoLogoEuro className='phone-price-icons' />
               {detailsPrice}
             </div>
           </div>
