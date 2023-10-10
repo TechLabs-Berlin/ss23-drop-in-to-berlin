@@ -1,46 +1,62 @@
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
 import joblib
 import pandas as pd
-from sentence_transformers import SentenceTransformer
 
 app = Flask(__name__)
+CORS(app, resources=r"/predict/*")
 
 # Load the model from .joblib file
-with open("NearestNeighbors_clf.joblib", "rb") as file:
+with open("NearestNeighbors_clf_py3.8.joblib", "rb") as file:
     loaded_model = joblib.load(file)
 
 # load the database from .csv file
 df = pd.read_csv("../database_Leo.csv")
 
-# define embedding model based on all-MiniLM-L6-v2
-model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
-model.max_seq_length = 512  # Change the length to 512
+with open("SentenceTransformer_model_py3.8.joblib", "rb") as file:
+    sentence_model = joblib.load(file)
 
 @app.route("/")
 def index():
-    return render_template("templates/index.html")
+    return render_template("index.html")
 
 
 @app.route("/predict", methods=["POST"])
 def predict():
     # extract input data from the request
-    # star_rating = float(request.form["star_rating"])
-    # price = float(request.form["price"])
+    # define default values for star rating and price range
+    if request.form["star_rating"] == "None":
+        star_rating = 1.0
+    else:
+        star_rating = float(request.form["star_rating"])
+    if request.form["price"] == "None":
+        price = 4.0
+    else:
+        price = float(request.form["price"])
     user_input_str = str(request.form["user_input_str"])
 
+    # print variables to see if they are picked up correctly from user input
+    print(star_rating, price, user_input_str)
+
     # create embeddings for user input
-    user_input_emb = model.encode(user_input_str).reshape(1,-1)
+    user_input_emb = sentence_model.encode(user_input_str).reshape(1, -1)
 
     # make prediction based on user input
     distances, indices = loaded_model.kneighbors(user_input_emb)
     # flatten indices array to use as index in dataframe
     indices = indices.flatten()
 
-    # get ID's to return
-    recs = list(df.iloc[indices]["reference"])
+    # filter the whole dataframe for star rating above the user given value and below given price
+    df_filtered = df[df.index.isin(indices) & (df.rating > star_rating) & (df.price_level < price)]
 
-    return jsonify({"recommendations" : recs})
+    # get all data points without values for price level
+    df_price_nan = df[df.index.isin(indices) & df.price_level.isna()]
+
+    # combine both into the output & get ID's to return
+    recs = list(pd.concat([df_filtered, df_price_nan])["reference"])
+
+    return jsonify({"recommendations": recs})
+
 
 if __name__ == "__main__":
     app.run(debug=True)
-
