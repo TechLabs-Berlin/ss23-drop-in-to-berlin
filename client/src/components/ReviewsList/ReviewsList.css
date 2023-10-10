@@ -1,9 +1,9 @@
 .reviews-section {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   align-content: space-between;
   
-  height: 100%;
 }
 
 .list-show-more-reviews-btn{

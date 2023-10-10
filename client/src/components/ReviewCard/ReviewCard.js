@@ -11,7 +11,7 @@ function ReviewCard({review, _id, renderedReviewCards, setRenderedReviewCards, o
 
   if (!fullReviewView) {
     if (text.length > 100) {
-      const shortName = text.substring(0, 100);
+      const shortName = text.substring(0, 120);
       text = `${shortName}...`;
     }
   }
