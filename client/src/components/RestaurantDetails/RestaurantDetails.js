@@ -18,12 +18,6 @@ function RestDetails() {
         `https://berlin-bites-backend.onrender.com/restaurants/${selectedId}`
       );
       setSelectedRestaurant(response.data);
-      console.log(
-        'the data of the selected restaurant is:',
-        selectedRestaurant,
-        'the phone number is:',
-        selectedRestaurant
-      );
     } catch (error) {
       console.error('Das ist der error:', error);
     }
@@ -31,7 +25,6 @@ function RestDetails() {
 
   useEffect(() => {
     getSelectedRestaurant(_id);
-    // reset the selectedImage when the restaurant ID changes
     setSelectedImage(null);
   }, [_id]);
 
@@ -45,7 +38,6 @@ function RestDetails() {
   }
 
   const rest = selectedRestaurant;
-  console.log('das ist das restaurant', rest);
 
   const mainImageUrl =
     selectedImage ||
@@ -62,10 +54,6 @@ function RestDetails() {
     detailsPrice = 'expensive';
   }
 
-  console.log(
-    'restaurant details before return, the rest reference is:',
-    rest.reference
-  );
   return (
     <div className='rest-details'>
       <div className='left-section'>
@@ -101,33 +89,39 @@ function RestDetails() {
         </div>
       </div>
       <div className='right-section'>
+        <div className="header-section">
         <h1 className='details-name'>{rest.name}</h1>
-        <section className='info-section'>
-          <div className='tags-and-rating'>
-            <ul className='tags'>
-              {/* <li className='tag'>Vegetarian</li>
-              <li className='tag'>Pet friendly</li> */}
-            </ul>
-            <div className='rating-block'>
-              <div className='existing-rating'>
-                <IoStar size='1.3rem' />
+         <div className='rating-block'>
+           <div className='existing-rating'>
+              <IoStar size='1.3rem' />
                 {rest.rating}
-              </div>
             </div>
           </div>
+       </div>
+      <section className='info-section'>
           <div className='loc-contact-price'>
             <div className='details-lcp'>
               <IoLocation size='1.3rem' />
               {rest.formatted_address}
             </div>
-            {/* <div className='details-lcp'>
-              <IoCall size='1.3rem' />
-              {rest.international_phone_number}
-            </div> */}
             <div className='details-lcp'>
               <IoLogoEuro size='1.3rem' />
               {detailsPrice}
             </div>
+            {rest.opening_hours ? (
+            <div className='details-lcp opening-hours'>
+              <strong>Opening Hours:</strong>
+              <ul className='opening-hours'>
+                  {rest.opening_hours.map((hour, index) => (
+                  <li key={index} className='opening-hour'>{hour}</li>
+                  ))}
+              </ul>
+            </div>
+            ) : (
+          <div className='details-lcp'>
+          <strong>Opening Hours:</strong> Not Available
+            </div>
+            )}
           </div>
         </section>
         <section className='reviews'>

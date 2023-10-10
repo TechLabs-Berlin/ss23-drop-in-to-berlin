@@ -13,35 +13,29 @@
   flex-direction: column;
 }
 
-.info-section{
+.info-section {
   max-width: 600px;
+  background-color: #fcf8e1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  color: #110f0f;
 }
 
 .details-name {
   align-self: flex-start;
   font-size: 2rem;
   margin: 0 0 0.5rem 0; 
-  padding: 0;
 }
 
 .tags {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
   display: flex;
 }
 
-.tag {
-  background-color: #e4e4e4;
-  padding: 5px 10px;
-  margin-right: 10px;
-  border-radius: 15px;
-}
-
-.tags-and-rating {
+.header-section {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  align-items: center;
 }
 
 .rating-block {
@@ -86,7 +80,6 @@
 .details-small-imgs {
   display: flex;
   gap: 1%;
-  
 }
 
 .details-small-img {
@@ -99,4 +92,36 @@
 .left-section > *:not(:last-child),
 .right-section > *:not(:last-child) {
   margin-bottom: 1rem;
+}
+
+.details-lcp.opening-hours {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px;
+}
+
+.details-lcp.opening-hours strong {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.details-lcp.opening-hours ul {
+  font-size: 1rem; 
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.details-lcp.opening-hours ul li {
+  margin-bottom: 8px; 
+}
+
+.details-lcp.opening-hours ul li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: #333;
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
 }
