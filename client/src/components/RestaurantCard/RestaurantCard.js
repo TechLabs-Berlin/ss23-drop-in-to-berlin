@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import './RestaurantCard.css';
 import { IoStar } from 'react-icons/io5';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -17,7 +18,7 @@ function RestCard({ rest }) {
     rest.photos && rest.photos.length > 0 && rest.photos[0].imageURL;
 
   // helper function to shorten the restaurant name
-  const name = shortenText(rest.name, 12);
+  const name = shortenText(rest.name, 13);
 
   let reviewText =
     rest.reviews && rest.reviews.length > 0 ? rest.reviews[0].text : '';
@@ -31,6 +32,9 @@ function RestCard({ rest }) {
   }
 
   const priceRange = rest.price_level ? '$'.repeat(rest.price_level) : null;
+
+  const addressParts = rest.formatted_address?.split(', ');
+  const postalCode = addressParts.length >= 3 ? addressParts[addressParts.length - 2] : '';
 
   return (
     <Link to={`/rest/${rest._id}`}>
@@ -49,6 +53,12 @@ function RestCard({ rest }) {
               {rest.rating}
             </div>
           </div>
+          {postalCode && 
+            <div className='card-postal-code'>
+              <FaMapMarkerAlt className='pin-icon'/> 
+              {postalCode}
+            </div>
+          }
           <p className='card-descr'>{reviewText}</p>
         </div>
       </div>
