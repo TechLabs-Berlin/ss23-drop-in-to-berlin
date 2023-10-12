@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+@import url('https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
+
+
+body {
+  --prim-50: #f2f7f9;
+  --prim-50-trans: #f2f7f9b1;
+  --prim-100: #cae4ef;
+  --prim-100-trans: #bcdfedbe;
+  --prim-300: #81c5e0;
+  --prim-500: #3fa6ce;
+  --prim-700: #2083ab;
+  --prim-700-trans: #2084ab33;
+  --prim-900: #054c69;
+  --prim-900-trans: #054d6957;
+
+  --sec-100: #fefde6;
+  --sec-300: #f7e1a8;
+  --sec-500: #ffb728;
+
+  --bright: #f5f5f5;
+  --grey-50:#fafafa;
+  --grey-50-trans: #fafafada;
+  --grey-70:#f1f1f1;
+  --grey-100:#e5e5e5;
+  --grey-300:#ababab;
+  --grey-500:#717171;
+  --grey-700:#454444;
+  --grey-900:#2c2b2b;
+  --grey-900-trans:#2c2b2b2c;
+
+  --warning-500: #f57b56;
+
+font-family: 'Space Grotesk', sans-serif;
+color: var(--grey-900);
+}
+
+a {
+  text-decoration: none;
+}

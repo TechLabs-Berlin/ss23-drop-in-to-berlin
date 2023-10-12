@@ -1,0 +1,37 @@
+.button-base {
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  transition: 0.2s ease;
+  border: 2px solid var(--grey-500);
+}
+
+.button-primary {
+  border-color: var(--prim-500);
+  background-color: var(--prim-500);
+  color: var(--bright); 
+}
+
+.button-primary:hover {
+  border-color: var(--prim-300);
+  background-color: var(--prim-300);
+}
+
+
+.button-secondary {
+  border-color: var(--sec-300);
+  background-color: var(--sec-100);
+  color: var(--grey-700);
+}
+
+.button-secondary:hover {
+  border-color: var(--sec-300);
+  background-color: var(--sec-300);
+  color: var(--grey-700); 
+}
+
+.button-rounded {
+  border-radius: 0.5rem;
+}

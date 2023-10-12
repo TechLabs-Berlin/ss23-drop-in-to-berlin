@@ -1,0 +1,32 @@
+.rest-list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1280px;
+}
+
+.rest-list-wrapper {
+  display: flex;
+flex-direction: column;
+}
+
+.show-more-restaurants {
+  max-width: 300px;
+  font-size: 1.1rem;
+  text-align: center;
+  /* background-color: var(--prim-100); */
+  border: 1px solid var(--prim-700);
+  border-radius: 0.5rem;
+  color: var(--prim-500);
+  background-color: var(--prim-50);
+  margin: 1rem 0.5rem;
+  padding: 0.5rem;
+}
+
+.rest-list-headline {
+  max-width: 1270px;
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-bottom: 0.3rem;
+  margin-left: 0.5rem;
+  color: var(--grey-700);
+}

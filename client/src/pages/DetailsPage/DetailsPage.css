@@ -1,0 +1,11 @@
+.rest-list-details-page {
+  margin-top: 4rem;
+  margin-left: 4%;
+  margin-right: 4%; 
+}
+
+.rendered-details-on-details-page {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
