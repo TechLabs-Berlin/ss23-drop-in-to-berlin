@@ -16,14 +16,6 @@
   padding-right: 1rem;
 }
 
-.info-section {
-  max-width: 600px;
-  background-color: #f9f9fc;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  color: #110f0f;
-}
 
 .name-and-rating-block{
   display: flex;
@@ -61,10 +53,12 @@
   font-size: 1.3rem;
 }
 
+
 .details-existing-rating-icon{
   color: var(--sec-500);
   font-size: 1.8rem;
   margin-right: 0.3rem;
+  
 }
 
 .total-user-ratings{
@@ -73,7 +67,8 @@
 }
 
 .loc-contact-price {
-  margin: 1rem 0 2rem 0;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 .phone-price-icons{
@@ -90,7 +85,7 @@
 }
 
 .details-lcp > svg {
-  margin-right: 10px;
+  margin-right: 0.6rem;
 }
 
 .img-section {
@@ -125,7 +120,7 @@
   display: flex;
   flex-direction: column;
   align-content: space-between;
-  height: 85%;
+  height: 80%;
 }
 
 .left-section > *:not(:last-child),
@@ -136,20 +131,26 @@
 .details-accordion .accordion-content {
   font-size: 1.1rem;
   font-weight: 300;
-  color: #110f0f;
+  color: var(--grey-700);
   border: none;
+}
+
+.details-accordion{
+  border-radius: 1rem;
+  max-width: 100%
 }
 
 .details-accordion .accordion-button {
   font-size: 1.1rem;
   font-weight: 300;
-  color: #110f0f;
   border: none;
   cursor: pointer;
+  
 }
 
 .details-accordion.accordion {
   margin: 0;
+  /* padding: 0.5rem; */
 }
 
 .details-accordion .accordion-item {
@@ -160,20 +161,31 @@
 }
 
 .details-accordion .accordion-button {
-  background: none;
-  color: #110f0f;
+  background-color: var(--grey-50);
+  color: var(--grey-700);
+  border: 1px solid var(--prim-300);
+  border-radius: 1rem;
   font-size: 1.1rem;
   font-weight: 300;
   text-align: left;
-  padding: 0;
+  padding: 0.3rem;
   cursor: pointer;
+  
+}
+
+.details-accordion .accordion-button:hover {
+  background-color: var(--prim-300);
+ 
 }
 
 .details-accordion .accordion-content {
+  position: relative;
+  top:-10px;
+  z-index: -1;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
-  padding: 0 16px;
+  
 }
 
 .details-accordion .accordion-content.open {

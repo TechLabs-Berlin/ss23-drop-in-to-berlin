@@ -44,12 +44,15 @@ function RestDetails() {
     selectedImage ||
     (rest.photos && rest.photos.length > 0 ? rest.photos[0].imageURL : null);
 
-    const openingHoursSections = rest && rest.opening_hours ? [
-      {
-        label: 'Opening Hours',
-        content: rest.opening_hours
-      }
-    ] : [];
+  const openingHoursSections =
+    rest && rest.opening_hours
+      ? [
+          {
+            label: 'Opening Hours',
+            content: rest.opening_hours,
+          },
+        ]
+      : [];
 
   let detailsPrice = '?';
   if (rest.price_level === 1) {
@@ -100,12 +103,16 @@ function RestDetails() {
         <div className='name-and-rating-block'>
           <h1 className='details-name'>{rest.name}</h1>
           <div className='existing-rating'>
-                <IoStar className='details-exsiting-rating-icon' />
-                {rest.rating} <span className='total-user-ratings'> ({rest.user_ratings_total})</span>
-              </div>
+            <IoStar className='details-existing-rating-icon' />
+            {rest.rating}{' '}
+            <span className='total-user-ratings'>
+              {' '}
+              ({rest.user_ratings_total})
+            </span>
+          </div>
         </div>
-        
-        <section className='info-section'>
+
+        <section className='loc-contact-price'>
           {/* <div className='tags-and-rating'>
             <ul className='tags'>
               <li className='tag'>Vegetarian</li>
@@ -115,23 +122,23 @@ function RestDetails() {
               
             </div>
           </div> */}
-          <div className='loc-contact-price'>
-            <div className='details-lcp'>
-              <IoLocation className='phone-price-icons' />
-              {rest.formatted_address}
-            </div>
-            <div className='details-lcp'>
-              <IoLogoEuro className='phone-price-icons' />
-              {detailsPrice}
-            </div>
-            {rest.opening_hours ? (
-              <Accordion sections={openingHoursSections} className="details-accordion" />
-            ) : (
-              <div className='details-lcp'>
-                Opening Hours: Not Available
-              </div>
-            )}
+
+          <div className='details-lcp'>
+            <IoLocation className='phone-price-icons' />
+            {rest.formatted_address}
           </div>
+          <div className='details-lcp'>
+            <IoLogoEuro className='phone-price-icons' />
+            {detailsPrice}
+          </div>
+          {rest.opening_hours ? (
+            <Accordion
+              sections={openingHoursSections}
+              className='details-accordion'
+            />
+          ) : (
+            <div className='details-lcp'>Opening Hours: Not Available</div>
+          )}
         </section>
         <section className='reviews'>
           <ReviewList

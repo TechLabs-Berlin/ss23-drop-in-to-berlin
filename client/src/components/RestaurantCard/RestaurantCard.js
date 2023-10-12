@@ -52,12 +52,12 @@ function RestCard({ rest }) {
               {rest.rating}
             </div>
           </div>
-          {postalCode && 
+          {/* {postalCode && 
             <div className='card-postal-code'>
               <FaMapMarkerAlt className='pin-icon'/> 
               {postalCode}
             </div>
-          }
+          } */}
           <p className='card-descr'>{reviewText}</p>
         </div>
       </div>
