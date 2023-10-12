@@ -1,10 +1,11 @@
-![logo](./client/src/logo/logo-simple-text-small.svg)
+![logo](./client/src/logo/logo-simple-text-very-small-white.svg)
 
 
 
-# An AI based restaurant recommender app
+## An AI based restaurant recommender app
+----
 <br>
-<br>
+
 
 
 ## 📌 Summary  
