@@ -9,7 +9,7 @@
   border-radius: 1rem;
   width: 300px;
   max-width: 300px;
-  height:420px;
+  height:410px;
   background-color: var(--grey-50);
   margin: 0.5rem;
   box-shadow: 1px 1px 24px var(--grey-900-trans);
@@ -96,7 +96,7 @@
 .card-descr {
   font: 300 1.1rem "Space Grotesk" ;
   color: var(--grey-700);
-  padding: 0.7rem 0; 
+  padding: 0.7rem 0 0 0; 
   overflow: hidden;
   text-overflow: ellipsis;
 }

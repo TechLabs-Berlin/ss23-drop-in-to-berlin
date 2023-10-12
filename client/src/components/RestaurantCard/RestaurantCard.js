@@ -22,13 +22,9 @@ function RestCard({ rest }) {
   let reviewText =
     rest.reviews && rest.reviews.length > 0 ? rest.reviews[0].text : '';
 
-  const [showFullReview, setShowFullReview] = useState(false);
+ 
 
-  const isReviewTooLong = reviewText.length > 100;
-
-  if (!showFullReview && isReviewTooLong) {
-    reviewText = shortenText(reviewText, 110);
-  }
+  reviewText =  reviewText.length > 117 ? shortenText(reviewText, 117) : reviewText
 
   const priceRange = rest.price_level ? '$'.repeat(rest.price_level) : null;
 
