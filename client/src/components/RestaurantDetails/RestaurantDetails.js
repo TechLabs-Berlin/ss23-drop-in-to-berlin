@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { IoStar, IoLocation, IoCall, IoLogoEuro } from 'react-icons/io5';
 import CityMap from '../CityMap/CityMap';
 import ReviewList from '../ReviewsList/ReviewsList';
+import Accordion from '../Accordion/Accordion.js';
 
 function RestDetails() {
   const { _id } = useParams();
@@ -42,6 +43,13 @@ function RestDetails() {
   const mainImageUrl =
     selectedImage ||
     (rest.photos && rest.photos.length > 0 ? rest.photos[0].imageURL : null);
+
+    const openingHoursSections = rest && rest.opening_hours ? [
+      {
+        label: 'Opening Hours',
+        content: rest.opening_hours
+      }
+    ] : [];
 
   let detailsPrice = '?';
   if (rest.price_level === 1) {
@@ -117,18 +125,11 @@ function RestDetails() {
               {detailsPrice}
             </div>
             {rest.opening_hours ? (
-            <div className='details-lcp opening-hours'>
-              <strong>Opening Hours:</strong>
-              <ul className='opening-hours'>
-                  {rest.opening_hours.map((hour, index) => (
-                  <li key={index} className='opening-hour'>{hour}</li>
-                  ))}
-              </ul>
-            </div>
+              <Accordion sections={openingHoursSections} className="details-accordion" />
             ) : (
-          <div className='details-lcp'>
-          <strong>Opening Hours:</strong> Not Available
-            </div>
+              <div className='details-lcp'>
+                Opening Hours: Not Available
+              </div>
             )}
           </div>
         </section>

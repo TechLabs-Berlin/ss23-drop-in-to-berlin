@@ -22,8 +22,8 @@ function RestCard({ rest }) {
 
   let reviewText =
     rest.reviews && rest.reviews.length > 0 ? rest.reviews[0].text : '';
+ 
   const [showFullReview, setShowFullReview] = useState(false);
-
 
   const isReviewTooLong = reviewText.length > 100;
 
@@ -34,7 +34,7 @@ function RestCard({ rest }) {
   const priceRange = rest.price_level ? '$'.repeat(rest.price_level) : null;
 
   const addressParts = rest.formatted_address?.split(', ');
-  const postalCode = addressParts.length >= 3 ? addressParts[addressParts.length - 2] : '';
+  const postalCode = addressParts.length >= 3 ? addressParts[addressParts.length - 2].replace('Berlin', '') : '';
 
   return (
     <Link to={`/rest/${rest._id}`}>
@@ -43,7 +43,6 @@ function RestCard({ rest }) {
         {imageUrl && (
           <img src={imageUrl} alt='Restaurant Image' className='card-img' />
         )}
-
         <div className='card-content'>
           <div className='card-header'>
             <h2 className='card-name'>{name}</h2>
