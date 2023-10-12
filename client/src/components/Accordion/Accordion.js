@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { GoChevronDown, GoChevronRight } from 'react-icons/go';
 import './Accordion.css'
 
-const Accordion = ({ sections }) => {
+const Accordion = ({ sections, className  }) => {
   const [openSection, setOpenSection] = useState(null);
 
   const toggleSection = (section) => {
@@ -14,7 +14,7 @@ const Accordion = ({ sections }) => {
   };
 
   return (
-    <div className="accordion">
+    <div className={`accordion ${className}`}>
       {sections.map(({ label, content }, index) => (
         <div className="accordion-item" key={index}>
           <button className="accordion-button" onClick={() => toggleSection(label)}>

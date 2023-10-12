@@ -79,7 +79,6 @@
 .phone-price-icons{
   color: var(--grey-700);
   font-size: 1.5rem;
-
 }
 
 .details-lcp {
@@ -130,4 +129,51 @@
 .left-section > *:not(:last-child),
 .right-section > *:not(:last-child) {
   margin-bottom: 1rem;
+}
+
+.details-accordion .accordion-content {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #110f0f;
+  border: none;
+}
+
+.details-accordion .accordion-button {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #110f0f;
+  border: none;
+  cursor: pointer;
+}
+
+.details-accordion.accordion {
+  margin: 0;
+}
+
+.details-accordion .accordion-item {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.details-accordion .accordion-button {
+  background: none;
+  color: #110f0f;
+  font-size: 1.1rem;
+  font-weight: 300;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+}
+
+.details-accordion .accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+  padding: 0 16px;
+}
+
+.details-accordion .accordion-content.open {
+  max-height: 500px;
 }

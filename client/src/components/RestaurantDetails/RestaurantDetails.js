@@ -115,7 +115,7 @@ function RestDetails() {
               {detailsPrice}
             </div>
             {rest.opening_hours ? (
-              <Accordion sections={openingHoursSections} />
+              <Accordion sections={openingHoursSections} className="details-accordion" />
             ) : (
               <div className='details-lcp'>
                 Opening Hours: Not Available
