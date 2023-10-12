@@ -61,7 +61,7 @@ const AboutPage = () => {
     },
     {
       name: 'Olimpiya',
-      role: 'Frontend Developer',
+      role: 'Web Developer',
       image: olimpiyaImage,
       github: 'https://github.com/olympiaobr',
     },
@@ -70,6 +70,7 @@ const AboutPage = () => {
       role: 'UX Design',
       image: pratimaImage,
       github: 'https://github.com/pr4t1ma',
+      linkedin: 'https://www.linkedin.com/in/pratima-maharjan/',
     },
     {
       name: 'Kristina',
