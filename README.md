@@ -17,12 +17,14 @@ UX / UI:
 - Kristina Ferenčak
 
 Web Dev:
-- Felix Reiter
-- Olimpiya Dimitrova
+- Felix Reiter (Fullstack)
+- Olimpiya Dimitrova (Frontend)
 
 DS / DL:
 - Leo Krohne
 - special thanks to *Lukas Bauerschmidt* for the previous collaboration on this project and building the dataset!
+
+
 
 ## Type of project
 This is a joint project to build a deep recommender web application that is characterized by a simple user flow and a lean design that enables users to quickly and effortlessly find restaurants according to their taste.
@@ -34,7 +36,7 @@ This is a joint project to build a deep recommender web application that is char
 
 ## Dataset
 - Source: Scraped via Google Maps API
-- Shape: ca. 4k x 40 columns
+- Shape: ca. 4.2k x 40 columns
 - Extract of Features:
     - Name of location
     - Short description of the location

@@ -109,11 +109,8 @@
 .details-small-imgs {
   display: flex;
   gap: 1%;
-<<<<<<< HEAD
   cursor: pointer;
   
-=======
->>>>>>> final-fixes
 }
 
 .details-small-img {

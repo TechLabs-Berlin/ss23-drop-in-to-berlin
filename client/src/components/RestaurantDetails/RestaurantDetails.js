@@ -89,7 +89,6 @@ function RestDetails() {
         </div>
       </div>
       <div className='right-section'>
-<<<<<<< HEAD
         <div className='name-and-rating-block'>
           <h1 className='details-name'>{rest.name}</h1>
           <div className='existing-rating'>
@@ -108,18 +107,6 @@ function RestDetails() {
               
             </div>
           </div> */}
-=======
-        <div className="header-section">
-        <h1 className='details-name'>{rest.name}</h1>
-         <div className='rating-block'>
-           <div className='existing-rating'>
-              <IoStar size='1.3rem' />
-                {rest.rating}
-            </div>
-          </div>
-       </div>
-      <section className='info-section'>
->>>>>>> final-fixes
           <div className='loc-contact-price'>
             <div className='details-lcp'>
               <IoLocation className='phone-price-icons' />
