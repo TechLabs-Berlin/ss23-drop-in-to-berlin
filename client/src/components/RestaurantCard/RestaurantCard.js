@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import './RestaurantCard.css';
-import { IoStar } from 'react-icons/io5';
-import { FaMapMarkerAlt } from 'react-icons/fa';
+import { IoStar, IoLocationOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -52,12 +51,12 @@ function RestCard({ rest }) {
               {rest.rating}
             </div>
           </div>
-          {/* {postalCode && 
+          {postalCode && 
             <div className='card-postal-code'>
-              <FaMapMarkerAlt className='pin-icon'/> 
+              <IoLocationOutline className='pin-icon'/> 
               {postalCode}
             </div>
-          } */}
+          }
           <p className='card-descr'>{reviewText}</p>
         </div>
       </div>

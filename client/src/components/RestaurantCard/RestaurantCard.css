@@ -9,7 +9,7 @@
   border-radius: 1rem;
   width: 300px;
   max-width: 300px;
-  height:400px;
+  height:420px;
   background-color: var(--grey-50);
   margin: 0.5rem;
   box-shadow: 1px 1px 24px var(--grey-900-trans);
@@ -46,13 +46,6 @@
   object-fit: cover;
   width: 100%;
   height: 50%;
-}
-
-.card-hidden-ico {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  z-index: 1; 
 }
 
 .card-content {
@@ -110,14 +103,17 @@
 
 .iostar {
   color: var(--sec-500);
+  font-size: 1.2rem;
+  margin-right: 0.2rem;
 }
 
 .card-postal-code {
-  font-size: 0.8rem;
-  color: var(--grey-600);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--grey-700);
   display: flex;
   align-items: center;
-  margin-left: auto;
+  
 }
 
 .card-rating {
@@ -127,9 +123,9 @@
 }
 
 .pin-icon {
-  margin-right: 0.5rem;
-  color: var(--prim-500);
-  font-size: 1.2rem;
+  margin-right: 0.1rem;
+  color: var(--grey-700);
+  font-size: 1.3rem;
 }
 
 .postal-code {
