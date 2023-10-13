@@ -83,6 +83,10 @@ DS / DL:
 ## 🗓 Timeline
 This project started in the beginning of August and finished on October 15th 2023.
 
+## Final presentation slides
+
+https://docs.google.com/presentation/d/1QGYuuUdIFPASF5K6DiCjJbKI6ogCl_5IAXALWIXE2yM/edit#slide=id.p
+
 # Blog post
 ## Data Collection: Uncovering the Restaurant Landscape
 The process commenced with the extraction of restaurant data from Google Maps using the Google Maps API. This data 
