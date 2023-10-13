@@ -5,31 +5,67 @@ the TechLabs curriculum and reflects a joint effort of a group of Techies.
 
 # Summary
 ## Collaborators
+![Berlin Bites Logo](./client/src/logo/logo-simple-text-very-small-white.svg)
+
+## An AI based restaurant recommender app
+----
+
+<br>
+
+## 💾 How to run
+
+visit: https://berlin-bites-frontend.onrender.com/
+
+
+to run the project locally:
+- open terminal
+- navigate to folder "api"
+- run the commands:
+  - npm i
+  - node server.js
+
+- open a second terminal
+- navigate to the folder "client"
+- run the command:
+  - npm start
+
+<br>
+
+-------
+## 📒 Description
+This is a joint project to build an NLP-based restaurant recommendation web application that is characterized by a 
+simple user flow and a lean design that enables users to quickly and effortlessly find restaurants according to their 
+taste. To achieve this, the user inputs a text description of the restaurant they are looking for.
+<br>
+
+-----
+## 🐸 Collaborators
 UX / UI:
 - Pratima Maharjan
 - Kristina Ferenčak
 
-Web Dev:
-- Felix Reiter
-- Olimpiya Dimitrova
+Web Development:
+- Felix Reiter (Frontend + Backend)
+- Olimpiya Dimitrova (Frontend)
 
 DS / DL:
 - Leo Krohne
 - special thanks to *Lukas Bauerschmidt* for the previous collaboration on this project and building the dataset!
 
-## Type of project
-This is a joint project to build an NLP-based restaurant recommendation web application that is characterized by a 
-simple user flow and a lean design that enables users to quickly and effortlessly find restaurants according to their 
-taste. To achieve this, the user inputs a text description of the restaurant they are looking for.
+-----
 
 ## Components
-- the recommendation engine is based on SentenceTransformers and a KNN model (scikit-learn)
-- the web application is built in JavaScript (ReactJS)
-- the design is built with Figma
+- Recommendation engine: SentenceTransformers and a KNN model (PyTorch/scikit-learn)
+- Frontend: JavaScript (ReactJS)
+- Backend: Node (ExpressJS)
+- Database: MongoDb
+- Design: Figma
+
+------
 
 ## Dataset
 - Source: Scraped via Google Maps API
-- Shape: ca. 4k x 40 columns
+- Shape: ca. 4.2k x 40 columns
 - Extract of Features:
     - Name of location
     - Short description of the location
@@ -42,18 +78,9 @@ taste. To achieve this, the user inputs a text description of the restaurant the
     - Reviews
     - Instances: 1 Instance = 1 Location
 
-## Scope
-- build a recommendation engine that outputs personalized restaurant recommendations
-- build a web application that allows users to query the database for restaurant recommendations based on the recommendation engine
-- provide simple user flow with clean design elements that enable the user to have minimal interaction with the interface
+----- 
 
-- optional:
-    - use NLP to create keywords for each restaurant that can be used as tags (done)
-    - create functionality to allow users to add reviews directly on the web page (done)
-    - create user profiles 
-    - do testing with different designs to find optimal design
- 
-## Time
+## 🗓 Timeline
 This project started in the beginning of August and finished on October 15th 2023.
 
 # Blog post
@@ -93,3 +120,4 @@ star rating. The results are returned to the front-end as a JSON file with an or
 In conclusion, our approach begins with comprehensive data collection, employs AI-driven natural language processing and 
 KNN for personalized recommendations, and integrates a user-friendly interface for an efficient user experience. This 
 approach aims to streamline restaurant selection processes without unnecessary embellishments.
+

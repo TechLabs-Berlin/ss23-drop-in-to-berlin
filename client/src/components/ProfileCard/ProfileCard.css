@@ -1,0 +1,66 @@
+.profile-card {
+  flex: 0 0 calc(33.3333% - 50px);
+  margin: 0.5rem;
+  padding: 1.5rem;
+  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 1.5rem;
+  text-align: center;
+  border-top: 5px solid transparent ;
+  border-bottom: 5px solid transparent ;
+  transition: 0.2s;
+  
+}
+.profile-card:hover{
+  border-top: 5px solid var(--prim-500) ;
+  border-bottom: 5px solid var(--prim-500) ;
+}
+
+.profile-card:hover .team-profile-img  {
+  transform: rotate(180deg);
+  transition: transform 3s ease-in-out;
+  
+}
+
+.profile-card .team-profile-img  {
+  transition: transform 1s ease-in-out;
+  
+}
+
+.team-profile-img {
+  margin: 0 auto;
+  display: block;
+  max-width: 180px;
+  height: auto;
+  border-radius: 50%;
+  transition: transform 1 ease;
+}
+
+.team-profile-name{
+  margin-top: 0.5rem ;
+  color: var(--prim-700);
+  font-size: 1.6rem;
+}
+
+.team-profile-role{
+  color: var(--grey-700);
+  font-size: 1.1rem;
+  
+}
+
+.profile-card .website-link {
+  color: rgb(110, 110, 116);
+  display: inline-block;
+  margin : 0.5rem;
+  transition: 0.3s;
+}
+
+.profile-card .website-link:hover {
+  text-decoration: underline;
+  color: var(--prim-700);
+}
+
+.company-icons{
+  margin-top: 0.5rem;
+  font-size: 2rem;
+}

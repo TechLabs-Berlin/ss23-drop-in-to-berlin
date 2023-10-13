@@ -1,0 +1,17 @@
+.reviews-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: space-between;
+  
+}
+
+.list-show-more-reviews-btn{
+  position: relative;
+  font-size: 1rem;
+  bottom: 1rem;
+  color: var(--prim-500);
+  
+  
+
+}
