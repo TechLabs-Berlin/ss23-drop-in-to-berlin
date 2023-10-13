@@ -100,3 +100,8 @@ SAME QUESTION HERE
 
 ## 🗓 Timeline
 This project started in the beginning of August and will be finished by October 15th 2023. 
+
+## User experience
+UX files including user research, wireframing, logo design, high fidelety prototype are available on Figma
+
+https://www.figma.com/file/IVBX8yWlBTr5jAuJU99CRT/Wireframe?type=design&node-id=514%3A18561&mode=design&t=I2hC74Mid6fuKipu-1
