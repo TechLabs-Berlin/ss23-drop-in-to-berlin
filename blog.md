@@ -3,7 +3,6 @@
 
 
 ## An AI based restaurant recommender app
-----
 <br>
 
 
