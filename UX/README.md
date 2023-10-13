@@ -10,6 +10,6 @@ https://www.notion.so/1a85c37413864d649f4988a63a860818?v=f401e2aa9070462b871f043
 
 https://www.notion.so/1a85c37413864d649f4988a63a860818?v=f401e2aa9070462b871f043dddc71d37&p=115ecfbaf7284c5784847975780377d9&pm=s
 
-## Usability test/ User interviiiew
+## Usability test / User interview
 
 https://miro.com/welcomeonboard/dFZjcnJZd0VOcmlPSzQyNFcyOWRiTTFWelkzdUNBQ2JvMXZDQVlKVGVmM0xNZTBOdkxHUFA0MnlYWGR4MzVwWXwzNDU4NzY0NTYxMzE4NDc4MTU3fDI=?share_link_id=770250796255
