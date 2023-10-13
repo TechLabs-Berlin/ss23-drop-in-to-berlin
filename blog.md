@@ -57,7 +57,21 @@ Deepleaaarning text
 
 ## 📲 UX 
 
-UX text comes here
+During the beginning project phase, we executed user research. This entailed an online survey, in-depth user interviews, thorough topic research, and engaging in brainstorming sessions.
+
+We conducted a user survey, in which 25 people participated. Through which, we found many struggled to find dining spots that matched their tastes, especially when they required vegan or gluten-free options.
+
+Armed with this insight, we gathered with the team to brainstorm to collectively work on ideas.
+
+During the process, we encountered our initial challenge. Given Berlin's vast size and diverse population, collecting our extensive research into a concise summary proved to be a challenging task. Nevertheless, we successfully combined our findings, creating our four distinct user personas, all rooted in the insights gathered during our research phase.
+
+We crafted the low-fidelity wireframes and continuously collaborated with the dev team to refine our designs in several iterations.
+
+The team's input and multiple iterations led to a high-fidelity design with icons, buttons, text, and images.
+
+We then faced the challenge of creating a prototype for our database-driven project. Despite some difficulties, we designed some high-fidelity design prototypes we could use in User testing. The dev team was able to put together a working version of the app so we could use that directly to do some user testing.
+
+In an unmoderated usability test, the participating users offered some valuable insights for further improvements of the app.
 
 
 
