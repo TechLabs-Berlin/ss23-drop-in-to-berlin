@@ -81,9 +81,22 @@ video {
 .about-footer{
   display: flex;
   padding: 2rem 0;
+  font-weight: 300;
+  text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: var(--prim-300);
   width: 100%;
+}
+
+.about-footer-headline{
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.techlabs-logo{
+  width: 100px;
 }

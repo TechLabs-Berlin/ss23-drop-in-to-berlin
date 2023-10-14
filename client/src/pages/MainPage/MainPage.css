@@ -10,12 +10,22 @@
 }
 
 
-
 .main-page-searchbar-and-button-outer-wrapper{
   display: flex;
   justify-content: center;
-  margin-top: 13rem;
+  margin-top: 15rem;
   
+}
+
+
+@media (min-width: 1980px) {
+  .main-page-header-section {
+    background-image: url("../../../public/images/food-main-wide.jpg");
+    padding-bottom: 6rem;
+  }
+  .main-page-searchbar-and-button-outer-wrapper {
+    margin-top: 20rem;
+  }
 }
 
 .main-page-searchbar-and-button-wrapper{

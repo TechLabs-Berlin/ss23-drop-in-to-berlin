@@ -8,6 +8,7 @@ import kristinaImage from './images/kristina.jpg';
 import felixImage from './images/felix.jpg';
 import pratimaImage from './images/pratima.jpg';
 import NavBar from '../../components/NavBar/NavBar.js';
+import techlabsLogo from '../../logo/techlabs-logo.png'
 
 const AboutPage = () => {
   const backgroundImageRef = useRef(null);
@@ -26,15 +27,24 @@ const AboutPage = () => {
     {
       label: 'How it Works?',
       content:
-        "Simply describe the type of restaurant you're looking for in the provided search field. Share your preferences by specifying its characteristics such as cuisine type,  ambiance or any other specific details you have in mind. The longer and detailed, the better. Once you've described your desired restaurant, our recommendation system will work its magic, delivering personalized suggestions finely tuned to your description. Find your ideal dining spot with ease and enjoy a dining experience that matches your tastes",
+        "Simply describe the type of restaurant you're looking for in the provided search field. Share your preferences by specifying its characteristics such as cuisine type,  ambiance or any other specific details you have in mind. The longer and detailed, the better. Alternatively you can search by resaurant name.",
     },
     {
-      label: 'How We Started?',
-      content:
-        'We started as a part of the Techlabs curriculum with a mission to revolutionize restaurant discovery.',
+      label: 'Summary Of The Project',
+      content: (
+        <p className='about-project-acc-content'>Berlin Bites is an AI based app, that serves personalized restaurant recommendations, based on reviews. Instead of searching by name or location, users enter a review like prompt.
+        <br/>
+        <br/>
+        <span className='about-project-acc-quote'> A cozy place with authentic food, just like my moms. With friendly service and great wines as well. </span>
+        
+        The App is built in a monorepo including a frontend React app, a backend Express app, a hosted Mongo database and a python recommender model.`,
+        </p>
+
+      ),
+        
     },
     {
-      label: 'Why Choose Us?',
+      label: 'UX & UI',
       content:
         'Our unique approach uses natural language processing for a highly personalized experience.',
     },
@@ -121,9 +131,9 @@ const AboutPage = () => {
         
       </div>
       <section className='about-footer'>
-          <h2>Acknowledgements</h2>
+          <h2 className='about-footer-headline'>Acknowledgements</h2>
           <p>
-            Thanks to <a href=''> Techlabs Berlin</a>
+            Thanks to <a href='https://techlabs.org/' target="_blank"> <img src={techlabsLogo} className='techlabs-logo'/></a>
           </p>
           and our mentors Rashmi Carol Dsouza & Andrés Castañeda
         </section>

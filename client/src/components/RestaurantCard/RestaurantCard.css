@@ -9,7 +9,7 @@
   border-radius: 1rem;
   width: 300px;
   max-width: 300px;
-  height:410px;
+  height:415px;
   background-color: var(--grey-50);
   margin: 0.5rem;
   box-shadow: 1px 1px 24px var(--grey-900-trans);
@@ -67,7 +67,7 @@
   font: 300 0.9rem "Space Grotesk";
   letter-spacing: 0.2rem;
   background-color: var(--grey-100);
-  padding: 0.15rem 0.7rem;
+  padding: 0.15rem 0.6rem;
   border-radius: 1rem;
   margin-top: 0.2rem;  
 }
