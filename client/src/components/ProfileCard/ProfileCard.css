@@ -17,7 +17,7 @@
 }
 
 .profile-card:hover .team-profile-img  {
-  transform: rotate(180deg);
+  transform: rotate(360deg);
   transition: transform 3s ease-in-out;
   
 }

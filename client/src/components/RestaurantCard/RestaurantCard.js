@@ -2,7 +2,6 @@
 import './RestaurantCard.css';
 import { IoStar, IoLocationOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
 // helper function to shorten text
 function shortenText(text, maxLength) {

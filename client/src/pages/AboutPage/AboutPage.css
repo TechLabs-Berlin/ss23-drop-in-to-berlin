@@ -61,11 +61,57 @@
   margin: 2rem auto;   
 }
 
-video {
-  display: block;
-  margin: auto;
-  max-width: 100%;
+.about-page-accordion{
+  text-align: left;
 }
+
+.about-page-accordion.accordion-content.open{
+  background-color: green;
+}
+
+.about-project-acc-content{
+  padding: 3rem;
+
+}
+
+.about-project-acc-list{
+  list-style: inside;
+  margin: 0.5rem 2rem 0 2rem;
+  padding: 1rem ;
+  background-color: var(--grey-50);
+  border-radius: 1rem;
+}
+
+.about-project-acc-indented-list{
+  list-style: circle;
+  margin: 0 2rem;
+  padding: 0.4rem 0 ;
+}
+
+.about-project-acc-list-header{
+  font-weight: 500;
+  color: var(--prim-700);
+  margin-bottom: 0.3rem;
+}
+
+.about-project-acc-sub-header{
+  font-weight: 500;
+  color: var(--prim-700);
+  margin-top: 0.5rem;
+}
+
+.about-project-acc-quote{
+  display: block;
+  background-color: var(--grey-50);
+  border-left: 5px solid var(--prim-500);
+  padding: 1rem 1rem;
+  font-style: italic;
+  margin: 0.5rem  2rem;
+
+}
+
+
+
 
 .about-team-section{
   margin: 0;
@@ -81,9 +127,22 @@ video {
 .about-footer{
   display: flex;
   padding: 2rem 0;
+  font-weight: 300;
+  text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: var(--prim-300);
   width: 100%;
+}
+
+.about-footer-headline{
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.techlabs-logo{
+  width: 100px;
 }

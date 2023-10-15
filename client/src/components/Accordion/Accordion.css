@@ -43,7 +43,7 @@
 }
 
 .accordion-content.open {
-  max-height: 500px;
+  max-height: 1000px;
   padding: 1.5rem 1rem;
 }
 
