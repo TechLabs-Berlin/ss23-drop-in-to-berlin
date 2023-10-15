@@ -1,4 +1,4 @@
-![Berlin Bites Logo](./client/src/logo/logo-simple-text-very-small.svg)
+![Berlin Bites Logo](./client/src/logo/logo-simple-text-small.svg)
 *a.k.a. Drop into Berlin*
 ## 📌 Summary
 Berlin Bites, an NLP restaurant recommender in a MERN stack app, which provides personalized dining suggestions. It's machine learning engine employs pandas, SentenceTransformers, and scikit-learn to match user input to Google Maps reviews of Berlin restaurants. The app includes prompt and name-based search, filtering, and restaurant details according to the high-fidelity wireframes based on user needs determined by surveys. Front- and backend are hosted on render.com, with a Flask API on pythonanywhere.com.
