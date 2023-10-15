@@ -109,3 +109,5 @@ Our service aims to personalize restaurant selection for seekers of extraordinar
 ## 🗓 Timeline
 This project started in the beginning of August and finished on October 15th 2023.
 
+## Final presentation slides
+[Final Presentation for TechLabs](https://docs.google.com/presentation/d/1QGYuuUdIFPASF5K6DiCjJbKI6ogCl_5IAXALWIXE2yM/edit#slide=id.p)
