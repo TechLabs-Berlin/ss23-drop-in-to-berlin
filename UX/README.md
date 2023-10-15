@@ -13,3 +13,7 @@ https://www.notion.so/1a85c37413864d649f4988a63a860818?v=f401e2aa9070462b871f043
 ## Usability test / User interview
 
 https://miro.com/welcomeonboard/dFZjcnJZd0VOcmlPSzQyNFcyOWRiTTFWelkzdUNBQ2JvMXZDQVlKVGVmM0xNZTBOdkxHUFA0MnlYWGR4MzVwWXwzNDU4NzY0NTYxMzE4NDc4MTU3fDI=?share_link_id=770250796255
+
+## UX Exercises - Pratima
+
+https://www.notion.so/TechLabs-Exercises-4f47e89bd2c14c35a77c434391bde02c
