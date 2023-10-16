@@ -10,7 +10,7 @@ UX / UI:
 
 Web Development:
 - Felix Reiter (Frontend + Backend)
-- Olimpiya Dimitrova (Frontend)
+- Olimpiya Obreshkova (Frontend)
 
 DS / DL:
 - Leo Krohne
